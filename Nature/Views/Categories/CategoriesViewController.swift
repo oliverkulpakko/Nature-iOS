@@ -28,12 +28,15 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
         super.setupViews()
         
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
+		
+		let settingsButton = UIBarButtonItem(title: "categories.button.settings".localized, style: .plain, target: self, action: #selector(toSettings))
+		navigationItem.leftBarButtonItem = settingsButton
     }
 	
 	override func reloadData() {
 		super.reloadData()
 		
-		DataHelper.fetchCategories(completion: { categories, error in
+		DataHelper.fetchCategories(for: "FI", completion: { categories, error in
 			guard let categories = categories, error == nil else {
 				self.showError(error)
 				return
@@ -83,6 +86,16 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 		
         return cell
     }
+	
+	// MARK: Navigation
+	
+	@objc func toSettings() {
+		let settingsViewController = SettingsViewController()
+		let navigationController = UINavigationController(rootViewController: settingsViewController)
+		settingsViewController.addDoneButton()
+		
+		present(navigationController, animated: true)
+	}
     
     // MARK: Instance Functions
     

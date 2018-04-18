@@ -29,6 +29,9 @@
 		A7C7B5972087887D001F81C2 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5952087887D001F81C2 /* ItemViewController.swift */; };
 		A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B5962087887D001F81C2 /* ItemViewController.xib */; };
 		A7C7B59A20878F0E001F81C2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B59920878F0E001F81C2 /* API.swift */; };
+		A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B59E2087A5A3001F81C2 /* SettingsViewController.swift */; };
+		A7C7B5A12087A5A3001F81C2 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */; };
+		A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5A22087BCFA001F81C2 /* Country.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		A7C7B5952087887D001F81C2 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		A7C7B5962087887D001F81C2 /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		A7C7B59920878F0E001F81C2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A7C7B59E2087A5A3001F81C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		A7C7B5A22087BCFA001F81C2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				A7C7B56220876C2B001F81C2 /* BaseViewController.swift */,
+				A7C7B59D2087A595001F81C2 /* Settings */,
 				A7C7B56E20876E0F001F81C2 /* Categories */,
 				A7C7B58420877CF3001F81C2 /* Items */,
 				A7C7B59420878865001F81C2 /* Item */,
@@ -155,6 +162,7 @@
 			children = (
 				A7C7B57020877027001F81C2 /* Category.swift */,
 				A7C7B58220877B83001F81C2 /* Item.swift */,
+				A7C7B5A22087BCFA001F81C2 /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +202,15 @@
 				A7C7B5962087887D001F81C2 /* ItemViewController.xib */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		A7C7B59D2087A595001F81C2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A7C7B59E2087A5A3001F81C2 /* SettingsViewController.swift */,
+				A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C7B58820877D0E001F81C2 /* ItemsViewController.xib in Resources */,
+				A7C7B5A12087A5A3001F81C2 /* SettingsViewController.xib in Resources */,
 				A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */,
 				A7C7B58120877679001F81C2 /* CategoryCell.xib in Resources */,
 				A7C7B57320877122001F81C2 /* Localizable.strings in Resources */,
@@ -280,9 +298,11 @@
 				A7C7B57C20877544001F81C2 /* UIColor.swift in Sources */,
 				A7C7B59A20878F0E001F81C2 /* API.swift in Sources */,
 				A7C7B57120877027001F81C2 /* Category.swift in Sources */,
+				A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */,
 				A7C7B58020877679001F81C2 /* CategoryCell.swift in Sources */,
 				A7C7B56720876C60001F81C2 /* String.swift in Sources */,
 				A7C7B577208771E9001F81C2 /* DataHelper.swift in Sources */,
+				A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */,
 				A7C7B56320876C2C001F81C2 /* BaseViewController.swift in Sources */,
 				A7C7B56C20876E0C001F81C2 /* CategoriesViewController.swift in Sources */,
 				A7C7B591208780F2001F81C2 /* ImageCache.swift in Sources */,

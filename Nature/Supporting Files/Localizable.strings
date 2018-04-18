@@ -9,7 +9,14 @@
 /* Categories */
 
 "categories.title" = "Categories";
+"categories.button.settings" = "Settings";
 "categories.items.%i" = "%i species";
+
+/* Settings */
+
+"settings.title" = "Settings";
+"settings.available-countries.title" = "Available countries";
+"settings.categories.available.%i" = "%i categories";
 
 /* Alert */
 
