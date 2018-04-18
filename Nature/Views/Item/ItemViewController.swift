@@ -18,16 +18,6 @@ class ItemViewController: BaseViewController {
 	
 	// MARK: BaseViewController
 	
-	override func setInterfaceStrings() {
-		super.setInterfaceStrings()
-		
-		title = item.title
-	}
-	
-	override func updateTheme() {
-		super.updateTheme()
-	}
-	
 	override func reloadData() {
 		super.reloadData()
 		
@@ -36,9 +26,14 @@ class ItemViewController: BaseViewController {
 			return
 		}
 		
+		title = item.title
+		subtitleLabel.text = item.subtitle
+		textView.text = item.description
+		
 		ImageCache.fetchImage(from: item.imageURL, id: item.id, completion: { [weak self] image, error in
 			DispatchQueue.main.async {
 				self?.backgroundImageView.image = image
+				self?.imageView.image = image
 			}
 		})
 	}
@@ -55,4 +50,11 @@ class ItemViewController: BaseViewController {
     @IBOutlet var backgroundVisualEffectView: UIVisualEffectView!
     
     @IBOutlet var scrollView: UIScrollView!
+	
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var subtitleLabel: UILabel!
+    
+    @IBOutlet var textViewContainerView: UIView!
+    @IBOutlet var textView: UITextView!
+    
 }

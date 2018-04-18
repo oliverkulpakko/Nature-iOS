@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +15,11 @@
             <connections>
                 <outlet property="backgroundImageView" destination="Q4F-ZH-SGK" id="cFo-mt-jm6"/>
                 <outlet property="backgroundVisualEffectView" destination="nwr-gy-pkr" id="yAc-1O-B7J"/>
+                <outlet property="imageView" destination="5NE-AP-xXt" id="qHJ-Uh-tGG"/>
                 <outlet property="scrollView" destination="gUj-nn-1aT" id="k4M-SN-8he"/>
+                <outlet property="subtitleLabel" destination="6aq-Pc-Lti" id="suG-js-4b0"/>
+                <outlet property="textView" destination="X5u-mU-moF" id="Q7B-8z-xZA"/>
+                <outlet property="textViewContainerView" destination="hhN-lc-tr7" id="AJc-2P-vDP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,6 +41,52 @@
                 </visualEffectView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUj-nn-1aT">
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5NE-AP-xXt">
+                            <rect key="frame" x="8" y="8" width="359" height="175"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="175" id="rLd-X2-4dF"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aq-Pc-Lti">
+                            <rect key="frame" x="8" y="191" width="359" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhN-lc-tr7">
+                            <rect key="frame" x="0.0" y="215" width="375" height="226.5"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="X5u-mU-moF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="226.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="X5u-mU-moF" secondAttribute="trailing" id="3U0-oK-reX"/>
+                                <constraint firstItem="X5u-mU-moF" firstAttribute="leading" secondItem="hhN-lc-tr7" secondAttribute="leading" id="GxT-aa-1qt"/>
+                                <constraint firstAttribute="bottom" secondItem="X5u-mU-moF" secondAttribute="bottom" id="Jjl-eB-Ugw"/>
+                                <constraint firstItem="X5u-mU-moF" firstAttribute="top" secondItem="hhN-lc-tr7" secondAttribute="top" id="wGT-SB-mQ8"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="5NE-AP-xXt" firstAttribute="top" secondItem="gUj-nn-1aT" secondAttribute="topMargin" id="4Q0-TS-eIW"/>
+                        <constraint firstItem="hhN-lc-tr7" firstAttribute="leading" secondItem="gUj-nn-1aT" secondAttribute="leading" id="Gd5-yU-bMY"/>
+                        <constraint firstItem="6aq-Pc-Lti" firstAttribute="trailing" secondItem="gUj-nn-1aT" secondAttribute="trailingMargin" id="HSn-NN-FPR"/>
+                        <constraint firstItem="5NE-AP-xXt" firstAttribute="leading" secondItem="gUj-nn-1aT" secondAttribute="leadingMargin" id="IWh-10-qOs"/>
+                        <constraint firstItem="hhN-lc-tr7" firstAttribute="bottom" secondItem="gUj-nn-1aT" secondAttribute="bottom" id="IZz-Dq-SxY"/>
+                        <constraint firstItem="6aq-Pc-Lti" firstAttribute="leading" secondItem="gUj-nn-1aT" secondAttribute="leadingMargin" id="N2D-6S-Kfu"/>
+                        <constraint firstItem="5NE-AP-xXt" firstAttribute="trailing" secondItem="gUj-nn-1aT" secondAttribute="trailingMargin" id="Qbq-Vl-QNy"/>
+                        <constraint firstItem="hhN-lc-tr7" firstAttribute="top" secondItem="6aq-Pc-Lti" secondAttribute="bottom" id="Yr2-S1-nq7"/>
+                        <constraint firstItem="5NE-AP-xXt" firstAttribute="centerX" secondItem="gUj-nn-1aT" secondAttribute="centerX" id="eOw-c8-uvw"/>
+                        <constraint firstAttribute="trailing" secondItem="hhN-lc-tr7" secondAttribute="trailing" id="uEL-yy-5u2"/>
+                        <constraint firstItem="6aq-Pc-Lti" firstAttribute="top" secondItem="5NE-AP-xXt" secondAttribute="bottom" constant="8" symbolic="YES" id="zOW-OL-6BN"/>
+                    </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,6 +106,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

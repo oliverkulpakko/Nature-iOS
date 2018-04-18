@@ -8,18 +8,21 @@
         "id": "26C67813-E55A-49AE-BE82-5FF8F6C3C336",
         "title": "title0",
         "subtitle": "subtitle0",
+        "description": "asd",
         "imageURL": "https://via.placeholder.com/350x150"
       },
       {
         "id": "F5AF5FA0-958D-4F93-B024-5438BDC58A9F",
         "title": "title1",
         "subtitle": "subtitle1",
+        "description": "asd",
         "imageURL": "https://via.placeholder.com/350x150"
       },
       {
         "id": "18AA5792-F058-4C0D-9264-B49CEA696C48",
         "title": "title2",
         "subtitle": "subtitle2",
+        "description": "asd",
         "imageURL": "https://via.placeholder.com/350x150"
       }
     ]
@@ -34,12 +37,14 @@
         "id": "FE07AE49-31A1-4619-82FC-3A2A66E1E338",
         "title": "title0",
         "subtitle": "subtitle0",
+        "description": "asd",
         "imageURL": "https://via.placeholder.com/350x150"
       },
       {
         "id": "E8CED772-9D9E-4917-A619-0EBAC67045CF",
         "title": "title1",
         "subtitle": "subtitle1",
+        "description": "asd",
         "imageURL": "https://via.placeholder.com/350x150"
       }
     ]
