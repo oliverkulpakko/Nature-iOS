@@ -60,6 +60,7 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		
 		cell.titleLabel.text = item.title
 		cell.subtitleLabel.text = item.subtitle
+		cell.backgroundImageView.image = nil
 		
 		ImageCache.fetchImage(from: item.imageURL, id: item.id, completion: { [weak cell] image, error in
 			DispatchQueue.main.async {
