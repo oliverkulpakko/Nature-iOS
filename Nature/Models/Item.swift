@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oliver Kulpakko. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Item: Codable {
 	let id: String
@@ -16,4 +16,18 @@ struct Item: Codable {
 	let description: String
 	
 	let imageURL: String
+	
+	// MARK: Computed Properties
+	
+	var attributedDescription: NSAttributedString {
+		let html = "<meta charset=\"UTF-8\"><style>body{text-align: center; font-family: '-apple-system', 'HelveticaNeue'; color: black; font-size: \(UIFont.systemFontSize)px;}ul, ol{text-align: left;}</style>" + description
+		if let htmlData = NSString(string: html).data(using: String.Encoding.unicode.rawValue) {
+			let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+			
+			if let attributedString = try? NSAttributedString(data: htmlData, options: options, documentAttributes: nil) {
+				return attributedString
+			}
+		}
+		return NSAttributedString(string: "")
+	}
 }

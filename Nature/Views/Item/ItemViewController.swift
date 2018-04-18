@@ -28,7 +28,7 @@ class ItemViewController: BaseViewController {
 		
 		title = item.title
 		subtitleLabel.text = item.subtitle
-		textView.text = item.description
+		textView.attributedText = item.attributedDescription
 		
 		ImageCache.fetchImage(from: item.imageURL, id: item.id, completion: { [weak self] image, error in
 			DispatchQueue.main.async {
