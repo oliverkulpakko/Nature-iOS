@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemViewController" customModule="Nature" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundImageView" destination="Q4F-ZH-SGK" id="cFo-mt-jm6"/>
+                <outlet property="backgroundVisualEffectView" destination="nwr-gy-pkr" id="yAc-1O-B7J"/>
+                <outlet property="scrollView" destination="gUj-nn-1aT" id="k4M-SN-8he"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4F-ZH-SGK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwr-gy-pkr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lHa-OU-sf5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUj-nn-1aT">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="gUj-nn-1aT" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="29F-Ni-6Jf"/>
+                <constraint firstItem="nwr-gy-pkr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5KS-p3-0B8"/>
+                <constraint firstItem="nwr-gy-pkr" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="AmT-Tb-Erp"/>
+                <constraint firstItem="gUj-nn-1aT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bnm-bn-hYS"/>
+                <constraint firstItem="Q4F-ZH-SGK" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="GVg-Rq-fse"/>
+                <constraint firstItem="nwr-gy-pkr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TXv-AV-gaq"/>
+                <constraint firstItem="Q4F-ZH-SGK" firstAttribute="leading" secondItem="gUj-nn-1aT" secondAttribute="leading" id="cf4-tv-dGE"/>
+                <constraint firstItem="gUj-nn-1aT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pQy-vX-TQF"/>
+                <constraint firstItem="gUj-nn-1aT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="pry-z0-bav"/>
+                <constraint firstItem="nwr-gy-pkr" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="uR5-du-NoQ"/>
+                <constraint firstItem="Q4F-ZH-SGK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wp9-PT-G5K"/>
+                <constraint firstItem="Q4F-ZH-SGK" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="ybG-Mj-SqX"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

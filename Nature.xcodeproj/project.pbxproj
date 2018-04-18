@@ -27,6 +27,8 @@
 		A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B58C20877EDA001F81C2 /* ItemCell.swift */; };
 		A7C7B58F20877EDA001F81C2 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B58D20877EDA001F81C2 /* ItemCell.xib */; };
 		A7C7B591208780F2001F81C2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B590208780F2001F81C2 /* ImageCache.swift */; };
+		A7C7B5972087887D001F81C2 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5952087887D001F81C2 /* ItemViewController.swift */; };
+		A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B5962087887D001F81C2 /* ItemViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		A7C7B58C20877EDA001F81C2 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		A7C7B58D20877EDA001F81C2 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		A7C7B590208780F2001F81C2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A7C7B5952087887D001F81C2 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		A7C7B5962087887D001F81C2 /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 				A7C7B56220876C2B001F81C2 /* BaseViewController.swift */,
 				A7C7B56E20876E0F001F81C2 /* Categories */,
 				A7C7B58420877CF3001F81C2 /* Items */,
+				A7C7B59420878865001F81C2 /* Item */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +195,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A7C7B59420878865001F81C2 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A7C7B5952087887D001F81C2 /* ItemViewController.swift */,
+				A7C7B5962087887D001F81C2 /* ItemViewController.xib */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,6 +269,7 @@
 				A7C7B58F20877EDA001F81C2 /* ItemCell.xib in Resources */,
 				A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */,
 				A7C7B56D20876E0C001F81C2 /* CategoriesViewController.xib in Resources */,
+				A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */,
 				A7C7B579208772AF001F81C2 /* Categories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +284,7 @@
 				A7C7B58720877D0E001F81C2 /* ItemsViewController.swift in Sources */,
 				A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */,
 				A7C7B58320877B83001F81C2 /* Item.swift in Sources */,
+				A7C7B5972087887D001F81C2 /* ItemViewController.swift in Sources */,
 				A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */,
 				A7C7B57C20877544001F81C2 /* UIColor.swift in Sources */,
 				A7C7B57120877027001F81C2 /* Category.swift in Sources */,

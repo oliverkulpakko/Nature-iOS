@@ -42,6 +42,11 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 	// MARK: UITableViewDelegate
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		let itemViewController = ItemViewController()
+		itemViewController.item = category.items[indexPath.row]
+		
+		navigationController?.pushViewController(itemViewController, animated: true)
 	}
 	
 	// MARK: UITableViewDataSource
