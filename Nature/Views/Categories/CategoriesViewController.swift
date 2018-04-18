@@ -48,8 +48,14 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 	}
     
     // MARK: UITableViewDelegate
+	
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+		
+		let itemsViewController = ItemsViewController()
+		itemsViewController.category = categories[indexPath.row]
+		
+		navigationController?.pushViewController(itemsViewController, animated: true)
     }
     
     // MARK: UITableViewDataSource

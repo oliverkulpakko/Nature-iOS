@@ -17,8 +17,8 @@ class BaseViewController: UIViewController {
 		super.viewDidLoad()
 
 		setupViews()
-		setInterfaceStrings()
 		reloadData()
+		setInterfaceStrings()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
