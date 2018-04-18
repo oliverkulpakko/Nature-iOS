@@ -18,12 +18,6 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 	
 	// MARK: BaseViewController
 	
-	override func setInterfaceStrings() {
-		super.setInterfaceStrings()
-		
-		title = category.name
-	}
-	
 	override func setupViews() {
 		super.setupViews()
 		
@@ -37,6 +31,8 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 			done()
 			return
 		}
+		
+		title = category.name
 	}
 	
 	// MARK: UITableViewDelegate

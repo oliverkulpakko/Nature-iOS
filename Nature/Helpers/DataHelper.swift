@@ -9,20 +9,14 @@
 import Foundation
 
 class DataHelper {
-	class func fetchCategories(completion: (_ result: [Category]?, Error?) -> Void) {
-		guard let url = Bundle.main.url(forResource: "Categories", withExtension: "json") else {
+	class func fetchCategories(completion: @escaping (_ result: [Category]?, Error?) -> Void) {
+		let country = "FI" // TODO
+		
+		guard let url = URL(string: "https://eaststudios.net/api/Nature/category/?country=" + country) else {
 			completion(nil, nil)
 			return
 		}
 		
-		do {
-			let data = try Data(contentsOf: url)
-			
-			let categories = try JSONDecoder().decode([Category].self, from: data)
-			
-			completion(categories, nil)
-		} catch {
-			completion(nil, error)
-		}
+		API.get(url, type: [Category].self, completion: completion)
 	}
 }
