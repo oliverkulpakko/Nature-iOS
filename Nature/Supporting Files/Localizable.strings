@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Nature
+
+  Created by Oliver Kulpakko on 18/04/2018.
+  Copyright © 2018 Oliver Kulpakko. All rights reserved.
+*/
+
+/* Categories */
+
+"categories.title" = "Categories";
+"categories.items.%i" = "%i items";
+
+/* Alert */
+
+"alert.title.error" = "Error";
+"alert.button.ok" = "OK";

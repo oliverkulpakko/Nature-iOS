@@ -1,0 +1,32 @@
+[{
+    "id": "FC507638-223D-454E-86FD-495AA7367C9C",
+    "name": "Linnut",
+    "imageName": "bird",
+    "hexColor": "27AE60",
+    "useLightText": true,
+    "items": [{
+        "id": "26C67813-E55A-49AE-BE82-5FF8F6C3C336"
+      },
+      {
+        "id": "F5AF5FA0-958D-4F93-B024-5438BDC58A9F"
+      },
+      {
+        "id": "18AA5792-F058-4C0D-9264-B49CEA696C48"
+      }
+    ]
+  },
+  {
+    "id": "450C3BDD-12D8-4A5D-8044-5BAD7F630485",
+    "name": "Sienet",
+    "imageName": "mushroom",
+    "hexColor": "C9A958",
+    "useLightText": true,
+    "items": [{
+        "id": "FE07AE49-31A1-4619-82FC-3A2A66E1E338"
+      },
+      {
+        "id": "E8CED772-9D9E-4917-A619-0EBAC67045CF"
+      }
+    ]
+  }
+]

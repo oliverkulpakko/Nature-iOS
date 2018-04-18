@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoriesViewController" customModule="Nature" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="OS5-Sq-biM" id="Uy8-Qd-R6G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +20,24 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OS5-Sq-biM">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="KZh-EA-n2X"/>
+                        <outlet property="delegate" destination="-1" id="7Ra-KO-jmD"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="OS5-Sq-biM" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="2qI-s9-Dql"/>
+                <constraint firstItem="OS5-Sq-biM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AAk-D3-oVN"/>
+                <constraint firstItem="OS5-Sq-biM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QWL-r3-RLO"/>
+                <constraint firstItem="OS5-Sq-biM" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="fcx-Sq-Gus"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="80C-UT-49m"/>
         </view>
     </objects>

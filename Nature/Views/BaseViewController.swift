@@ -18,6 +18,7 @@ class BaseViewController: UIViewController {
 
 		setupViews()
 		setInterfaceStrings()
+		reloadData()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,10 @@ class BaseViewController: UIViewController {
 		navigationController?.navigationBar.barStyle = .default
 		navigationController?.toolbar.barStyle = .default
 	}
+    
+    /// Reload all view displayed on the view.
+    /// Must call super.reloadData() at some point if overriding.
+    func reloadData() {}
 
 	// MARK: Navigation
 
@@ -86,7 +91,7 @@ class BaseViewController: UIViewController {
 		errorText = (error as NSError).description
 		#endif
 
-		showAlert(title: "Error".localized, message: errorText,
+		showAlert(title: "alert.title.error".localized, message: errorText,
 				  actions: actions, addDimissButton: showDimissButton)
 	}
 
@@ -98,7 +103,7 @@ class BaseViewController: UIViewController {
 		}
 
 		if addDimissButton {
-			alert.addAction(UIAlertAction(title: "OK".localized, style: .cancel, handler: nil))
+			alert.addAction(UIAlertAction(title: "alert.button.ok".localized, style: .cancel, handler: nil))
 		}
 
 		DispatchQueue.main.async {
