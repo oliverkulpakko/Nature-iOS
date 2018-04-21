@@ -218,6 +218,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 			DispatchQueue.main.async {
 				self.mapView.add(tileOverlay, level: .aboveRoads)
 				self.mapCopyrightLabel.text = "© " + mapType.copyright
+				self.mapCopyrightLabel.isHidden = false
 			}
 		} else {
 			TopoMapsAPI.fetchMapTypes(completion: { [weak self] mapTypes, _ in

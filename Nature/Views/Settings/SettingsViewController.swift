@@ -32,8 +32,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	}
 	
 	override func updateTheme() {
-		super.updateTheme()
 		UIView.animate(withDuration: (isThemeSet ? 0.33 : 0), animations: {
+			super.updateTheme()
 			self.view.backgroundColor = Theme.current.tableViewBackgroundColor
 			self.tableView.separatorColor =  Theme.current.tableViewSeparatorColor
 			self.tableView.reloadData()
