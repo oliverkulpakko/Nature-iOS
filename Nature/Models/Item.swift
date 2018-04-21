@@ -10,12 +10,12 @@ import UIKit
 
 struct Item: Codable {
 	let id: String
-	
 	let title: String
 	let subtitle: String
 	let description: String
-	
-	let imageURL: String
+	let image: ItemImage?
+	let detailURL: String
+	let category: String
 	
 	// MARK: Computed Properties
 	

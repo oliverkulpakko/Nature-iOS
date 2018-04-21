@@ -17,6 +17,9 @@ class API {
 			}
 			
 			let decoder = JSONDecoder()
+			if #available(iOS 10.0, *) {
+				decoder.dateDecodingStrategy = .iso8601
+			}
 			
 			do {
 				let result = try decoder.decode(type, from: data)

@@ -32,6 +32,7 @@
 		A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B59E2087A5A3001F81C2 /* SettingsViewController.swift */; };
 		A7C7B5A12087A5A3001F81C2 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */; };
 		A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5A22087BCFA001F81C2 /* Country.swift */; };
+		A7C7B5C32088F4EB001F81C2 /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5C22088F4EB001F81C2 /* ItemImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		A7C7B59E2087A5A3001F81C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		A7C7B5A22087BCFA001F81C2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		A7C7B5C22088F4EB001F81C2 /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				A7C7B57020877027001F81C2 /* Category.swift */,
 				A7C7B58220877B83001F81C2 /* Item.swift */,
+				A7C7B5C22088F4EB001F81C2 /* ItemImage.swift */,
 				A7C7B5A22087BCFA001F81C2 /* Country.swift */,
 			);
 			path = Models;
@@ -297,6 +300,7 @@
 				A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */,
 				A7C7B57C20877544001F81C2 /* UIColor.swift in Sources */,
 				A7C7B59A20878F0E001F81C2 /* API.swift in Sources */,
+				A7C7B5C32088F4EB001F81C2 /* ItemImage.swift in Sources */,
 				A7C7B57120877027001F81C2 /* Category.swift in Sources */,
 				A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */,
 				A7C7B58020877679001F81C2 /* CategoryCell.swift in Sources */,

@@ -30,7 +30,7 @@ class ItemViewController: BaseViewController {
 		subtitleLabel.text = item.subtitle
 		textView.attributedText = item.attributedDescription
 		
-		ImageCache.fetchImage(from: item.imageURL, id: item.id, completion: { [weak self] image, error in
+		ImageCache.fetchImage(from: (item.image?.url ?? ""), id: item.id, completion: { [weak self] image, error in
 			DispatchQueue.main.async {
 				self?.backgroundImageView.image = image
 				self?.imageView.image = image
