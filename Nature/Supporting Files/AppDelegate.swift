@@ -13,10 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        showInitialViewController()
-        
+        window?.tintColor = UIColor(red: (76/255), green: (217/255), blue: (100/255), alpha: 1)
+		showInitialViewController()
+		
         return true
     }
     
