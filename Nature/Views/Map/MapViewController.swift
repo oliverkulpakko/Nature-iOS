@@ -30,6 +30,11 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 		tableView.tableFooterView = UIView() // Remove empty separators
 		
+		let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(sender:)))
+		longPressRecognizer.minimumPressDuration = 1
+		
+		mapView.addGestureRecognizer(longPressRecognizer)
+		
 		let createButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewBookmarkAlert))
 		navigationItem.rightBarButtonItems?.append(createButton)
 	}
@@ -127,9 +132,9 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		guard let location = locations.first else {
+		/*guard let location = locations.first else {
 			return
-		}
+		}*/
 		
 		if waitingForLocation {
 			waitingForLocation = false
@@ -140,11 +145,11 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 	// MARK: Instance Functions
 	
 	@objc func showNewBookmarkAlert() {
-		let alert = UIAlertController(title: "map.alert.new-bookmark.title".localized,
-									  message: "map.alert.new-bookmark.message".localized,
+		let alert = UIAlertController(title: "map.alert.new-bookmark-current-location.title".localized,
+									  message: "map.alert.new-bookmark-current-location.message".localized,
 									  preferredStyle: .alert)
 		
-		let currentLocationAction = UIAlertAction(title: "map.alert.new-bookmark.create-button".localized, style: .default, handler: { _ in
+		let currentLocationAction = UIAlertAction(title: "map.alert.new-bookmark-current-location.create-button".localized, style: .default, handler: { _ in
 			self.createBookmarkToCurrentLocation()
 		})
 		alert.addAction(currentLocationAction)
@@ -166,17 +171,17 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 	}
 	
 	func showCreateBookmarkAlert(coordinate: CLLocationCoordinate2D) {
-		let alert = UIAlertController(title: "map.alert.new-bookmark-current-location.title".localized,
+		let alert = UIAlertController(title: "map.alert.new-bookmark.title".localized,
 									  message: String(coordinate.latitude) + ", " + String(coordinate.longitude),
 									  preferredStyle: .alert)
 		
 		alert.addTextField(configurationHandler: { textField in
-			textField.placeholder = "map.alert.new-bookmark-current-location.textfield.placeholder".localized
+			textField.placeholder = "map.alert.new-bookmark.textfield.placeholder".localized
 			textField.textAlignment = .center
 			textField.autocapitalizationType = .sentences
 		})
 		
-		let currentLocationAction = UIAlertAction(title: "map.alert.new-bookmark-current-location.button".localized, style: .default, handler: { _ in
+		let currentLocationAction = UIAlertAction(title: "map.alert.new-bookmark.button".localized, style: .default, handler: { _ in
 			guard let text = alert.textFields?.first?.text, !text.isEmpty else {
 				self.showAlert(title: "map.alert.new-bookmark-name-empty.title".localized)
 				return
@@ -192,6 +197,13 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		alert.addAction(UIAlertAction(title: "alert.button.cancel".localized, style: .cancel, handler: nil))
 		
 		present(alert, animated: true)
+	}
+	
+	@objc func didLongPress(sender: UILongPressGestureRecognizer) {
+		let touchPoint = sender.location(in: mapView)
+		let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+		
+		showCreateBookmarkAlert(coordinate: coordinate)
 	}
 	
 	// MARK: Instance Variables

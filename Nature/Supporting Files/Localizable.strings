@@ -19,13 +19,13 @@
 /* Map */
 "map.title" = "Map Bookmarks";
 
-"map.alert.new-bookmark.title" = "New Bookmark";
-"map.alert.new-bookmark.message" = "If you'd like to create a bookmark into another location than your current location, just hold your finger in the place where you want to add it.";
-"map.alert.new-bookmark.create-button" = "Create to Current Location";
-
 "map.alert.new-bookmark-current-location.title" = "New Bookmark";
-"map.alert.new-bookmark-current-location.textfield.placeholder" = "Title";
-"map.alert.new-bookmark-current-location.button" = "Create Bookmark";
+"map.alert.new-bookmark-current-location.message" = "If you'd like to create a bookmark into another location than your current location, just hold your finger in the place where you want to add it.";
+"map.alert.new-bookmark-current-location.create-button" = "Create to Current Location";
+
+"map.alert.new-bookmark.title" = "New Bookmark";
+"map.alert.new-bookmark.textfield.placeholder" = "Title";
+"map.alert.new-bookmark.button" = "Create Bookmark";
 
 /* Settings */
 
