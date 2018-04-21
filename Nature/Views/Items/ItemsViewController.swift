@@ -107,7 +107,7 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 	
 	func filterItems(for text: String) {
 		filteredItems = category.items.filter({ item -> Bool in
-			return item.title.lowercased().contains(text.lowercased())
+			return item.searchText.lowercased().contains(text.lowercased())
 		})
 		
 		tableView.reloadData()

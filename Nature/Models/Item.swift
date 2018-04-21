@@ -15,7 +15,7 @@ struct Item: Codable {
 	let description: String
 	let image: ItemImage?
 	let detailURL: String
-	let category: String
+	let category: String 
 	
 	// MARK: Computed Properties
 	
@@ -29,5 +29,13 @@ struct Item: Codable {
 			}
 		}
 		return NSAttributedString(string: "")
+	}
+	
+	var latinName: String? {
+		return description.slice(from: "</b> (<i>", to: "</i>) ") // This is very hacky, but it works
+	}
+	
+	var searchText: String {
+		return title + ":" + subtitle + ":" + (latinName ?? "")
 	}
 }
