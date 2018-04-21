@@ -16,14 +16,9 @@ extension TopoMapsAPI {
 			if let data = data {
 				completion?(data, nil)
 			} else {
-				guard let url = URL(string: baseUrl(for: .v2) +
-					"/Map/?mapType={id}&zoom={z}&x={x}&y={y}".replacingTemplates([
-						"id": mapTypeID,
-						"z": String(path.z),
-						"x": String(path.x),
-						"y": String(path.y)])) else {
-							completion?(nil, nil)
-							return
+				guard let url = URL(string: baseUrl(for: .v2) + "/Map/?mapType=" + mapTypeID + "&zoom=" + String(path.z) + "&x=" + String(path.x) + "&y=" + String(path.y) + "&app=nature") else {
+					completion?(nil, nil)
+					return
 				}
 				
 				get(url, completion: { data, error in
