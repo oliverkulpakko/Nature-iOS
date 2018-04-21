@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window?.tintColor = UIColor(red: (76/255), green: (217/255), blue: (100/255), alpha: 1)
 		showInitialViewController()
 		
         return true
@@ -22,11 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showInitialViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
+		
         let viewController = CategoriesViewController()
         
         let navigationController = UINavigationController(rootViewController: viewController)
-        
+		
+		window?.tintColor = Theme.current.tintColor
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
