@@ -31,10 +31,20 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 	}
 	
+	override func updateTheme() {
+		super.updateTheme()
+		UIView.animate(withDuration: (viewHasBeenLoaded ? 0.33 : 0), animations: {
+			self.view.backgroundColor = ThemeHelper.currentTheme.tableViewBackgroundColor
+			self.tableView.separatorColor =  ThemeHelper.currentTheme.tableViewSeparatorColor
+			self.tableView.reloadData()
+		})
+	}
+	
 	override func reloadData() {
 		super.reloadData()
 		settings = [
-			Setting(name: "Show Latin Name", userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable")
+			Setting(name: "settings.show-latin-name".localized, userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable"),
+			Setting(name: "settings.dark-mode".localized, userDefaultsKey: "UseDarkTheme")
 		]
 		
 		DataHelper.fetchCountries(completion: { countries, error in
@@ -102,6 +112,9 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 				UserDefaults.standard.set(cell.switch.isOn, forKey: setting.userDefaultsKey)
 			}
 			
+			cell.titleLabel.textColor = ThemeHelper.currentTheme.cellTextColor
+			cell.backgroundColor = ThemeHelper.currentTheme.cellBackgroundColor
+			
 			return cell
 		case Section.availableCountries.rawValue:
 			let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
@@ -110,6 +123,10 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			
 			cell.textLabel?.text = country.country
 			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.count)
+			
+			cell.textLabel?.textColor = ThemeHelper.currentTheme.cellTextColor
+			cell.detailTextLabel?.textColor = ThemeHelper.currentTheme.cellTextColor
+			cell.backgroundColor = ThemeHelper.currentTheme.cellBackgroundColor
 			
 			return cell
 		default: break

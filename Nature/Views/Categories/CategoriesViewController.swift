@@ -33,6 +33,13 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 		navigationItem.leftBarButtonItem = settingsButton
     }
 	
+	override func updateTheme() {
+		super.updateTheme()
+		
+		view.backgroundColor = ThemeHelper.currentTheme.tableViewBackgroundColor
+		tableView.reloadData()
+	}
+	
 	override func reloadData() {
 		super.reloadData()
 		

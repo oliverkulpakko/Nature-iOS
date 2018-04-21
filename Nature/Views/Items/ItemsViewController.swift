@@ -37,6 +37,18 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
 	}
 	
+	override func updateTheme() {
+		super.updateTheme()
+		
+		searchController.searchBar.barStyle = ThemeHelper.currentTheme.barStyle
+		searchController.searchBar.keyboardAppearance = ThemeHelper.currentTheme.keyboardAppearance
+		
+		view.backgroundColor = ThemeHelper.currentTheme.tableViewBackgroundColor
+		
+		tableView.separatorColor = ThemeHelper.currentTheme.tableViewSeparatorColor
+		tableView.reloadData()
+	}
+	
 	override func reloadData() {
 		super.reloadData()
 		

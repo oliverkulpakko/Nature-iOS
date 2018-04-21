@@ -15,15 +15,30 @@ class BaseViewController: UIViewController {
 	override func viewDidLoad() {
 		Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
 		super.viewDidLoad()
-
+		
+		UserDefaults.standard.addObserver(self, forKeyPath: "UseDarkTheme", options: .new, context: nil)
+		
 		setupViews()
 		reloadData()
 		setInterfaceStrings()
+		
+		viewHasBeenLoaded = true
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		updateTheme()
+	}
+	
+	deinit {
+		UserDefaults.standard.removeObserver(self, forKeyPath: "UseDarkTheme")
+	}
+	
+	
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+		if keyPath == "UseDarkTheme" {
+			updateTheme()
+		}
 	}
 
 	// MARK: Setup Views
@@ -41,8 +56,8 @@ class BaseViewController: UIViewController {
 	/// Must call super.updateTheme() at some point if overriding.
     /// Navigation controller and tab bars are automatically handled.
 	func updateTheme() {
-		navigationController?.navigationBar.barStyle = .default
-		navigationController?.toolbar.barStyle = .default
+		navigationController?.navigationBar.barStyle = ThemeHelper.currentTheme.barStyle
+		navigationController?.toolbar.barStyle = ThemeHelper.currentTheme.barStyle
 	}
     
     /// Reload all view displayed on the view.
@@ -110,5 +125,9 @@ class BaseViewController: UIViewController {
 			self.present(alert, animated: true, completion: nil)
 		}
 	}
+	
+	// MARK: Private Variables
+	
+	var viewHasBeenLoaded = false
 
 }
