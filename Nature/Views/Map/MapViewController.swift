@@ -77,18 +77,10 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 		if annotation is MKUserLocation { return nil }
 		
-		if #available(iOS 11.0, *) {
-			let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
-			marker.glyphImage = item.category?.image
-			marker.markerTintColor = item.category?.color
-			
-			return marker
-		} else {
-			let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-			pin.tintColor = item.category?.color
-			
-			return pin
-		}
+		let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+		pin.pinTintColor = item.category?.color
+		
+		return pin
 	}
 	
 	// MARK: UITableViewDelegate
