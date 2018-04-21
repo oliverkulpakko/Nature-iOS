@@ -12,6 +12,11 @@
 "categories.button.settings" = "Settings";
 "categories.items.%i" = "%i species";
 
+/* Items */
+
+"items.search.placeholder" = "Search...";
+
+
 /* Settings */
 
 "settings.title" = "Settings";
