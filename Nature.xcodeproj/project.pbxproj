@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D5C82ABD992D773E4C628E8 /* libPods-Nature.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */; };
+		A7064F37208B3837006A2AF3 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7064F35208B3837006A2AF3 /* SwitchCell.swift */; };
+		A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7064F36208B3837006A2AF3 /* SwitchCell.xib */; };
 		A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */; };
 		A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55520876BE8001F81C2 /* Assets.xcassets */; };
 		A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */; };
@@ -39,6 +41,8 @@
 		13C98E43ACC5C3CA780B266C /* Pods-Nature.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature.debug.xcconfig"; sourceTree = "<group>"; };
 		3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nature.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA6D4E0E351032FE136A1CF /* Pods-Nature.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature.release.xcconfig"; sourceTree = "<group>"; };
+		A7064F35208B3837006A2AF3 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
+		A7064F36208B3837006A2AF3 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		A7C7B54B20876BE8001F81C2 /* Nature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C7B55520876BE8001F81C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 				3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7064F32208B3819006A2AF3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A7064F35208B3837006A2AF3 /* SwitchCell.swift */,
+				A7064F36208B3837006A2AF3 /* SwitchCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		A7C7B54220876BE8001F81C2 = {
@@ -224,6 +237,7 @@
 			children = (
 				A7C7B59E2087A5A3001F81C2 /* SettingsViewController.swift */,
 				A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */,
+				A7064F32208B3819006A2AF3 /* Cells */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -306,6 +320,7 @@
 				A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */,
 				A7C7B56D20876E0C001F81C2 /* CategoriesViewController.xib in Resources */,
 				A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */,
+				A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +385,7 @@
 				A7C7B577208771E9001F81C2 /* DataHelper.swift in Sources */,
 				A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */,
 				A7C7B56320876C2C001F81C2 /* BaseViewController.swift in Sources */,
+				A7064F37208B3837006A2AF3 /* SwitchCell.swift in Sources */,
 				A7C7B56C20876E0C001F81C2 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

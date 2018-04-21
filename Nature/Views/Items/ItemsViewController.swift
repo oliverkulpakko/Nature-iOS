@@ -89,6 +89,11 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		
 		cell.titleLabel.text = item.title
 		cell.subtitleLabel.text = item.subtitle
+		
+		if item.subtitle.isEmpty && UserDefaults.standard.bool(forKey: "ItemShowLatinNameWhenSubtitleIsUnavailable") {
+			cell.subtitleLabel.text = item.latinName
+		}
+		
 		cell.backgroundImageView.image = nil
 		if let url = URL(string: item.image?.url ?? "") {
 			cell.backgroundImageView.setImage(url: url)

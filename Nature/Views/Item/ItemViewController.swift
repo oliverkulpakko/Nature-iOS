@@ -30,6 +30,11 @@ class ItemViewController: BaseViewController {
 		
 		title = item.title
 		subtitleLabel.text = item.subtitle
+		
+		if item.subtitle.isEmpty && UserDefaults.standard.bool(forKey: "ItemShowLatinNameWhenSubtitleIsUnavailable") {
+			subtitleLabel.text = item.latinName
+		}
+		
 		textView.attributedText = item.attributedDescription
 		
 		if let url = URL(string: item.image?.url ?? "") {
