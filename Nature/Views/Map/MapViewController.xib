@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Nature" customModuleProvider="target">
             <connections>
+                <outlet property="mapCopyrightLabel" destination="W9K-4o-ge1" id="oAj-pL-vkm"/>
                 <outlet property="mapView" destination="sN3-ho-aLN" id="3Bl-eS-aRi"/>
                 <outlet property="tableView" destination="NkN-ri-nl6" id="vXx-Z7-8e0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,6 +30,12 @@
                         <outlet property="delegate" destination="-1" id="Zo6-jy-aHT"/>
                     </connections>
                 </mapView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Copyright" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9K-4o-ge1">
+                    <rect key="frame" x="8" y="377" width="359" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NkN-ri-nl6">
                     <rect key="frame" x="0.0" y="400" width="375" height="267"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,10 +51,13 @@
                 <constraint firstItem="NkN-ri-nl6" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="7zV-Ot-VUp"/>
                 <constraint firstItem="NkN-ri-nl6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VFC-qv-bFp"/>
                 <constraint firstItem="sN3-ho-aLN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VhD-kZ-JhI"/>
+                <constraint firstItem="W9K-4o-ge1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-8" id="Yd7-vr-LJe"/>
                 <constraint firstItem="NkN-ri-nl6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="cbX-aK-cpd"/>
                 <constraint firstItem="sN3-ho-aLN" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eZ2-nM-Zdc"/>
+                <constraint firstItem="W9K-4o-ge1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="fkl-AO-Ijd"/>
                 <constraint firstItem="NkN-ri-nl6" firstAttribute="top" secondItem="sN3-ho-aLN" secondAttribute="bottom" id="hBs-as-oBu"/>
                 <constraint firstItem="NkN-ri-nl6" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="k1Q-Ja-ctM"/>
+                <constraint firstItem="W9K-4o-ge1" firstAttribute="bottom" secondItem="sN3-ho-aLN" secondAttribute="bottom" constant="-8" id="nKR-MO-9dQ"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -44,7 +44,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		super.reloadData()
 		settings = [
 			Setting(name: "settings.show-latin-name".localized, userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable"),
-			Setting(name: "settings.dark-mode".localized, userDefaultsKey: "UseDarkTheme")
+			Setting(name: "settings.dark-mode".localized, userDefaultsKey: "UseDarkTheme"),
+			Setting(name: "settings.disable-map-overlay".localized, userDefaultsKey: "DisableMapOverlay")
 		]
 		
 		DataHelper.fetchCountries(completion: { countries, error in

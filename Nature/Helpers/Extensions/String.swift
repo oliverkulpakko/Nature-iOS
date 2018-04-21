@@ -21,4 +21,15 @@ extension String {
 			}
 		}
 	}
+	func replacingTemplates(_ templates: [String: String]) -> String {
+		var string = self
+		for template in templates {
+			string = string.replacingOccurrences(of: "{" + template.key + "}", with: template.value)
+		}
+		return string
+	}
+	
+	mutating func replaceTemplates(_ templates: [String: String]) {
+		self = replacingTemplates(templates)
+	}
 }

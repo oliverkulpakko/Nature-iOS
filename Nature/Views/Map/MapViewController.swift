@@ -56,6 +56,10 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 			return
 		}
 		
+		if !UserDefaults.standard.bool(forKey: "DisableMapOverlay") {
+			setMapType()
+		}
+		
 		BookmarkHelper.fetchMapBookmarks(for: item, completion: { [weak self] bookmarks in
 			if let bookmarks = bookmarks {
 				self?.bookmarks = bookmarks
@@ -136,9 +140,14 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 			return
 		}*/
 		
-		if waitingForLocation {
-			waitingForLocation = false
+		if waitingForBookmarkLocation {
+			waitingForBookmarkLocation = false
 			createBookmarkToCurrentLocation()
+		}
+		
+		if waitingForMapTypeLocation {
+			waitingForMapTypeLocation = false
+			setMapType()
 		}
 	}
 	
@@ -161,7 +170,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 	
 	func createBookmarkToCurrentLocation() {
 		guard let location = locationManager.location else {
-			waitingForLocation = true
+			waitingForBookmarkLocation = true
 			locationManager.requestLocation()
 			print("Waiting for location...") // TODO: Disable interaction somehow, maybe with a HUD...
 			return
@@ -206,10 +215,54 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		showCreateBookmarkAlert(coordinate: coordinate)
 	}
 	
+	// MARK: Map Overlay
+	
+	func setMapType() {
+		let mapType = Storage.retrieve("MapType", from: .caches, as: MapType.self)
+		
+		if let mapType = mapType {
+			let tileOverlay = TileOverlay(mapTypeID: mapType.identifier)
+			DispatchQueue.main.async {
+				self.mapView.add(tileOverlay, level: .aboveRoads)
+				self.mapCopyrightLabel.text = "© " + mapType.copyright
+			}
+		} else {
+			TopoMapsAPI.fetchMapTypes(completion: { [weak self] mapTypes, _ in
+				if let mapTypes = mapTypes {
+					if let location = self?.locationManager.location {
+						CLGeocoder().reverseGeocodeLocation(location, completionHandler: { placemarks, _ in
+							guard let placemark = placemarks?.first else {
+								return
+							}
+							
+							let country = placemark.isoCountryCode
+							
+							if let mapType = mapTypes.filter({ $0.countryCode == country && $0.name == "topo" }).first {
+								Storage.store(mapType, to: .caches, as: "MapType")
+								self?.setMapType()
+							}
+						})
+					} else {
+						self?.waitingForMapTypeLocation = true
+					}
+				}
+			})
+		}
+	}
+	
+	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+		if overlay is MKTileOverlay {
+			let renderer = MKTileOverlayRenderer(overlay: overlay)
+			return renderer
+		}
+		return MKOverlayRenderer(overlay: overlay)
+	}
+	
 	// MARK: Instance Variables
 	
 	var locationManager = CLLocationManager()
-	var waitingForLocation = false
+	var waitingForBookmarkLocation = false
+	var waitingForMapTypeLocation = false
 	
 	var item: Item!
 	var bookmarks = [MapBookmark]()
@@ -217,5 +270,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 	// MARK: IBOutlets
 	
 	@IBOutlet var mapView: MKMapView!
+	@IBOutlet var mapCopyrightLabel: UILabel!
+	
 	@IBOutlet var tableView: UITableView!
 }
