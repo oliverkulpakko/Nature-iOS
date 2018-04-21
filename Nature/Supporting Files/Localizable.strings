@@ -35,6 +35,8 @@
 "settings.dark-mode" = "Enable Dark Mode";
 "settings.disable-map-overlay" = "Disable Map Overlays";
 
+"settings.about" = "About";
+
 "settings.available-countries.title" = "Available countries";
 "settings.categories.available.%i" = "%i categories";
 

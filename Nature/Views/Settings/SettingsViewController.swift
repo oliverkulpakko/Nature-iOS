@@ -66,6 +66,17 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		switch indexPath.section {
+		case Section.other.rawValue:
+			switch indexPath.row {
+			case 0: // About
+				navigationController?.pushViewController(AboutViewController(), animated: true)
+			default: break
+			}
+		default:
+			break
+		}
 	}
 	
 	// MARK: UITableViewDataSource
@@ -92,6 +103,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			return settings.count
 		case Section.availableCountries.rawValue:
 			return availableCountries.count
+		case Section.other.rawValue:
+			return 1
 		default:
 			return 0
 		}
@@ -130,6 +143,21 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
+		case Section.other.rawValue:
+			let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+			
+			switch indexPath.row {
+			case 0: // About
+				cell.textLabel?.text = "settings.about".localized
+				cell.accessoryType = .disclosureIndicator
+			default: break
+			}
+			
+			cell.textLabel?.textColor = Theme.current.cellTextColor
+			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
+			cell.backgroundColor = Theme.current.cellBackgroundColor
+			
+			return cell
 		default: break
 		}
 		
@@ -156,6 +184,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	enum Section: Int {
 		case settings
 		case availableCountries
+		case other
 		
 		case count
 	}
