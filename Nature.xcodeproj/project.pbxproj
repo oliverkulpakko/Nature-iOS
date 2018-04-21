@@ -39,6 +39,9 @@
 		A7F555D3208B481A0064CEA3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555D1208B481A0064CEA3 /* MapViewController.swift */; };
 		A7F555D4208B481A0064CEA3 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F555D2208B481A0064CEA3 /* MapViewController.xib */; };
 		A7F555D6208B49070064CEA3 /* MapBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555D5208B49070064CEA3 /* MapBookmark.swift */; };
+		A7F555D8208B4C3E0064CEA3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555D7208B4C3E0064CEA3 /* Storage.swift */; };
+		A7F555DA208B4C610064CEA3 /* BookmarkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555D9208B4C610064CEA3 /* BookmarkHelper.swift */; };
+		A7F555DC208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555DB208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		A7F555D1208B481A0064CEA3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A7F555D2208B481A0064CEA3 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		A7F555D5208B49070064CEA3 /* MapBookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBookmark.swift; sourceTree = "<group>"; };
+		A7F555D7208B4C3E0064CEA3 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		A7F555D9208B4C610064CEA3 /* BookmarkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkHelper.swift; sourceTree = "<group>"; };
+		A7F555DB208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +173,10 @@
 		A7C7B56420876C47001F81C2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A7F555D7208B4C3E0064CEA3 /* Storage.swift */,
 				A7C7B59920878F0E001F81C2 /* API.swift */,
 				A7C7B576208771E9001F81C2 /* DataHelper.swift */,
+				A7F555D9208B4C610064CEA3 /* BookmarkHelper.swift */,
 				A7F555CC208B3DD40064CEA3 /* Theme.swift */,
 				A7C7B56520876C52001F81C2 /* Extensions */,
 			);
@@ -180,6 +188,7 @@
 			children = (
 				A7C7B56620876C60001F81C2 /* String.swift */,
 				A7C7B57B20877544001F81C2 /* UIColor.swift */,
+				A7F555DB208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -396,9 +405,11 @@
 				A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */,
 				A7C7B58320877B83001F81C2 /* Item.swift in Sources */,
 				A7C7B5972087887D001F81C2 /* ItemViewController.swift in Sources */,
+				A7F555DA208B4C610064CEA3 /* BookmarkHelper.swift in Sources */,
 				A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */,
 				A7C7B57C20877544001F81C2 /* UIColor.swift in Sources */,
 				A7C7B59A20878F0E001F81C2 /* API.swift in Sources */,
+				A7F555D8208B4C3E0064CEA3 /* Storage.swift in Sources */,
 				A7F555D3208B481A0064CEA3 /* MapViewController.swift in Sources */,
 				A7C7B5C32088F4EB001F81C2 /* ItemImage.swift in Sources */,
 				A7C7B57120877027001F81C2 /* Category.swift in Sources */,
@@ -409,6 +420,7 @@
 				A7C7B577208771E9001F81C2 /* DataHelper.swift in Sources */,
 				A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */,
 				A7C7B56320876C2C001F81C2 /* BaseViewController.swift in Sources */,
+				A7F555DC208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift in Sources */,
 				A7064F37208B3837006A2AF3 /* SwitchCell.swift in Sources */,
 				A7C7B56C20876E0C001F81C2 /* CategoriesViewController.swift in Sources */,
 			);

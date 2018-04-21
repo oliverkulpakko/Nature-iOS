@@ -8,7 +8,7 @@
 
 import MapKit
 
-class MapBookmark: NSObject, MKAnnotation {
+class MapBookmark: NSObject, MKAnnotation, Codable {
 	var title: String?
 	var subtitle: String?
 	var coordinate: CLLocationCoordinate2D

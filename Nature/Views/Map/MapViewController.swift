@@ -39,14 +39,27 @@ class MapViewController: BaseViewController, MKMapViewDelegate, UITableViewDeleg
 	override func reloadData() {
 		super.reloadData()
 		
-		bookmarks = [
-			MapBookmark(title: "test", subtitle: "test", coordinate: CLLocationCoordinate2D(latitude: 60, longitude: 24))
-		]
+		if item == nil {
+			done()
+			return
+		}
 		
-		mapView.removeAnnotations(mapView.annotations)
-		mapView.addAnnotations(bookmarks)
+		var placeholderBookmarks = [MapBookmark]()
+		placeholderBookmarks.append(MapBookmark(title: "Test", subtitle: "TestSubtitle", coordinate: CLLocationCoordinate2D(latitude: 60, longitude: 24)))
+		BookmarkHelper.storeMapBookmarks(for: item, bookmarks: placeholderBookmarks)
 		
-		tableView.reloadData()
+		BookmarkHelper.fetchMapBookmarks(for: item, completion: { [weak self] bookmarks in
+			if let bookmarks = bookmarks {
+				self?.bookmarks = bookmarks
+				
+				DispatchQueue.main.async {
+					self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
+					self?.mapView.addAnnotations(bookmarks)
+					self?.tableView.reloadData()
+				}
+			}
+		})
+		
 	}
 	
 	// MARK: UITableViewDelegate
