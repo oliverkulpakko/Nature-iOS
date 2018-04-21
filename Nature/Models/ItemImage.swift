@@ -16,4 +16,14 @@ struct ItemImage: Codable {
 	let source: String
 	let license: String
 	let timestamp: Date
+	
+	// MARK: Computed Variables
+	
+	var description: String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateStyle = .medium
+		dateFormatter.timeStyle = .medium
+		
+		return title + "\n\n" + dateFormatter.string(from: timestamp) + "\n\n" + license + ", © " + user
+	}
 }

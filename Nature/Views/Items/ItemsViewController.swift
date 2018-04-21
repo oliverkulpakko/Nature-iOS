@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Imaginary
 
 class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -61,12 +62,9 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		cell.titleLabel.text = item.title
 		cell.subtitleLabel.text = item.subtitle
 		cell.backgroundImageView.image = nil
-		
-		ImageCache.fetchImage(from: (item.image?.url ?? ""), id: item.id, completion: { [weak cell] image, error in
-			DispatchQueue.main.async {
-				cell?.backgroundImageView.image = image
-			}
-		})
+		if let url = URL(string: item.image?.url ?? "") {
+			cell.backgroundImageView.setImage(url: url)
+		}
 		
 		return cell
 	}

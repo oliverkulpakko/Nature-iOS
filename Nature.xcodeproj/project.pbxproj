@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D5C82ABD992D773E4C628E8 /* libPods-Nature.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */; };
 		A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */; };
 		A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55520876BE8001F81C2 /* Assets.xcassets */; };
 		A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */; };
@@ -25,7 +26,6 @@
 		A7C7B58820877D0E001F81C2 /* ItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B58620877D0E001F81C2 /* ItemsViewController.xib */; };
 		A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B58C20877EDA001F81C2 /* ItemCell.swift */; };
 		A7C7B58F20877EDA001F81C2 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B58D20877EDA001F81C2 /* ItemCell.xib */; };
-		A7C7B591208780F2001F81C2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B590208780F2001F81C2 /* ImageCache.swift */; };
 		A7C7B5972087887D001F81C2 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5952087887D001F81C2 /* ItemViewController.swift */; };
 		A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B5962087887D001F81C2 /* ItemViewController.xib */; };
 		A7C7B59A20878F0E001F81C2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B59920878F0E001F81C2 /* API.swift */; };
@@ -36,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13C98E43ACC5C3CA780B266C /* Pods-Nature.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature.debug.xcconfig"; sourceTree = "<group>"; };
+		3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nature.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA6D4E0E351032FE136A1CF /* Pods-Nature.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature.release.xcconfig"; sourceTree = "<group>"; };
 		A7C7B54B20876BE8001F81C2 /* Nature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C7B55520876BE8001F81C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +59,6 @@
 		A7C7B58620877D0E001F81C2 /* ItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsViewController.xib; sourceTree = "<group>"; };
 		A7C7B58C20877EDA001F81C2 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		A7C7B58D20877EDA001F81C2 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
-		A7C7B590208780F2001F81C2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A7C7B5952087887D001F81C2 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		A7C7B5962087887D001F81C2 /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		A7C7B59920878F0E001F81C2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -71,17 +73,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D5C82ABD992D773E4C628E8 /* libPods-Nature.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		107C7EB985EC70D485EE7F38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A7C7B54220876BE8001F81C2 = {
 			isa = PBXGroup;
 			children = (
 				A7C7B54D20876BE8001F81C2 /* Nature */,
 				A7C7B54C20876BE8001F81C2 /* Products */,
+				F9BB5333A16F64CDDE8502A9 /* Pods */,
+				107C7EB985EC70D485EE7F38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -134,7 +147,6 @@
 			children = (
 				A7C7B59920878F0E001F81C2 /* API.swift */,
 				A7C7B576208771E9001F81C2 /* DataHelper.swift */,
-				A7C7B590208780F2001F81C2 /* ImageCache.swift */,
 				A7C7B56520876C52001F81C2 /* Extensions */,
 			);
 			path = Helpers;
@@ -216,6 +228,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		F9BB5333A16F64CDDE8502A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13C98E43ACC5C3CA780B266C /* Pods-Nature.debug.xcconfig */,
+				9EA6D4E0E351032FE136A1CF /* Pods-Nature.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,9 +244,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7C7B55D20876BE8001F81C2 /* Build configuration list for PBXNativeTarget "Nature" */;
 			buildPhases = (
+				DB581E4A6BBC3386DC808F65 /* [CP] Check Pods Manifest.lock */,
 				A7C7B54720876BE8001F81C2 /* Sources */,
 				A7C7B54820876BE8001F81C2 /* Frameworks */,
 				A7C7B54920876BE8001F81C2 /* Resources */,
+				4C80DC6A23EF19188068134C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,6 +311,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C80DC6A23EF19188068134C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Nature/Pods-Nature-resources.sh",
+				"${PODS_ROOT}/Lightbox/Resources/Lightbox.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lightbox.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nature/Pods-Nature-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB581E4A6BBC3386DC808F65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nature-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A7C7B54720876BE8001F81C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,7 +371,6 @@
 				A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */,
 				A7C7B56320876C2C001F81C2 /* BaseViewController.swift in Sources */,
 				A7C7B56C20876E0C001F81C2 /* CategoriesViewController.swift in Sources */,
-				A7C7B591208780F2001F81C2 /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +504,7 @@
 		};
 		A7C7B55E20876BE8001F81C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13C98E43ACC5C3CA780B266C /* Pods-Nature.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,6 +523,7 @@
 		};
 		A7C7B55F20876BE8001F81C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EA6D4E0E351032FE136A1CF /* Pods-Nature.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

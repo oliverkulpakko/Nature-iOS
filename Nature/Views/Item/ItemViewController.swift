@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Imaginary
+import Lightbox
 
 class ItemViewController: BaseViewController {
 	
@@ -30,15 +32,35 @@ class ItemViewController: BaseViewController {
 		subtitleLabel.text = item.subtitle
 		textView.attributedText = item.attributedDescription
 		
-		ImageCache.fetchImage(from: (item.image?.url ?? ""), id: item.id, completion: { [weak self] image, error in
-			DispatchQueue.main.async {
-				self?.backgroundImageView.image = image
-				self?.imageView.image = image
-			}
-		})
+		if let url = URL(string: item.image?.url ?? "") {
+			backgroundImageView.setImage(url: url)
+			imageView.setImage(url: url)
+		}
+		
+		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showImageViewer))
+		tapRecognizer.numberOfTapsRequired = 1
+		imageView.addGestureRecognizer(tapRecognizer)
 	}
 	
 	// MARK: Instance Functions
+	
+	@objc func showImageViewer() {
+		guard let image = imageView.image else {
+			return
+		}
+		
+		let images = [
+			LightboxImage(
+				image: image,
+				text: item.image?.description ?? ""
+			)
+		]
+		
+		let controller = LightboxController(images: images)
+		controller.dynamicBackground = true
+		
+		present(controller, animated: true, completion: nil)
+	}
 	
 	// MARK: Instance Variables
 	
