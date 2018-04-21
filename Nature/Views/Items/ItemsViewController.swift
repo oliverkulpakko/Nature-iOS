@@ -40,12 +40,12 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 	override func updateTheme() {
 		super.updateTheme()
 		
-		searchController.searchBar.barStyle = ThemeHelper.currentTheme.barStyle
-		searchController.searchBar.keyboardAppearance = ThemeHelper.currentTheme.keyboardAppearance
+		searchController.searchBar.barStyle = Theme.current.barStyle
+		searchController.searchBar.keyboardAppearance = Theme.current.keyboardAppearance
 		
-		view.backgroundColor = ThemeHelper.currentTheme.tableViewBackgroundColor
+		view.backgroundColor = Theme.current.tableViewBackgroundColor
 		
-		tableView.separatorColor = ThemeHelper.currentTheme.tableViewSeparatorColor
+		tableView.separatorColor = Theme.current.tableViewSeparatorColor
 		tableView.reloadData()
 	}
 	

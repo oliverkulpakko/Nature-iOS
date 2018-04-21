@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Nature" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="sN3-ho-aLN" id="3Bl-eS-aRi"/>
+                <outlet property="tableView" destination="NkN-ri-nl6" id="vXx-Z7-8e0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sN3-ho-aLN">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Zo6-jy-aHT"/>
+                    </connections>
+                </mapView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NkN-ri-nl6">
+                    <rect key="frame" x="0.0" y="400" width="375" height="267"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="1Pf-k3-RDp"/>
+                        <outlet property="delegate" destination="-1" id="80T-bv-Vnv"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="sN3-ho-aLN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5fd-xc-Zk6"/>
+                <constraint firstItem="NkN-ri-nl6" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="7zV-Ot-VUp"/>
+                <constraint firstItem="NkN-ri-nl6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VFC-qv-bFp"/>
+                <constraint firstItem="sN3-ho-aLN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VhD-kZ-JhI"/>
+                <constraint firstItem="NkN-ri-nl6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="cbX-aK-cpd"/>
+                <constraint firstItem="sN3-ho-aLN" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eZ2-nM-Zdc"/>
+                <constraint firstItem="NkN-ri-nl6" firstAttribute="top" secondItem="sN3-ho-aLN" secondAttribute="bottom" id="hBs-as-oBu"/>
+                <constraint firstItem="NkN-ri-nl6" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="k1Q-Ja-ctM"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

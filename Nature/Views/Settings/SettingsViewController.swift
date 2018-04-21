@@ -33,9 +33,9 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	
 	override func updateTheme() {
 		super.updateTheme()
-		UIView.animate(withDuration: (viewHasBeenLoaded ? 0.33 : 0), animations: {
-			self.view.backgroundColor = ThemeHelper.currentTheme.tableViewBackgroundColor
-			self.tableView.separatorColor =  ThemeHelper.currentTheme.tableViewSeparatorColor
+		UIView.animate(withDuration: (isThemeSet ? 0.33 : 0), animations: {
+			self.view.backgroundColor = Theme.current.tableViewBackgroundColor
+			self.tableView.separatorColor =  Theme.current.tableViewSeparatorColor
 			self.tableView.reloadData()
 		})
 	}
@@ -112,8 +112,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 				UserDefaults.standard.set(cell.switch.isOn, forKey: setting.userDefaultsKey)
 			}
 			
-			cell.titleLabel.textColor = ThemeHelper.currentTheme.cellTextColor
-			cell.backgroundColor = ThemeHelper.currentTheme.cellBackgroundColor
+			cell.titleLabel.textColor = Theme.current.cellTextColor
+			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
 		case Section.availableCountries.rawValue:
@@ -124,9 +124,9 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			cell.textLabel?.text = country.country
 			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.count)
 			
-			cell.textLabel?.textColor = ThemeHelper.currentTheme.cellTextColor
-			cell.detailTextLabel?.textColor = ThemeHelper.currentTheme.cellTextColor
-			cell.backgroundColor = ThemeHelper.currentTheme.cellBackgroundColor
+			cell.textLabel?.textColor = Theme.current.cellTextColor
+			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
+			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
 		default: break

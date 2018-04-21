@@ -35,7 +35,10 @@
 		A7C7B5A12087A5A3001F81C2 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */; };
 		A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5A22087BCFA001F81C2 /* Country.swift */; };
 		A7C7B5C32088F4EB001F81C2 /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B5C22088F4EB001F81C2 /* ItemImage.swift */; };
-		A7F555CD208B3DD40064CEA3 /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555CC208B3DD40064CEA3 /* ThemeHelper.swift */; };
+		A7F555CD208B3DD40064CEA3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555CC208B3DD40064CEA3 /* Theme.swift */; };
+		A7F555D3208B481A0064CEA3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555D1208B481A0064CEA3 /* MapViewController.swift */; };
+		A7F555D4208B481A0064CEA3 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F555D2208B481A0064CEA3 /* MapViewController.xib */; };
+		A7F555D6208B49070064CEA3 /* MapBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555D5208B49070064CEA3 /* MapBookmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +74,10 @@
 		A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		A7C7B5A22087BCFA001F81C2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		A7C7B5C22088F4EB001F81C2 /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
-		A7F555CC208B3DD40064CEA3 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
+		A7F555CC208B3DD40064CEA3 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A7F555D1208B481A0064CEA3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A7F555D2208B481A0064CEA3 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		A7F555D5208B49070064CEA3 /* MapBookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBookmark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,7 @@
 				A7C7B56E20876E0F001F81C2 /* Categories */,
 				A7C7B58420877CF3001F81C2 /* Items */,
 				A7C7B59420878865001F81C2 /* Item */,
+				A7F555CE208B47F80064CEA3 /* Map */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,7 +169,7 @@
 			children = (
 				A7C7B59920878F0E001F81C2 /* API.swift */,
 				A7C7B576208771E9001F81C2 /* DataHelper.swift */,
-				A7F555CC208B3DD40064CEA3 /* ThemeHelper.swift */,
+				A7F555CC208B3DD40064CEA3 /* Theme.swift */,
 				A7C7B56520876C52001F81C2 /* Extensions */,
 			);
 			path = Helpers;
@@ -194,6 +201,7 @@
 				A7C7B58220877B83001F81C2 /* Item.swift */,
 				A7C7B5C22088F4EB001F81C2 /* ItemImage.swift */,
 				A7C7B5A22087BCFA001F81C2 /* Country.swift */,
+				A7F555D5208B49070064CEA3 /* MapBookmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +251,15 @@
 				A7064F32208B3819006A2AF3 /* Cells */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A7F555CE208B47F80064CEA3 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A7F555D1208B481A0064CEA3 /* MapViewController.swift */,
+				A7F555D2208B481A0064CEA3 /* MapViewController.xib */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		F9BB5333A16F64CDDE8502A9 /* Pods */ = {
@@ -323,6 +340,7 @@
 				A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */,
 				A7C7B56D20876E0C001F81C2 /* CategoriesViewController.xib in Resources */,
 				A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */,
+				A7F555D4208B481A0064CEA3 /* MapViewController.xib in Resources */,
 				A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,15 +392,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C7B58720877D0E001F81C2 /* ItemsViewController.swift in Sources */,
+				A7F555D6208B49070064CEA3 /* MapBookmark.swift in Sources */,
 				A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */,
 				A7C7B58320877B83001F81C2 /* Item.swift in Sources */,
 				A7C7B5972087887D001F81C2 /* ItemViewController.swift in Sources */,
 				A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */,
 				A7C7B57C20877544001F81C2 /* UIColor.swift in Sources */,
 				A7C7B59A20878F0E001F81C2 /* API.swift in Sources */,
+				A7F555D3208B481A0064CEA3 /* MapViewController.swift in Sources */,
 				A7C7B5C32088F4EB001F81C2 /* ItemImage.swift in Sources */,
 				A7C7B57120877027001F81C2 /* Category.swift in Sources */,
-				A7F555CD208B3DD40064CEA3 /* ThemeHelper.swift in Sources */,
+				A7F555CD208B3DD40064CEA3 /* Theme.swift in Sources */,
 				A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */,
 				A7C7B58020877679001F81C2 /* CategoryCell.swift in Sources */,
 				A7C7B56720876C60001F81C2 /* String.swift in Sources */,

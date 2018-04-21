@@ -20,6 +20,15 @@ class ItemViewController: BaseViewController {
 	
 	// MARK: BaseViewController
 	
+	override func setupViews() {
+		super.setupViews()
+		
+		let mapButton = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(showMap))
+		let addToMapButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToMap))
+		
+		navigationItem.rightBarButtonItems = [mapButton, addToMapButton]
+	}
+	
 	override func reloadData() {
 		super.reloadData()
 		
@@ -65,6 +74,20 @@ class ItemViewController: BaseViewController {
 		controller.dynamicBackground = true
 		
 		present(controller, animated: true, completion: nil)
+	}
+	
+	@objc func addToMap() {
+		
+	}
+	
+	@objc func showMap() {
+		let mapViewController = MapViewController()
+		mapViewController.item = item
+		mapViewController.addDoneButton()
+		
+		let navigationController = UINavigationController(rootViewController: mapViewController)
+		
+		present(navigationController, animated: true)
 	}
 	
 	// MARK: Instance Variables

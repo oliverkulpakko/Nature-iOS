@@ -16,6 +16,9 @@
 
 "items.search.placeholder" = "Search...";
 
+/* Map Bookmarks */
+"map.bookmarks.title" = "Map Bookmarks";
+
 
 /* Settings */
 

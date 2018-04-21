@@ -36,7 +36,7 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 	override func updateTheme() {
 		super.updateTheme()
 		
-		view.backgroundColor = ThemeHelper.currentTheme.tableViewBackgroundColor
+		view.backgroundColor = Theme.current.tableViewBackgroundColor
 		tableView.reloadData()
 	}
 	

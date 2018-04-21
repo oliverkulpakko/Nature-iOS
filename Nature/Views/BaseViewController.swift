@@ -21,8 +21,6 @@ class BaseViewController: UIViewController {
 		setupViews()
 		reloadData()
 		setInterfaceStrings()
-		
-		viewHasBeenLoaded = true
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +54,10 @@ class BaseViewController: UIViewController {
 	/// Must call super.updateTheme() at some point if overriding.
     /// Navigation controller and tab bars are automatically handled.
 	func updateTheme() {
-		navigationController?.navigationBar.barStyle = ThemeHelper.currentTheme.barStyle
-		navigationController?.toolbar.barStyle = ThemeHelper.currentTheme.barStyle
+		isThemeSet = true
+		
+		navigationController?.navigationBar.barStyle = Theme.current.barStyle
+		navigationController?.toolbar.barStyle = Theme.current.barStyle
 	}
     
     /// Reload all view displayed on the view.
@@ -128,6 +128,6 @@ class BaseViewController: UIViewController {
 	
 	// MARK: Private Variables
 	
-	var viewHasBeenLoaded = false
+	var isThemeSet = false
 
 }
