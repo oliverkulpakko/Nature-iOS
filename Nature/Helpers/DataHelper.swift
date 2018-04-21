@@ -21,7 +21,18 @@ class DataHelper {
 			return
 		}
 		
-		API.get(url, type: [Category].self, completion: completion)
+		API.get(url, type: [Category].self, completion: { categories, error in
+			if var categories = categories {
+				for categoryIndex in 0 ..< categories.count {
+					for itemIndex in 0 ..< categories[categoryIndex].items.count {
+						categories[categoryIndex].items[itemIndex].category = categories[categoryIndex]
+					}
+				}
+				completion(categories, error)
+				return
+			}
+			completion(categories, error)
+		})
 	}
 	
 	class func fetchCountries(completion: @escaping (_ result: [Country]?, Error?) -> Void) {

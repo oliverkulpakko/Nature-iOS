@@ -22,4 +22,15 @@ class BookmarkHelper {
 		
 		Storage.store(bookmarks, to: .documents, as: fileName)
 	}
+	
+	class func createMapBookmark(_ bookmark: MapBookmark, for item: Item, completion: @escaping () -> Void) {
+		fetchMapBookmarks(for: item, completion: { bookmarks in
+			var bookmarks = (bookmarks ?? [])
+			
+			bookmarks.append(bookmark)
+			storeMapBookmarks(for: item, bookmarks: bookmarks)
+			
+			completion()
+		})
+	}
 }

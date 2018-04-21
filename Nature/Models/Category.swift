@@ -17,8 +17,7 @@ struct Category: Codable {
 	
 	let useLightText: Bool
 	
-	let items: [Item]
-	
+	var items: [Item]
 	
 	// MARK: Computed Properties
 	

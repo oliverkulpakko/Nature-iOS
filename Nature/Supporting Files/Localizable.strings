@@ -16,9 +16,16 @@
 
 "items.search.placeholder" = "Search...";
 
-/* Map Bookmarks */
-"map.bookmarks.title" = "Map Bookmarks";
+/* Map */
+"map.title" = "Map Bookmarks";
 
+"map.alert.new-bookmark.title" = "New Bookmark";
+"map.alert.new-bookmark.message" = "If you'd like to create a bookmark into another location than your current location, just hold your finger in the place where you want to add it.";
+"map.alert.new-bookmark.create-button" = "Create to Current Location";
+
+"map.alert.new-bookmark-current-location.title" = "New Bookmark";
+"map.alert.new-bookmark-current-location.textfield.placeholder" = "Title";
+"map.alert.new-bookmark-current-location.button" = "Create Bookmark";
 
 /* Settings */
 
@@ -32,3 +39,4 @@
 
 "alert.title.error" = "Error";
 "alert.button.ok" = "OK";
+"alert.button.cancel" = "Cancel";
