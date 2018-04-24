@@ -53,7 +53,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		aboutRows = [
 			.rate,
 			.support,
-			.acknowledgements
+			.acknowledgements,
+			.analytics
 		]
 		
 		DataHelper.fetchCountries(completion: { countries, error in
@@ -74,6 +75,19 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		switch indexPath.section {
+		case Section.about.rawValue:
+			switch indexPath.row {
+			case AboutRow.analytics.hashValue:
+				let analyticsViewController = AnalyticsViewController()
+				let navigationController = UINavigationController(rootViewController: analyticsViewController)
+				
+				present(navigationController, animated: true)
+			default: break
+			}
+		default: break
+		}
 	}
 	
 	// MARK: UITableViewDataSource
@@ -111,7 +125,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		case Section.availableCountries.rawValue:
 			return availableCountries.count
 		case Section.about.rawValue:
-			return 3
+			return aboutRows.count
 		default:
 			return 0
 		}
@@ -211,6 +225,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		case rate
 		case support
 		case acknowledgements
+		case analytics
 	}
 
 	enum Section: Int {
