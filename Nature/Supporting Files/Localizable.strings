@@ -41,6 +41,14 @@
 "settings.available-countries.title" = "Available countries";
 "settings.categories.available.%i" = "%i categories";
 
+/* About */
+
+"about.title" = "About";
+
+"about.row.rate" = "Rate the app on the App Store";
+"about.row.support" = "Contact Us";
+"about.row.acknowledgements" = "Acknowledgements";
+
 /* Alert */
 
 "alert.title.error" = "Error";

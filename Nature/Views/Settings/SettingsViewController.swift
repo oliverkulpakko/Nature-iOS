@@ -117,7 +117,9 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as? SwitchCell else {
 				break
 			}
-			
+
+			cell.selectionStyle = .none
+
 			let setting = settings[indexPath.row]
 			
 			cell.titleLabel.text = setting.name
@@ -133,6 +135,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			return cell
 		case Section.availableCountries.rawValue:
 			let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+
+			cell.selectionStyle = .none
 			
 			let country = availableCountries[indexPath.row]
 			

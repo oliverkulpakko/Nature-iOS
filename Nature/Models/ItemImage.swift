@@ -24,6 +24,8 @@ struct ItemImage: Codable {
 		dateFormatter.dateStyle = .medium
 		dateFormatter.timeStyle = .medium
 		
-		return title + "\n\n" + dateFormatter.string(from: timestamp) + "\n\n" + license + ", © " + user
+		return title + "\n\n" +
+			dateFormatter.string(from: timestamp) + "\n\n" +
+			license + ", © " + user
 	}
 }

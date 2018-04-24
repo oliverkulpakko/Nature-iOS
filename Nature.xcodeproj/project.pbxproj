@@ -50,6 +50,8 @@
 		A7F555EA208B5E810064CEA3 /* MapTileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555E9208B5E810064CEA3 /* MapTileCache.swift */; };
 		A7F555F0208B665A0064CEA3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555EE208B665A0064CEA3 /* AboutViewController.swift */; };
 		A7F555F1208B665A0064CEA3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F555EF208B665A0064CEA3 /* AboutViewController.xib */; };
+		D61A89D7208F0AB400C7A7A6 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A89D6208F0AB400C7A7A6 /* UIApplication.swift */; };
+		D61A89D9208F0D9C00C7A7A6 /* RateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		A7F555E9208B5E810064CEA3 /* MapTileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTileCache.swift; sourceTree = "<group>"; };
 		A7F555EE208B665A0064CEA3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A7F555EF208B665A0064CEA3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		D61A89D6208F0AB400C7A7A6 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 				A7C7B576208771E9001F81C2 /* DataHelper.swift */,
 				A7F555D9208B4C610064CEA3 /* BookmarkHelper.swift */,
 				A7F555CC208B3DD40064CEA3 /* Theme.swift */,
+				D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */,
 				A7F555E0208B5DE90064CEA3 /* Topo Maps */,
 				A7C7B56520876C52001F81C2 /* Extensions */,
 			);
@@ -204,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				A7C7B56620876C60001F81C2 /* String.swift */,
+				D61A89D6208F0AB400C7A7A6 /* UIApplication.swift */,
 				A7C7B57B20877544001F81C2 /* UIColor.swift */,
 				A7F555DB208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift */,
 			);
@@ -458,6 +464,7 @@
 				A7F555DA208B4C610064CEA3 /* BookmarkHelper.swift in Sources */,
 				A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */,
 				A7C7B57C20877544001F81C2 /* UIColor.swift in Sources */,
+				D61A89D7208F0AB400C7A7A6 /* UIApplication.swift in Sources */,
 				A7F555DF208B5DBD0064CEA3 /* MapType.swift in Sources */,
 				A7C7B59A20878F0E001F81C2 /* API.swift in Sources */,
 				A7F555D8208B4C3E0064CEA3 /* Storage.swift in Sources */,
@@ -471,6 +478,7 @@
 				A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */,
 				A7C7B58020877679001F81C2 /* CategoryCell.swift in Sources */,
 				A7C7B56720876C60001F81C2 /* String.swift in Sources */,
+				D61A89D9208F0D9C00C7A7A6 /* RateHelper.swift in Sources */,
 				A7C7B577208771E9001F81C2 /* DataHelper.swift in Sources */,
 				A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */,
 				A7F555EA208B5E810064CEA3 /* MapTileCache.swift in Sources */,
