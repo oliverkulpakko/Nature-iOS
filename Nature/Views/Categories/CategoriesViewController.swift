@@ -43,7 +43,10 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 	override func reloadData() {
 		super.reloadData()
 		
-		DataHelper.fetchCategories(for: "", completion: { categories, error in
+		let country = "" // TODO: Fetch for the current country, but for now download for every country.
+		let forceRefresh = UserDefaults.standard.bool(forKey: "ForceRefreshData")
+		
+		DataHelper.fetchCategories(for: country, forceRefresh: forceRefresh, completion: { categories, error in
 			guard let categories = categories, error == nil else {
 				self.showError(error)
 				return
