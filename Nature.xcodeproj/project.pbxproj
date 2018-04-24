@@ -50,7 +50,6 @@
 		A7F555EA208B5E810064CEA3 /* MapTileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555E9208B5E810064CEA3 /* MapTileCache.swift */; };
 		A7F555F0208B665A0064CEA3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555EE208B665A0064CEA3 /* AboutViewController.swift */; };
 		A7F555F1208B665A0064CEA3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F555EF208B665A0064CEA3 /* AboutViewController.xib */; };
-		A7F555F3208B68130064CEA3 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555F2208B68130064CEA3 /* UIDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,7 +100,6 @@
 		A7F555E9208B5E810064CEA3 /* MapTileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTileCache.swift; sourceTree = "<group>"; };
 		A7F555EE208B665A0064CEA3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A7F555EF208B665A0064CEA3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
-		A7F555F2208B68130064CEA3 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +206,6 @@
 				A7C7B56620876C60001F81C2 /* String.swift */,
 				A7C7B57B20877544001F81C2 /* UIColor.swift */,
 				A7F555DB208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift */,
-				A7F555F2208B68130064CEA3 /* UIDevice.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -474,7 +471,6 @@
 				A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */,
 				A7C7B58020877679001F81C2 /* CategoryCell.swift in Sources */,
 				A7C7B56720876C60001F81C2 /* String.swift in Sources */,
-				A7F555F3208B68130064CEA3 /* UIDevice.swift in Sources */,
 				A7C7B577208771E9001F81C2 /* DataHelper.swift in Sources */,
 				A7C7B5A32087BCFA001F81C2 /* Country.swift in Sources */,
 				A7F555EA208B5E810064CEA3 /* MapTileCache.swift in Sources */,

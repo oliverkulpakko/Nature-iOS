@@ -22,7 +22,7 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		
 		if #available(iOS 11.0, *) {
 			navigationItem.searchController = searchController
-			navigationItem.hidesSearchBarWhenScrolling = false
+			navigationItem.hidesSearchBarWhenScrolling = UserDefaults.standard.bool(forKey: "HideSearchWhenScrolling")
 			searchController.obscuresBackgroundDuringPresentation = false
 		} else {
 			tableView.tableHeaderView = searchController.searchBar
