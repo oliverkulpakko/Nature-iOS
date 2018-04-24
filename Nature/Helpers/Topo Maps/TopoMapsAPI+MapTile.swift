@@ -16,20 +16,19 @@ extension TopoMapsAPI {
 			if let data = data {
 				completion?(data, nil)
 			} else {
-				guard let url = URL(string: baseUrl(for: .v2) + "/Map/?mapType=" + mapTypeID + "&zoom=" + String(path.z) + "&x=" + String(path.x) + "&y=" + String(path.y) + "&app=nature") else {
-					completion?(nil, nil)
-					return
-				}
-				
-				get(url, completion: { data, error in
-					completion?(data, error)
-					
-					DispatchQueue.global(qos: .background).async {
-						if let data = data {
-							MapTileCache.storeTile(data, path: path, mapTypeID: mapTypeID)
+				if let url = URL(string: baseUrl(for: .v2) + "/Map/?mapType=" + mapTypeID + "&zoom=" + String(path.z) + "&x=" + String(path.x) + "&y=" + String(path.y) + "&app=nature") {
+					makeRequest(url: url, method: "GET", completion: { data, error in
+						completion?(data, error)
+						
+						DispatchQueue.global(qos: .background).async {
+							if let data = data {
+								MapTileCache.storeTile(data, path: path, mapTypeID: mapTypeID)
+							}
 						}
-					}
-				})
+					})
+				} else {
+					completion?(nil, nil)
+				}
 			}
 		})
 	}

@@ -70,6 +70,10 @@ class ItemViewController: BaseViewController {
 		imageView.addGestureRecognizer(tapRecognizer)
 	}
 	
+	override func saveAnalytics() {
+		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: item.id)
+	}
+	
 	// MARK: Instance Functions
 	
 	@objc func showImageViewer() {

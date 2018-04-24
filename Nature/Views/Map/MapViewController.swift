@@ -74,6 +74,10 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		
 	}
 	
+	override func saveAnalytics() {
+		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: item.id)
+	}
+	
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 		if annotation is MKUserLocation { return nil }
 		
@@ -126,6 +130,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		case .denied, .restricted:
 			print("Location not allowed") // TODO: Show a prompt to go to settings
 		}
+		
+		Analytics.log(action: "LocationAuthorizationStatus", error: "", data1: String(describing: status), data2: "")
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -192,6 +198,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 			let bookmark = MapBookmark(title: text, coordinate: coordinate)
 			BookmarkHelper.createMapBookmark(bookmark, for: self.item, completion: { [weak self] in
 				self?.reloadData()
+				
+				Analytics.log(action: "CreateMapBookmark", error: "", data1: (self?.item.id ?? ""), data2: "")
 			})
 		})
 		alert.addAction(currentLocationAction)

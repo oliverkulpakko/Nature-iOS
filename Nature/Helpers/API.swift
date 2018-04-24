@@ -10,7 +10,7 @@ import Foundation
 
 class API {
 	class func get<T: Decodable>(_ url: URL, type: T.Type, completion: @escaping (_ result: T?, Error?) -> Void) {
-		get(url, completion: { data, error in
+		makeRequest(url: url, method: "GET", completion: { data, error in
 			guard let data = data else {
 				completion(nil, error)
 				return
@@ -30,9 +30,14 @@ class API {
 		})
 	}
 	
-	class func get(_ url: URL, completion: @escaping (_ result: Data?, Error?) -> Void) {
-		URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
-			completion(data, error)
+	class func makeRequest(url: URL, method: String, body: String? = nil, completion: ((_ result: Data?, Error?) -> Void)?) {
+		var request = URLRequest(url: url)
+		request.httpMethod = method.uppercased()
+		
+		request.httpBody = body?.data(using: .utf8)
+		
+		URLSession.shared.dataTask(with: request, completionHandler: { data, _, error in
+			completion?(data, error)
 		}).resume()
 	}
 }

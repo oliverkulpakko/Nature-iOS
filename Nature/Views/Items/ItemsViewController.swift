@@ -60,6 +60,10 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		title = category.name
 	}
 	
+	override func saveAnalytics() {
+		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: category.id)
+	}
+	
 	// MARK: UITableViewDelegate
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)

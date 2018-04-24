@@ -21,6 +21,8 @@ class BaseViewController: UIViewController {
 		setupViews()
 		reloadData()
 		setInterfaceStrings()
+		
+		saveAnalytics()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +33,6 @@ class BaseViewController: UIViewController {
 	deinit {
 		UserDefaults.standard.removeObserver(self, forKeyPath: "UseDarkTheme")
 	}
-	
 	
 	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		if keyPath == "UseDarkTheme" {
@@ -63,6 +64,12 @@ class BaseViewController: UIViewController {
     /// Reload all view displayed on the view.
     /// Must call super.reloadData() at some point if overriding.
     func reloadData() {}
+	
+	/// Save analytics data.
+	/// Override if something else needs to be sent. No need to call super whn
+	func saveAnalytics() {
+		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: "")
+	}
 
 	// MARK: Navigation
 

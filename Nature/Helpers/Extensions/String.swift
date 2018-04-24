@@ -14,6 +14,14 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
 	
+	var nilIfEmpty: String? {
+		if isEmpty {
+			return nil
+		}
+		
+		return self
+	}
+	
 	func slice(from: String, to: String) -> String? {
 		return (range(of: from)?.upperBound).flatMap { substringFrom in
 			(range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
@@ -21,6 +29,7 @@ extension String {
 			}
 		}
 	}
+	
 	func replacingTemplates(_ templates: [String: String]) -> String {
 		var string = self
 		for template in templates {
