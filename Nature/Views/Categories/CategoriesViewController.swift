@@ -43,7 +43,7 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 	override func reloadData() {
 		super.reloadData()
 		
-		DataHelper.fetchCategories(for: "FI", completion: { categories, error in
+		DataHelper.fetchCategories(for: "", completion: { categories, error in
 			guard let categories = categories, error == nil else {
 				self.showError(error)
 				return
