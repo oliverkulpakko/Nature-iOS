@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="backgroundImageView" destination="Q4F-ZH-SGK" id="cFo-mt-jm6"/>
                 <outlet property="backgroundVisualEffectView" destination="nwr-gy-pkr" id="yAc-1O-B7J"/>
+                <outlet property="imageDarkenerView" destination="9Om-pm-bhC" id="Nbt-jT-yYz"/>
                 <outlet property="imageView" destination="5NE-AP-xXt" id="qHJ-Uh-tGG"/>
                 <outlet property="scrollView" destination="gUj-nn-1aT" id="k4M-SN-8he"/>
                 <outlet property="subtitleLabel" destination="6aq-Pc-Lti" id="suG-js-4b0"/>
@@ -31,7 +32,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4F-ZH-SGK">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Om-pm-bhC" userLabel="Image Darkener View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Om-pm-bhC">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
                 </view>

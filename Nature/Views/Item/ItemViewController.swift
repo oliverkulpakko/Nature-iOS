@@ -28,6 +28,17 @@ class ItemViewController: BaseViewController {
 		
 		navigationItem.rightBarButtonItems = [mapButton, addToMapButton]
 	}
+
+	override func updateTheme() {
+		super.updateTheme()
+
+		if UserDefaults.standard.bool(forKey: "UseSimpleItemView") {
+			view.backgroundColor = Theme.current.tableViewBackgroundColor
+			backgroundVisualEffectView.isHidden = true
+			imageDarkenerView.isHidden = true
+			textView.textColor = Theme.current.cellTextColor
+		}
+	}
 	
 	override func reloadData() {
 		super.reloadData()
@@ -47,7 +58,10 @@ class ItemViewController: BaseViewController {
 		textView.attributedText = item.attributedDescription
 		
 		if let url = URL(string: item.image?.url ?? "") {
-			backgroundImageView.setImage(url: url)
+			if !UserDefaults.standard.bool(forKey: "UseSimpleItemView") {
+				backgroundImageView.setImage(url: url)
+			}
+
 			imageView.setImage(url: url)
 		}
 		
@@ -97,6 +111,7 @@ class ItemViewController: BaseViewController {
 	// MARK: IBOutlets
 	
     @IBOutlet var backgroundImageView: UIImageView!
+	@IBOutlet var imageDarkenerView: UIView!
     @IBOutlet var backgroundVisualEffectView: UIVisualEffectView!
     
     @IBOutlet var scrollView: UIScrollView!

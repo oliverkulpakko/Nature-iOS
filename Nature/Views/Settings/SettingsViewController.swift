@@ -42,10 +42,11 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	override func reloadData() {
 		super.reloadData()
 		settings = [
-			Setting(title: "settings.show-latin-name", userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable"),
-			Setting(title: "settings.dark-mode", userDefaultsKey: "UseDarkTheme"),
-			Setting(title: "settings.disable-map-overlay", userDefaultsKey: "DisableMapOverlay"),
-			Setting(title: "settings.hide-search-when-scrolling", userDefaultsKey: "HideSearchWhenScrolling")
+			Setting(title: "show-latin-name", userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable"),
+			Setting(title: "dark-mode", userDefaultsKey: "UseDarkTheme"),
+			Setting(title: "simple-item-view", userDefaultsKey: "UseSimpleItemView"),
+			Setting(title: "disable-map-overlay", userDefaultsKey: "DisableMapOverlay"),
+			Setting(title: "hide-search-when-scrolling", userDefaultsKey: "HideSearchWhenScrolling")
 		]
 
 		aboutRows = [
@@ -126,7 +127,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 
 			let setting = settings[indexPath.row]
 			
-			cell.titleLabel.text = setting.title.localized
+			cell.titleLabel.text = ("settings." + setting.title).localized
 			cell.switch.isOn = UserDefaults.standard.bool(forKey: setting.userDefaultsKey)
 			
 			cell.didToggle = {
@@ -135,7 +136,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			
 			cell.titleLabel.textColor = Theme.current.cellTextColor
 			
-			cell.iconImageView.image = UIImage(named: setting.title)
+			cell.iconImageView.image = UIImage(named: "settings." + setting.title)
 			cell.iconImageView.layer.cornerRadius = (cell.iconImageView.bounds.height * 0.2237)
 
 			cell.backgroundColor = Theme.current.cellBackgroundColor

@@ -32,4 +32,15 @@ extension String {
 	mutating func replaceTemplates(_ templates: [String: String]) {
 		self = replacingTemplates(templates)
 	}
+
+	var htmlToAttributedString: NSAttributedString? {
+		guard let data = data(using: .utf8) else { return nil }
+		do {
+			return try NSAttributedString(data: data,
+										  options: [NSAttributedString.DocumentReadingOptionKey.documentType:  NSAttributedString.DocumentType.html], documentAttributes: nil)
+		} catch {
+			print(error)
+			return nil
+		}
+	}
 }
