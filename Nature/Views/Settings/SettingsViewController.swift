@@ -43,10 +43,10 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	override func reloadData() {
 		super.reloadData()
 		settings = [
-			Setting(name: "settings.show-latin-name".localized, userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable"),
-			Setting(name: "settings.dark-mode".localized, userDefaultsKey: "UseDarkTheme"),
-			Setting(name: "settings.disable-map-overlay".localized, userDefaultsKey: "DisableMapOverlay"),
-			Setting(name: "settings.hide-search-when-scrolling".localized, userDefaultsKey: "HideSearchWhenScrolling")
+			Setting(title: "settings.show-latin-name", userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable"),
+			Setting(title: "settings.dark-mode", userDefaultsKey: "UseDarkTheme"),
+			Setting(title: "settings.disable-map-overlay", userDefaultsKey: "DisableMapOverlay"),
+			Setting(title: "settings.hide-search-when-scrolling", userDefaultsKey: "HideSearchWhenScrolling")
 		]
 		
 		DataHelper.fetchCountries(completion: { countries, error in
@@ -67,17 +67,6 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		
-		switch indexPath.section {
-		case Section.other.rawValue:
-			switch indexPath.row {
-			case 0: // About
-				navigationController?.pushViewController(AboutViewController(), animated: true)
-			default: break
-			}
-		default:
-			break
-		}
 	}
 	
 	// MARK: UITableViewDataSource
@@ -89,9 +78,19 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			return "settings.title".localized
 		case Section.availableCountries.rawValue:
 			return "settings.available-countries.title".localized
+		case Section.about.rawValue:
+			return "settings.about.title".localized
 		default:
 			return nil
 		}
+	}
+
+	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		if section == Section.about.rawValue {
+			return ("© Oliver Kulpakko, Version " + UIApplication.shared.formattedVersion)
+		}
+
+		return nil
 	}
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,8 +103,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			return settings.count
 		case Section.availableCountries.rawValue:
 			return availableCountries.count
-		case Section.other.rawValue:
-			return 1
+		case Section.about.rawValue:
+			return 3
 		default:
 			return 0
 		}
@@ -122,7 +121,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 
 			let setting = settings[indexPath.row]
 			
-			cell.titleLabel.text = setting.name
+			cell.titleLabel.text = setting.title.localized
 			cell.switch.isOn = UserDefaults.standard.bool(forKey: setting.userDefaultsKey)
 			
 			cell.didToggle = {
@@ -130,6 +129,10 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			}
 			
 			cell.titleLabel.textColor = Theme.current.cellTextColor
+			
+			cell.iconImageView.image = UIImage(named: setting.title)
+			cell.iconImageView.layer.cornerRadius = (cell.iconImageView.bounds.height * 0.2237)
+			
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
@@ -140,33 +143,52 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			
 			let country = availableCountries[indexPath.row]
 			
-			cell.textLabel?.text = country.country
+			cell.textLabel?.text = country.localizedCountry
 			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.count)
+			cell.imageView?.image = UIImage(named: country.country)
 			
 			cell.textLabel?.textColor = Theme.current.cellTextColor
 			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
-		case Section.other.rawValue:
-			let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-			
+		case Section.about.rawValue:
+			let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+			var rowString = ""
+
 			switch indexPath.row {
-			case 0: // About
-				cell.textLabel?.text = "settings.about".localized
-				cell.accessoryType = .disclosureIndicator
+			case 0: // Rate
+				rowString = "settings.about.rate"
+			case 1: // Support
+				rowString = "settings.about.support"
+			case 2: // Acknowledgements
+				rowString = "settings.about.acknowledgements"
 			default: break
 			}
+
+			cell.accessoryType = .disclosureIndicator
 			
+			cell.textLabel?.text = rowString.localized
+
+			cell.imageView?.image = UIImage(named: rowString)
+
 			cell.textLabel?.textColor = Theme.current.cellTextColor
-			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
 			cell.backgroundColor = Theme.current.cellBackgroundColor
-			
+
 			return cell
 		default: break
 		}
 		
 		return UITableViewCell()
+	}
+
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		switch indexPath.section {
+		case Section.settings.rawValue:
+			return 50
+		default:
+			return 44
+		}
 	}
 	
 	// MARK: Navigation
@@ -182,15 +204,15 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	var settings = [Setting]()
 	
 	struct Setting {
-		let name: String
+		let title: String
 		let userDefaultsKey: String
 	}
 	
 	enum Section: Int {
 		case settings
 		case availableCountries
-		case other
-		
+		case about
+
 		case count
 	}
 	

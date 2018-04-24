@@ -11,4 +11,8 @@ import Foundation
 struct Country: Codable {
 	let country: String
 	let count: Int
+
+	var localizedCountry: String {
+		return (Locale.current as NSLocale).displayName(forKey: .countryCode, value: country) ?? country
+	}
 }

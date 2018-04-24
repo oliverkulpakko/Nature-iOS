@@ -12,6 +12,7 @@ class SwitchCell: UITableViewCell {
 	
 	var didToggle: (() -> Void)?
 
+	@IBOutlet var iconImageView: UIImageView!
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var `switch`: UISwitch!
 	

@@ -36,18 +36,13 @@
 "settings.disable-map-overlay" = "Disable Map Overlays";
 "settings.hide-search-when-scrolling" = "Hides Search Bar While Scrolling";
 
-"settings.about" = "About";
-
 "settings.available-countries.title" = "Available countries";
 "settings.categories.available.%i" = "%i categories";
 
-/* About */
-
-"about.title" = "About";
-
-"about.row.rate" = "Rate the app on the App Store";
-"about.row.support" = "Contact Us";
-"about.row.acknowledgements" = "Acknowledgements";
+"settings.about.title" = "About";
+"settings.about.rate" = "Rate the app on the App Store";
+"settings.about.support" = "Contact Us";
+"settings.about.acknowledgements" = "Acknowledgements";
 
 /* Alert */
 
