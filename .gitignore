@@ -26,3 +26,4 @@ xcuserdata/
 
 # CocoaPods
 Pods/
+.DS_Store
