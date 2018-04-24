@@ -22,7 +22,7 @@ struct Category: Codable {
 	// MARK: Computed Properties
 	
 	var image: UIImage? {
-		return UIImage(named: imageName)
+		return UIImage(named: "section." + imageName)
 	}
 	
 	var color: UIColor {

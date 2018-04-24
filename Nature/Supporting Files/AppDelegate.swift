@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationController = UINavigationController(rootViewController: viewController)
 		
+		if #available(iOS 11.0, *) {
+			navigationController.navigationBar.prefersLargeTitles = true
+		}
+
 		window?.tintColor = Theme.current.tintColor
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

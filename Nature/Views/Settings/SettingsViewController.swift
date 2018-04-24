@@ -32,7 +32,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	}
 	
 	override func updateTheme() {
-		UIView.animate(withDuration: (isThemeSet ? 0.33 : 0), animations: {
+		UIView.animate(withDuration: (isThemeSet ? 0.2 : 0), animations: {
 			super.updateTheme()
 			self.view.backgroundColor = Theme.current.tableViewBackgroundColor
 			self.tableView.separatorColor =  Theme.current.tableViewSeparatorColor
@@ -47,6 +47,12 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			Setting(title: "settings.dark-mode", userDefaultsKey: "UseDarkTheme"),
 			Setting(title: "settings.disable-map-overlay", userDefaultsKey: "DisableMapOverlay"),
 			Setting(title: "settings.hide-search-when-scrolling", userDefaultsKey: "HideSearchWhenScrolling")
+		]
+
+		aboutRows = [
+			.rate,
+			.support,
+			.acknowledgements
 		]
 		
 		DataHelper.fetchCountries(completion: { countries, error in
@@ -145,7 +151,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			
 			cell.textLabel?.text = country.localizedCountry
 			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.count)
-			cell.imageView?.image = UIImage(named: country.country)
+			cell.imageView?.image = UIImage(named: country.code)
 			
 			cell.textLabel?.textColor = Theme.current.cellTextColor
 			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
@@ -154,23 +160,13 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			return cell
 		case Section.about.rawValue:
 			let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-			var rowString = ""
-
-			switch indexPath.row {
-			case 0: // Rate
-				rowString = "settings.about.rate"
-			case 1: // Support
-				rowString = "settings.about.support"
-			case 2: // Acknowledgements
-				rowString = "settings.about.acknowledgements"
-			default: break
-			}
+			let row = ("settings.about." + String(describing: aboutRows[indexPath.row]))
 
 			cell.accessoryType = .disclosureIndicator
 			
-			cell.textLabel?.text = rowString.localized
+			cell.textLabel?.text = row.localized
 
-			cell.imageView?.image = UIImage(named: rowString)
+			cell.imageView?.image = UIImage(named: row)
 
 			cell.textLabel?.textColor = Theme.current.cellTextColor
 			cell.backgroundColor = Theme.current.cellBackgroundColor
@@ -207,7 +203,13 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		let title: String
 		let userDefaultsKey: String
 	}
-	
+
+	enum AboutRow {
+		case rate
+		case support
+		case acknowledgements
+	}
+
 	enum Section: Int {
 		case settings
 		case availableCountries
@@ -219,7 +221,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	// MARK: Instance Functions
 	
 	// MARK: Instance Variables
-	
+
+	var aboutRows = [AboutRow]()
 	var availableCountries = [Country]()
 	
 	// MARK: IBOutlets
