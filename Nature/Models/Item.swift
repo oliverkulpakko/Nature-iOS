@@ -16,8 +16,6 @@ struct Item: Codable {
 	let image: ItemImage?
 	let detailURL: String
 	
-	var category: Category? // This won't be decoded, it is set in DataHelper when fetching categories
-	
 	// MARK: Computed Properties
 	
 	var attributedDescription: NSAttributedString {

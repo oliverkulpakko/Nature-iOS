@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import Imaginary
 
 class ItemCell: UITableViewCell {
     
-    @IBOutlet var backgroundImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet var dimmingView: UIView!
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		
+		backgroundImageView.cancelImageFetch()
+		backgroundImageView.image = nil
+	}
 }

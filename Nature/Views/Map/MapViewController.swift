@@ -79,7 +79,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		
 		let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
 		pin.canShowCallout = true
-		pin.pinTintColor = item.category?.color
+		pin.pinTintColor = Theme.current.tintColor
 		
 		return pin
 	}
