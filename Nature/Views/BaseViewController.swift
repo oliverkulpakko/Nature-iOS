@@ -54,10 +54,10 @@ class BaseViewController: UIViewController {
 	/// Must call super.updateTheme() at some point if overriding.
     /// Navigation controller and tab bars are automatically handled.
 	func updateTheme() {
-		isThemeSet = true
-		
 		navigationController?.navigationBar.barStyle = Theme.current.barStyle
 		navigationController?.toolbar.barStyle = Theme.current.barStyle
+
+		isThemeSet = true
 	}
     
     /// Reload all view displayed on the view.

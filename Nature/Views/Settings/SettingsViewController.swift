@@ -32,12 +32,11 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	}
 	
 	override func updateTheme() {
-		UIView.animate(withDuration: (isThemeSet ? 0.2 : 0), animations: {
-			super.updateTheme()
-			self.view.backgroundColor = Theme.current.tableViewBackgroundColor
-			self.tableView.separatorColor =  Theme.current.tableViewSeparatorColor
-			self.tableView.reloadData()
-		})
+		super.updateTheme()
+
+		self.view.backgroundColor = Theme.current.tableViewBackgroundColor
+		self.tableView.separatorColor =  Theme.current.tableViewSeparatorColor
+		self.tableView.reloadData()
 	}
 	
 	override func reloadData() {
@@ -138,7 +137,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			
 			cell.iconImageView.image = UIImage(named: setting.title)
 			cell.iconImageView.layer.cornerRadius = (cell.iconImageView.bounds.height * 0.2237)
-			
+
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
@@ -152,7 +151,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			cell.textLabel?.text = country.localizedCountry
 			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.count)
 			cell.imageView?.image = UIImage(named: country.code)
-			
+
 			cell.textLabel?.textColor = Theme.current.cellTextColor
 			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
 			cell.backgroundColor = Theme.current.cellBackgroundColor
