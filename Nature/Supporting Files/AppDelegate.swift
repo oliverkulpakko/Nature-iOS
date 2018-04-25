@@ -25,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = CategoriesViewController()
         
         let navigationController = UINavigationController(rootViewController: viewController)
-		
-		if #available(iOS 11.0, *) {
-			navigationController.navigationBar.prefersLargeTitles = true
-		}
 
 		window?.tintColor = Theme.current.tintColor
         window?.rootViewController = navigationController
