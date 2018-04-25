@@ -53,8 +53,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		aboutRows = [
 			.rate,
 			.support,
-			.acknowledgements,
-			.analytics
+			.acknowledgements
 		]
 		
 		DataHelper.fetchCountries(completion: { countries, error in
@@ -78,13 +77,23 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		
 		switch indexPath.section {
 		case Section.about.rawValue:
-			switch indexPath.row {
-			case AboutRow.analytics.hashValue:
-				let analyticsViewController = AnalyticsViewController()
-				let navigationController = UINavigationController(rootViewController: analyticsViewController)
-				
-				present(navigationController, animated: true)
-			default: break
+			switch aboutRows[indexPath.row]  {
+			case .rate:
+				RateHelper.openRate()
+			case .support:
+				let email = "support@eaststudios.net"
+
+				guard let url = URL(string: "mailto:" + email) else {
+					return
+				}
+
+				UIApplication.shared.openURL(url)
+			case .acknowledgements:
+				guard let url = URL(string: "https://eaststudios.net/Nature/Acknowledgements/") else {
+					return
+				}
+
+				UIApplication.shared.openURL(url)
 			}
 		default: break
 		}
@@ -225,7 +234,6 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		case rate
 		case support
 		case acknowledgements
-		case analytics
 	}
 
 	enum Section: Int {

@@ -85,12 +85,6 @@ class Analytics {
 		
 		return id
 	}
-	
-	class func fetchData(completion: @escaping (_ result: AnalyticsData?, Error?) -> Void) {
-		if let url = URL(string: "https://eaststudios.net/api/Analytics/GetData/?user=" + analyticsID) {
-			API.get(url, type: AnalyticsData.self, completion: completion)
-		}
-	}
 }
 
 private extension UIDevice {
