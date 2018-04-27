@@ -36,6 +36,7 @@
 "settings.simple-item-view" = "Higher Contrast";
 "settings.disable-map-overlay" = "Disable Map Overlays";
 "settings.hide-search-when-scrolling" = "Hides Search Bar While Scrolling";
+"settings.force-reload-data" = "Reload Data";
 "settings.disable-analytics" = "Disable Anonymous Analytics";
 
 "settings.available-countries.title" = "Available countries";

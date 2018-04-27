@@ -54,6 +54,9 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 			
 			self.categories = categories
 			
+			
+			UserDefaults.standard.set(false, forKey: "ForceRefreshData")
+			
 			DispatchQueue.main.async {
 				self.tableView.reloadData()
 			}
