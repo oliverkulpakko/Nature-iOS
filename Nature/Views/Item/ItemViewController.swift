@@ -37,6 +37,8 @@ class ItemViewController: BaseViewController {
 			backgroundVisualEffectView.isHidden = true
 			imageDarkenerView.isHidden = true
 			textView.textColor = Theme.current.cellTextColor
+		} else {
+			textView.textColor = .white
 		}
 	}
 	

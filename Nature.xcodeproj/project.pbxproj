@@ -12,9 +12,6 @@
 		A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7064F36208B3837006A2AF3 /* SwitchCell.xib */; };
 		A76162E6208F8FCC00EDB23B /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E5208F8FCC00EDB23B /* Analytics.swift */; };
 		A76162E8208F969600EDB23B /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E7208F969600EDB23B /* Sequence.swift */; };
-		A76162EC208F9C7900EDB23B /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162EA208F9C7900EDB23B /* AnalyticsViewController.swift */; };
-		A76162ED208F9C7900EDB23B /* AnalyticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76162EB208F9C7900EDB23B /* AnalyticsViewController.xib */; };
-		A76162F0208F9D7500EDB23B /* AnalyticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162EF208F9D7500EDB23B /* AnalyticsData.swift */; };
 		A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */; };
 		A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55520876BE8001F81C2 /* Assets.xcassets */; };
 		A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */; };
@@ -66,9 +63,6 @@
 		A7064F36208B3837006A2AF3 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		A76162E5208F8FCC00EDB23B /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A76162E7208F969600EDB23B /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
-		A76162EA208F9C7900EDB23B /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
-		A76162EB208F9C7900EDB23B /* AnalyticsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalyticsViewController.xib; sourceTree = "<group>"; };
-		A76162EF208F9D7500EDB23B /* AnalyticsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsData.swift; sourceTree = "<group>"; };
 		A7C7B54B20876BE8001F81C2 /* Nature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C7B55520876BE8001F81C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,15 +135,6 @@
 				A7064F36208B3837006A2AF3 /* SwitchCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		A76162E9208F9C6900EDB23B /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				A76162EA208F9C7900EDB23B /* AnalyticsViewController.swift */,
-				A76162EB208F9C7900EDB23B /* AnalyticsViewController.xib */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		A76162EE208F9D5E00EDB23B /* Analytics */ = {
@@ -262,7 +247,6 @@
 				A7C7B5C22088F4EB001F81C2 /* ItemImage.swift */,
 				A7C7B5A22087BCFA001F81C2 /* Country.swift */,
 				A7F555D5208B49070064CEA3 /* MapBookmark.swift */,
-				A76162EF208F9D7500EDB23B /* AnalyticsData.swift */,
 				A7F555DD208B5D9D0064CEA3 /* Topo Maps */,
 			);
 			path = Models;
@@ -311,7 +295,6 @@
 				A7C7B59E2087A5A3001F81C2 /* SettingsViewController.swift */,
 				A7C7B59F2087A5A3001F81C2 /* SettingsViewController.xib */,
 				A7064F32208B3819006A2AF3 /* Cells */,
-				A76162E9208F9C6900EDB23B /* Analytics */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -426,7 +409,6 @@
 				A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */,
 				A7F555D4208B481A0064CEA3 /* MapViewController.xib in Resources */,
 				A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */,
-				A76162ED208F9C7900EDB23B /* AnalyticsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,8 +491,6 @@
 				A7F555DC208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift in Sources */,
 				A7064F37208B3837006A2AF3 /* SwitchCell.swift in Sources */,
 				A7C7B56C20876E0C001F81C2 /* CategoriesViewController.swift in Sources */,
-				A76162F0208F9D7500EDB23B /* AnalyticsData.swift in Sources */,
-				A76162EC208F9C7900EDB23B /* AnalyticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
