@@ -115,6 +115,10 @@ extension ItemsViewController: UITableViewDelegate {
 		
 		navigationController?.pushViewController(itemViewController, animated: true)
 	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UIScreen.main.bounds.height / 3.5
+	}
 }
 
 extension ItemsViewController: UITableViewDataSource {
