@@ -14,9 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		showInitialViewController()
-		
 		checkUpdate()
+		
+		showInitialViewController()
 		
         return true
     }
@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		if let lastVersion = lastVersion, (lastVersion != currentVersion) {
 			Analytics.log(action: "UpdateApp", error: "", data1: lastVersion, data2: currentVersion)
+			
+			UserDefaults.standard.set(true, forKey: "ForceRefreshData")
 		}
 		
 		UserDefaults.standard.set(currentVersion, forKey: "AppLastVersion")
