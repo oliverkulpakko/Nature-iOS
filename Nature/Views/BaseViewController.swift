@@ -23,6 +23,10 @@ class BaseViewController: UIViewController {
 		setInterfaceStrings()
 		
 		saveAnalytics()
+		
+		if Analytics.count(for: "OpenView") > 10 && Analytics.count(for: "AskForReview") == 0 {
+			RateHelper.showRatingPrompt()
+		}
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
