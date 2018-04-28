@@ -41,7 +41,7 @@ class CategoriesViewController: BaseViewController {
 			tableView.addSubview(refreshControl)
 		}
 		
-		let settingsButton = UIBarButtonItem(title: "categories.button.settings".localized, style: .plain, target: self, action: #selector(toSettings))
+		let settingsButton = UIBarButtonItem(image: UIImage(named: "categories.button.settings"), style: .plain, target: self, action: #selector(toSettings))
 		navigationItem.leftBarButtonItem = settingsButton
     }
 	

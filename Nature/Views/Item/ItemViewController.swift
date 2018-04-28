@@ -9,6 +9,7 @@
 import UIKit
 import Imaginary
 import Lightbox
+import SafariServices
 
 class ItemViewController: BaseViewController {
 	
@@ -23,10 +24,11 @@ class ItemViewController: BaseViewController {
 	override func setupViews() {
 		super.setupViews()
 		
-		let mapButton = UIBarButtonItem(title: "item.button.map".localized, style: .plain, target: self, action: #selector(showMap))
-		let addToMapButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToMap))
+		let bookmarksButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showMap))
 		
-		navigationItem.rightBarButtonItems = [mapButton, addToMapButton]
+		let copyrightButton = UIBarButtonItem(image: UIImage(named: "item.button.copyright"), style: .plain, target: self, action: #selector(showCopyright))
+		
+		navigationItem.rightBarButtonItems = [copyrightButton, bookmarksButton]
 	}
 
 	override func updateTheme() {
@@ -98,8 +100,30 @@ class ItemViewController: BaseViewController {
 		present(controller, animated: true, completion: nil)
 	}
 	
-	@objc func addToMap() {
+	@objc func showCopyright() {
+		let alert = UIAlertController(title: "item.alert.copyright.title".localized, message: nil, preferredStyle: .alert)
 		
+		if let url = URL(string: item.detailURL) {
+			let action = UIAlertAction(title: "item.alert.copyright.button.article".localized, style: .default, handler: { action in
+				let safariViewController = SFSafariViewController(url: url)
+				
+				self.present(safariViewController, animated: true)
+			})
+			alert.addAction(action)
+		}
+		
+		if let url = URL(string: item.image?.source ?? "") {
+			let action = UIAlertAction(title: "item.alert.copyright.button.image".localized, style: .default, handler: { action in
+				let safariViewController = SFSafariViewController(url: url)
+				
+				self.present(safariViewController, animated: true)
+			})
+			alert.addAction(action)
+		}
+		
+		alert.addCancelAction()
+		
+		present(alert, animated: true)
 	}
 	
 	@objc func showMap() {

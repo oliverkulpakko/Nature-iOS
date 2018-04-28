@@ -19,6 +19,9 @@ class RateHelper {
 	class func showRatingPrompt() {
 		if #available(iOS 10.3, *) {
 			SKStoreReviewController.requestReview()
+			Analytics.log(action: "AskForReview")
+		} else {
+			Analytics.log(action: "AskForReview", error: "TooOldVersion", data1: "", data2: "")
 		}
 	}
 

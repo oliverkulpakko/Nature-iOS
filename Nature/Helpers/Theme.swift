@@ -29,7 +29,7 @@ struct Theme {
 	}
 	
 	static var light: Theme {
-		return Theme(tintColor: UIColor(red: 0.30, green: 0.85, blue: 0.39, alpha: 1.0),
+		return Theme(tintColor: UIColor(red: 0.02, green: 0.71, blue: 0.13, alpha: 1.0),
 					 barStyle: .default,
 					 keyboardAppearance: .light,
 					 viewBackgroundColor: .groupTableViewBackground,
@@ -39,7 +39,7 @@ struct Theme {
 	}
 	
 	static var dark: Theme {
-		return Theme(tintColor: UIColor(red: 0.30, green: 0.85, blue: 0.39, alpha: 1.0),
+		return Theme(tintColor: UIColor(red: 0.02, green: 0.71, blue: 0.13, alpha: 1.0),
 					 barStyle: .blackTranslucent,
 					 keyboardAppearance: .dark,
 					 viewBackgroundColor: UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0),

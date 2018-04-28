@@ -164,7 +164,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		})
 		alert.addAction(currentLocationAction)
 		
-		alert.addAction(UIAlertAction(title: "alert.button.cancel".localized, style: .cancel, handler: nil))
+		alert.addCancelAction()
 		
 		present(alert, animated: true)
 	}
@@ -206,7 +206,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		})
 		alert.addAction(currentLocationAction)
 		
-		alert.addAction(UIAlertAction(title: "alert.button.cancel".localized, style: .cancel, handler: nil))
+		alert.addCancelAction()
 		
 		present(alert, animated: true)
 	}

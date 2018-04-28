@@ -9,7 +9,6 @@
 /* Categories */
 
 "categories.title" = "Categories";
-"categories.button.settings" = "Settings";
 "categories.items.%i" = "%i species";
 
 /* Items */
@@ -18,7 +17,9 @@
 
 /* Item */
 
-"item.button.map" = "Kartta";
+"item.alert.copyright.title" = "Copyright Information";
+"item.alert.copyright.button.article" = "Description Source";
+"item.alert.copyright.button.image" = "Image Source";
 
 /* Map */
 "map.title" = "Map Bookmarks";

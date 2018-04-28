@@ -127,7 +127,7 @@ class BaseViewController: UIViewController {
 		}
 
 		if addDimissButton {
-			alert.addAction(UIAlertAction(title: "alert.button.ok".localized, style: .cancel, handler: nil))
+			alert.addOKAction()
 		}
 
 		DispatchQueue.main.async {

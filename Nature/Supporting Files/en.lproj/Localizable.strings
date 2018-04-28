@@ -1,15 +1,14 @@
-/* 
-  Localizable.strings
-  Nature
-
-  Created by Oliver Kulpakko on 18/04/2018.
-  Copyright © 2018 Oliver Kulpakko. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Nature
+ 
+ Created by Oliver Kulpakko on 18/04/2018.
+ Copyright © 2018 Oliver Kulpakko. All rights reserved.
+ */
 
 /* Categories */
 
 "categories.title" = "Categories";
-"categories.button.settings" = "Settings";
 "categories.items.%i" = "%i species";
 
 /* Items */
@@ -18,7 +17,9 @@
 
 /* Item */
 
-"item.button.map" = "Kartta";
+"item.alert.copyright.title" = "Copyright Information";
+"item.alert.copyright.button.article" = "Data Source";
+"item.alert.copyright.button.image" = "Image Source";
 
 /* Map */
 "map.title" = "Map Bookmarks";
