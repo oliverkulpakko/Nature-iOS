@@ -42,7 +42,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 	override func updateTheme() {
 		super.updateTheme()
 		
-		view.backgroundColor = Theme.current.tableViewBackgroundColor
+		view.backgroundColor = Theme.current.viewBackgroundColor
 		
 		tableView.separatorColor = Theme.current.tableViewSeparatorColor
 		tableView.reloadData()
@@ -112,8 +112,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 		cell.textLabel?.text = bookmark.title
 		cell.detailTextLabel?.text = bookmark.subtitle
 		
-		cell.textLabel?.textColor = Theme.current.cellTextColor
-		cell.detailTextLabel?.textColor = Theme.current.cellTextColor
+		cell.textLabel?.textColor = Theme.current.textColor
+		cell.detailTextLabel?.textColor = Theme.current.textColor
 		cell.backgroundColor = Theme.current.cellBackgroundColor
 		
 		return cell

@@ -33,12 +33,14 @@ class ItemViewController: BaseViewController {
 		super.updateTheme()
 
 		if UserDefaults.standard.bool(forKey: "UseSimpleItemView") {
-			view.backgroundColor = Theme.current.tableViewBackgroundColor
+			view.backgroundColor = Theme.current.viewBackgroundColor
 			backgroundVisualEffectView.isHidden = true
 			imageDarkenerView.isHidden = true
-			textView.textColor = Theme.current.cellTextColor
+			textView.textColor = Theme.current.textColor
+			subtitleLabel.textColor = Theme.current.textColor
 		} else {
 			textView.textColor = .white
+			subtitleLabel.textColor = .white
 		}
 	}
 	

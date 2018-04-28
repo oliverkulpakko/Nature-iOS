@@ -44,7 +44,7 @@ class ItemsViewController: BaseViewController {
 		searchController.searchBar.barStyle = Theme.current.barStyle
 		searchController.searchBar.keyboardAppearance = Theme.current.keyboardAppearance
 		
-		view.backgroundColor = Theme.current.tableViewBackgroundColor
+		view.backgroundColor = Theme.current.viewBackgroundColor
 		
 		tableView.separatorColor = Theme.current.tableViewSeparatorColor
 		tableView.reloadData()

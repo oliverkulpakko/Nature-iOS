@@ -46,7 +46,7 @@ class CategoriesViewController: BaseViewController {
 	override func updateTheme() {
 		super.updateTheme()
 		
-		view.backgroundColor = Theme.current.tableViewBackgroundColor
+		view.backgroundColor = Theme.current.viewBackgroundColor
 		tableView.reloadData()
 	}
 	
@@ -129,14 +129,14 @@ extension CategoriesViewController: UITableViewDataSource {
 		let category = categories[indexPath.row]
 		
 		cell.categoryNameLabel.text = category.name
-		cell.categoryNameLabel.textColor = category.useLightText ? .white : .darkText
-		
 		cell.countLabel.text = String(format: "categories.items.%i".localized, category.items.count)
-		
 		cell.categoryImageView.image = category.image
 		
 		cell.backgroundColor = category.color
-		cell.tintColor = category.useLightText ? .white : .darkText
+		cell.tintColor = category.useLightText ? Theme.dark.textColor : Theme.light.textColor
+		
+		cell.categoryNameLabel.textColor = category.useLightText ? Theme.dark.textColor : Theme.light.textColor
+		cell.countLabel.textColor = category.useLightText ? .groupTableViewBackground : .darkGray
 		
 		return cell
 	}

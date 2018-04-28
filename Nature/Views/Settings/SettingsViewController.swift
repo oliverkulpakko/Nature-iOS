@@ -28,7 +28,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	override func updateTheme() {
 		super.updateTheme()
 
-		self.view.backgroundColor = Theme.current.tableViewBackgroundColor
+		self.view.backgroundColor = Theme.current.viewBackgroundColor
 		self.tableView.separatorColor =  Theme.current.tableViewSeparatorColor
 		self.tableView.reloadData()
 	}
@@ -162,7 +162,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 				Analytics.log(action: "SwitchSetting", error: "", data1: setting.title, data2: String(cell.switch.isOn))
 			}
 			
-			cell.titleLabel.textColor = Theme.current.cellTextColor
+			cell.titleLabel.textColor = Theme.current.textColor
 			
 			cell.iconImageView.image = UIImage(named: "settings." + setting.title)
 			cell.iconImageView.layer.cornerRadius = (cell.iconImageView.bounds.height * 0.2237)
@@ -185,8 +185,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 				cell.accessoryType = .checkmark
 			}
 			
-			cell.textLabel?.textColor = Theme.current.cellTextColor
-			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
+			cell.textLabel?.textColor = Theme.current.textColor
+			cell.detailTextLabel?.textColor = Theme.current.textColor
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
@@ -200,7 +200,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 
 			cell.imageView?.image = UIImage(named: row)
 
-			cell.textLabel?.textColor = Theme.current.cellTextColor
+			cell.textLabel?.textColor = Theme.current.textColor
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 
 			return cell

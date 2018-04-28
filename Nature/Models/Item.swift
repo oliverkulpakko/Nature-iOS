@@ -25,7 +25,7 @@ struct Item: Codable {
 	}
 	
 	var latinName: String? {
-		return description.slice(from: "</b> (<i>", to: "</i>) ") // This is very hacky, but it works
+		return description.slice(from: "</b> (<i>", to: "</i>") // This is very hacky, but it works
 	}
 	
 	var searchText: String {
