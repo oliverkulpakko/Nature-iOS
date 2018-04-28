@@ -58,6 +58,8 @@ class ItemsViewController: BaseViewController {
 			return
 		}
 		
+		QuickActionHelper.didOpenCategory(category)
+		
 		title = category.name
 	}
 	

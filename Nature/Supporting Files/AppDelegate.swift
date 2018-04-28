@@ -30,6 +30,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
-
+	
+	func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+		let navigationController = window?.rootViewController as? UINavigationController
+		let categoriesViewController = navigationController?.viewControllers.first as? CategoriesViewController
+		
+		let id = shortcutItem.type
+		
+		DataHelper.fetchCategory(id: id, forceRefresh: false, completion: { category, error in
+			guard let category = category else {
+				categoriesViewController?.showError(error)
+				return
+			}
+			
+			let itemsViewController = ItemsViewController()
+			itemsViewController.category = category
+			
+			DispatchQueue.main.async {
+				categoriesViewController?.navigationController?.popToRootViewController(animated: false) // Don't push to new ItemsViewController in "top of" another ItemsViewController
+				
+				categoriesViewController?.navigationController?.pushViewController(itemsViewController, animated: true)
+			}
+		})
+	}
+	
 }
 

@@ -11,7 +11,7 @@ import Foundation
 class DataHelper {
 	
 
-	/// 	/// Fetch categories for a specified country, or if an empty country is given, for all countries.
+	/// Fetch categories for a specified country, or if an empty country is given, for all countries.
 	/// The response can be very big, especially when fetching for all countries.
 	///
 	/// - Parameters:
@@ -35,6 +35,36 @@ class DataHelper {
 			} else {
 				if forceRefresh {
 					fetchCategories(forceRefresh: false, completion: completion) // Try one more time, without force refreshing
+				} else {
+					completion(nil, error)
+				}
+			}
+		})
+	}
+	
+	/// Fetch a specified category.
+	///
+	/// - Parameters:
+	///   - forceRefresh: Should the data be forcefully updated, and not fetched from cache. A cached version will still be returned if there was an error loading the data.
+	///   - completion: An optional array of Category, and an optional error.
+	class func fetchCategory(id: String, forceRefresh: Bool, completion: @escaping (_ result: Category?, Error?) -> Void) {
+		if let cachedCategory = Storage.retrieve("Category:" + id, from: .caches, as: Category.self), !forceRefresh {
+			completion(cachedCategory, nil)
+			return
+		}
+		
+		guard let url = URL(string: "https://eaststudios.net/api/Nature/category/?id=" + id) else {
+			completion(nil, nil)
+			return
+		}
+		
+		API.get(url, type: Category.self, completion: { categories, error in
+			if let categories = categories {
+				Storage.store(categories, to: .caches, as: "Category")
+				completion(categories, nil)
+			} else {
+				if forceRefresh {
+					fetchCategory(id: id, forceRefresh: false, completion: completion) // Try one more time, without force refreshing
 				} else {
 					completion(nil, error)
 				}

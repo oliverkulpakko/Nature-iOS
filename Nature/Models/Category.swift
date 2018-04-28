@@ -12,7 +12,7 @@ struct Category: Codable {
 	let id: String
 	let name: String
 	
-	private let imageName: String
+	let imageName: String
 	private let hexColor: String
 	
 	let useLightText: Bool

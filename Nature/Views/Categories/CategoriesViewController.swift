@@ -15,7 +15,9 @@ class CategoriesViewController: BaseViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		reloadData()
+		if UserDefaults.standard.bool(forKey: "ForceRefreshData") {
+			reloadData()
+		}
 	}
     
     // MARK: BaseViewController

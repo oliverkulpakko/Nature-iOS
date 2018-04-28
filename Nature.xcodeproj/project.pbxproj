@@ -12,6 +12,7 @@
 		A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7064F36208B3837006A2AF3 /* SwitchCell.xib */; };
 		A76162E6208F8FCC00EDB23B /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E5208F8FCC00EDB23B /* Analytics.swift */; };
 		A76162E8208F969600EDB23B /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E7208F969600EDB23B /* Sequence.swift */; };
+		A79CC23020945C60004FB98C /* QuickActionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79CC22F20945C60004FB98C /* QuickActionHelper.swift */; };
 		A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */; };
 		A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55520876BE8001F81C2 /* Assets.xcassets */; };
 		A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */; };
@@ -63,6 +64,7 @@
 		A7064F36208B3837006A2AF3 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		A76162E5208F8FCC00EDB23B /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A76162E7208F969600EDB23B /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		A79CC22F20945C60004FB98C /* QuickActionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionHelper.swift; sourceTree = "<group>"; };
 		A7C7B54B20876BE8001F81C2 /* Nature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C7B55520876BE8001F81C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				A7C7B59920878F0E001F81C2 /* API.swift */,
 				A7C7B576208771E9001F81C2 /* DataHelper.swift */,
 				A7F555D9208B4C610064CEA3 /* BookmarkHelper.swift */,
+				A79CC22F20945C60004FB98C /* QuickActionHelper.swift */,
 				A7F555CC208B3DD40064CEA3 /* Theme.swift */,
 				D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */,
 				A76162EE208F9D5E00EDB23B /* Analytics */,
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C7B58720877D0E001F81C2 /* ItemsViewController.swift in Sources */,
+				A79CC23020945C60004FB98C /* QuickActionHelper.swift in Sources */,
 				A7F555D6208B49070064CEA3 /* MapBookmark.swift in Sources */,
 				A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */,
 				A7F555E4208B5E220064CEA3 /* TopoMapsAPI.swift in Sources */,
