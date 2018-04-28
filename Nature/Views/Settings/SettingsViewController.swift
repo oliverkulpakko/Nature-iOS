@@ -119,7 +119,9 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 
 	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if section == Section.about.rawValue {
-			return ("© Oliver Kulpakko, Version " + UIApplication.shared.formattedVersion)
+			let developerName = "Oliver Kulpakko"
+			
+			return String(format: "settings.about.copyright.%@.%@".localized, developerName, UIApplication.shared.formattedVersion)
 		}
 
 		return nil

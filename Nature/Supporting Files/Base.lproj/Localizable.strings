@@ -1,0 +1,59 @@
+/*
+ Localizable.strings
+ Nature
+ 
+ Created by Oliver Kulpakko on 18/04/2018.
+ Copyright © 2018 Oliver Kulpakko. All rights reserved.
+ */
+
+/* Categories */
+
+"categories.title" = "Categories";
+"categories.button.settings" = "Settings";
+"categories.items.%i" = "%i species";
+
+/* Items */
+
+"items.search.placeholder" = "Search...";
+
+/* Item */
+
+"item.button.map" = "Kartta";
+
+/* Map */
+"map.title" = "Map Bookmarks";
+
+"map.alert.new-bookmark-current-location.title" = "New Bookmark";
+"map.alert.new-bookmark-current-location.message" = "If you'd like to create a bookmark into another location than your current location, just hold your finger in the place where you want to add it.";
+"map.alert.new-bookmark-current-location.create-button" = "Create to Current Location";
+
+"map.alert.new-bookmark.title" = "New Bookmark";
+"map.alert.new-bookmark.textfield.placeholder" = "Title";
+"map.alert.new-bookmark.button" = "Create Bookmark";
+
+/* Settings */
+
+"settings.title" = "Settings";
+
+"settings.show-latin-name" = "Show Latin Name";
+"settings.dark-mode" = "Enable Dark Mode";
+"settings.simple-item-view" = "Enable Higher Contrast in Item View";
+"settings.disable-map-overlay" = "Disable Map Overlays";
+"settings.hide-search-when-scrolling" = "Hides Search Bar While Scrolling";
+"settings.force-reload-data" = "Reload Data";
+"settings.disable-analytics" = "Disable Anonymous Analytics";
+
+"settings.available-countries.title" = "Available countries";
+"settings.categories.available.%i" = "%i categories";
+
+"settings.about.title" = "About";
+"settings.about.rate" = "Rate the app on the App Store";
+"settings.about.support" = "Contact Us";
+"settings.about.acknowledgements" = "Acknowledgements";
+"settings.about.copyright.%@.%@" = "© %@, Version %@";
+
+/* Alert */
+
+"alert.title.error" = "Error";
+"alert.button.ok" = "OK";
+"alert.button.cancel" = "Cancel";

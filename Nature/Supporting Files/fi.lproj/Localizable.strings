@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Nature
+
+  Created by Oliver Kulpakko on 18/04/2018.
+  Copyright © 2018 Oliver Kulpakko. All rights reserved.
+*/
+
+/* Categories */
+
+"categories.title" = "Kategoriat";
+"categories.button.settings" = "Asetukset";
+"categories.items.%i" = "%i lajia";
+
+/* Items */
+
+"items.search.placeholder" = "Haku...";
+
+/* Item */
+
+"item.button.map" = "Kartta";
+
+/* Map */
+"map.title" = "Kirjanmerkit (kartta)";
+
+"map.alert.new-bookmark-current-location.title" = "Uusi kirjanmerkki";
+"map.alert.new-bookmark-current-location.message" = "Jos haluat lisätä kirjanmerkin johonkin muuhun sijaintiin kuin nykyiseen, pidä sormea pohjassa paikassa johon haluat sen lisätä.";
+"map.alert.new-bookmark-current-location.create-button" = "Luo nykyiseen sijaintiin";
+
+"map.alert.new-bookmark.title" = "Uusi kirjanmerkki";
+"map.alert.new-bookmark.textfield.placeholder" = "Nimi";
+"map.alert.new-bookmark.button" = "Luo kirjanmerkki";
+
+/* Settings */
+
+"settings.title" = "Asetukset";
+
+"settings.show-latin-name" = "Näytä latinankielinen nimi";
+"settings.dark-mode" = "Ota käyttöön yötila";
+"settings.simple-item-view" = "Käytä suurempaa kontrastia";
+"settings.disable-map-overlay" = "Älä käytä maastokarttatasoja";
+"settings.hide-search-when-scrolling" = "Piilota hakupalkki vierittäessä";
+"settings.force-reload-data" = "Pakota datan uudelleenlataus";
+"settings.disable-analytics" = "Ota analyytikka pois käytöstä";
+
+"settings.available-countries.title" = "Saatavilla olevat maat";
+"settings.categories.available.%i" = "%i kategoriaa";
+
+"settings.about.title" = "Tietoa";
+"settings.about.rate" = "Arvostele sovellus App Storessa";
+"settings.about.support" = "Ota yhteyttä";
+"settings.about.acknowledgements" = "Tekijänoikeudet";
+"settings.about.copyright.%@.%@" = "© %@, Versio %@";
+
+/* Alert */
+
+"alert.title.error" = "Virhe";
+"alert.button.ok" = "OK";
+"alert.button.cancel" = "Kumoa";

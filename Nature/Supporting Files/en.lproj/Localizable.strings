@@ -16,6 +16,10 @@
 
 "items.search.placeholder" = "Search...";
 
+/* Item */
+
+"item.button.map" = "Kartta";
+
 /* Map */
 "map.title" = "Map Bookmarks";
 
@@ -33,7 +37,7 @@
 
 "settings.show-latin-name" = "Show Latin Name";
 "settings.dark-mode" = "Enable Dark Mode";
-"settings.simple-item-view" = "Higher Contrast";
+"settings.simple-item-view" = "Enable Higher Contrast in Item View";
 "settings.disable-map-overlay" = "Disable Map Overlays";
 "settings.hide-search-when-scrolling" = "Hides Search Bar While Scrolling";
 "settings.force-reload-data" = "Reload Data";
@@ -46,6 +50,7 @@
 "settings.about.rate" = "Rate the app on the App Store";
 "settings.about.support" = "Contact Us";
 "settings.about.acknowledgements" = "Acknowledgements";
+"settings.about.copyright.%@.%@" = "© %@, Version %@";
 
 /* Alert */
 
