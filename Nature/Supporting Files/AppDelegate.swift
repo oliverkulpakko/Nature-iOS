@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		showInitialViewController()
 		
+		checkUpdate()
+		
         return true
     }
     
@@ -30,6 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
+	
+	func checkUpdate() {
+		let lastVersion = UserDefaults.standard.string(forKey: "AppLastVersion")
+		let currentVersion = UIApplication.shared.appBuild
+		
+		if let lastVersion = lastVersion, (lastVersion != currentVersion) {
+			Analytics.log(action: "UpdateApp", error: "", data1: lastVersion, data2: currentVersion)
+		}
+		
+		UserDefaults.standard.set(currentVersion, forKey: "AppLastVersion")
+		
+	}
 	
 	func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
 		let navigationController = window?.rootViewController as? UINavigationController
