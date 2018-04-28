@@ -9,12 +9,6 @@
 import UIKit
 
 class SettingsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-
-	//MARK: View Lifecycle
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
 	
 	// MARK: BaseViewController
 	
@@ -77,6 +71,13 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		tableView.deselectRow(at: indexPath, animated: true)
 		
 		switch indexPath.section {
+		case Section.availableCountries.rawValue:
+			let country = availableCountries[indexPath.row]
+			
+			UserDefaults.standard.set(country.code, forKey: "Country")
+			UserDefaults.standard.set(true, forKey: "ForceRefreshData")
+			
+			tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
 		case Section.about.rawValue:
 			switch aboutRows[indexPath.row]  {
 			case .rate:
@@ -179,7 +180,11 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			cell.textLabel?.text = country.localizedCountry
 			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.count)
 			cell.imageView?.image = UIImage(named: country.code)
-
+			
+			if UserDefaults.standard.string(forKey: "Country") == country.code {
+				cell.accessoryType = .checkmark
+			}
+			
 			cell.textLabel?.textColor = Theme.current.cellTextColor
 			cell.detailTextLabel?.textColor = Theme.current.cellTextColor
 			cell.backgroundColor = Theme.current.cellBackgroundColor

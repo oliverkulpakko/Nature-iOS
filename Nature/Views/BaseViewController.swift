@@ -48,7 +48,9 @@ class BaseViewController: UIViewController {
 
 	/// Set all view properties.
 	/// Must call super.setupViews() at some point if overriding.
-	func setupViews() {}
+	func setupViews() {
+		refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+	}
 
 	/// Set colors and styles for all UI elements.
 	/// Might be called many times during the view's lifecycle, if theme is changed.
@@ -63,7 +65,7 @@ class BaseViewController: UIViewController {
     
     /// Reload all view displayed on the view.
     /// Must call super.reloadData() at some point if overriding.
-    func reloadData() {}
+    @objc func reloadData() {}
 	
 	/// Save analytics data.
 	/// Override if something else needs to be sent. No need to call super whn
@@ -136,5 +138,6 @@ class BaseViewController: UIViewController {
 	// MARK: Private Variables
 	
 	var isThemeSet = false
+	var refreshControl = UIRefreshControl()
 
 }

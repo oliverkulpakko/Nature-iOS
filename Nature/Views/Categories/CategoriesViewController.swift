@@ -10,11 +10,13 @@ import UIKit
 
 class CategoriesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //MARK: View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+	// MARK: View Lifecycle
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		reloadData()
+	}
     
     // MARK: BaseViewController
     
@@ -28,6 +30,12 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
         super.setupViews()
         
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
+		
+		if #available(iOS 10.0, *) {
+			tableView.refreshControl = refreshControl
+		} else {
+			tableView.addSubview(refreshControl)
+		}
 		
 		let settingsButton = UIBarButtonItem(title: "categories.button.settings".localized, style: .plain, target: self, action: #selector(toSettings))
 		navigationItem.leftBarButtonItem = settingsButton
@@ -43,22 +51,29 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 	override func reloadData() {
 		super.reloadData()
 		
-		let country = "" // TODO: Fetch for the current country, but for now download for every country.
+		let country = UserDefaults.standard.string(forKey: "Country") ?? ""
 		let forceRefresh = UserDefaults.standard.bool(forKey: "ForceRefreshData")
+		
+		if forceRefresh {
+			refreshControl.beginRefreshing()
+		}
 		
 		DataHelper.fetchCategories(for: country, forceRefresh: forceRefresh, completion: { categories, error in
 			guard let categories = categories, error == nil else {
 				self.showError(error)
+				DispatchQueue.main.async {
+					self.refreshControl.endRefreshing()
+				}
 				return
 			}
 			
 			self.categories = categories
 			
-			
 			UserDefaults.standard.set(false, forKey: "ForceRefreshData")
 			
 			DispatchQueue.main.async {
 				self.tableView.reloadData()
+				self.refreshControl.endRefreshing()
 			}
 		})
 	}
@@ -113,7 +128,7 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: Instance Functions
     
     // MARK: Instance Variables
-    
+	
     var categories = [Category]()
     
     // MARK: IBOutlets
