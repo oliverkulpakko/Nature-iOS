@@ -11,6 +11,9 @@ import UIKit
 struct Category: Codable {
 	let id: String
 	let name: String
+	let notice: String?
+	
+	let country: String
 	
 	let imageName: String
 	private let hexColor: String

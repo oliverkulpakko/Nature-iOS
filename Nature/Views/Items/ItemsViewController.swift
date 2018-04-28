@@ -58,6 +58,11 @@ class ItemsViewController: BaseViewController {
 			return
 		}
 		
+		if let notice = category.notice, !UserDefaults.standard.bool(forKey: ("ShownNotice:" + category.id)) {
+			showAlert(title: notice)
+			UserDefaults.standard.set(true, forKey: ("ShownNotice:" + category.id))
+		}
+		
 		QuickActionHelper.didOpenCategory(category)
 		
 		title = category.name
