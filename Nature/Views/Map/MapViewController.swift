@@ -60,15 +60,17 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 			setMapType()
 		}
 		
-		BookmarkHelper.fetchMapBookmarks(for: item, completion: { [weak self] bookmarks in
+		BookmarkHelper.fetchMapBookmarks(for: item, completion: { bookmarks in
 			if let bookmarks = bookmarks {
-				self?.bookmarks = bookmarks
+				self.bookmarks = bookmarks
 				
 				DispatchQueue.main.async {
-					self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
-					self?.mapView.addAnnotations(bookmarks)
-					self?.tableView.reloadData()
+					self.mapView.removeAnnotations(self.mapView.annotations)
+					self.mapView.addAnnotations(bookmarks)
+					self.tableView.reloadData()
 				}
+			} else {
+				self.showAlert(title: "map.alert.tutorial.title".localized)
 			}
 		})
 		
@@ -196,10 +198,10 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 			}
 			
 			let bookmark = MapBookmark(title: text, coordinate: coordinate)
-			BookmarkHelper.createMapBookmark(bookmark, for: self.item, completion: { [weak self] in
-				self?.reloadData()
+			BookmarkHelper.createMapBookmark(bookmark, for: self.item, completion: {
+				self.reloadData()
 				
-				Analytics.log(action: "CreateMapBookmark", error: "", data1: (self?.item.id ?? ""), data2: "")
+				Analytics.log(action: "CreateMapBookmark", error: "", data1: self.item.id, data2: "")
 			})
 		})
 		alert.addAction(currentLocationAction)
@@ -229,9 +231,9 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 				self.mapCopyrightLabel.isHidden = false
 			}
 		} else {
-			TopoMapsAPI.fetchMapTypes(completion: { [weak self] mapTypes, _ in
+			TopoMapsAPI.fetchMapTypes(completion: { mapTypes, _ in
 				if let mapTypes = mapTypes {
-					if let location = self?.locationManager.location {
+					if let location = self.locationManager.location {
 						CLGeocoder().reverseGeocodeLocation(location, completionHandler: { placemarks, _ in
 							guard let placemark = placemarks?.first else {
 								return
@@ -241,11 +243,11 @@ class MapViewController: BaseViewController, MKMapViewDelegate, CLLocationManage
 							
 							if let mapType = mapTypes.filter({ $0.countryCode == country && $0.name == "topo" }).first {
 								Storage.store(mapType, to: .caches, as: "MapType")
-								self?.setMapType()
+								self.setMapType()
 							}
 						})
 					} else {
-						self?.waitingForMapTypeLocation = true
+						self.waitingForMapTypeLocation = true
 					}
 				}
 			})

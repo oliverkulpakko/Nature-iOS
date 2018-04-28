@@ -31,6 +31,8 @@
 "map.alert.new-bookmark.textfield.placeholder" = "Nimi";
 "map.alert.new-bookmark.button" = "Luo kirjanmerkki";
 
+"map.alert.tutorial.title" = "Lisää kirjanmerkki nykyiseen sijaintiin '+'-nappia painamalla, tai mihin tahansa sijaintiin pitämällä sormea pohjassa kartalla.";
+
 /* Settings */
 
 "settings.title" = "Asetukset";

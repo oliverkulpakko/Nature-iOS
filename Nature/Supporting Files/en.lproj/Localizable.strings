@@ -31,6 +31,8 @@
 "map.alert.new-bookmark.textfield.placeholder" = "Title";
 "map.alert.new-bookmark.button" = "Create Bookmark";
 
+"map.alert.tutorial.title" = "Add a bookmark to the current location by pressing the '+'-button, and to any location by holding your finger on the map.";
+
 /* Settings */
 
 "settings.title" = "Settings";
