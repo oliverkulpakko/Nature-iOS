@@ -9,7 +9,7 @@
 import UIKit
 import Imaginary
 
-class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class ItemsViewController: BaseViewController {
 
 	//MARK: View Lifecycle
 	
@@ -34,6 +34,7 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 	override func setupViews() {
 		super.setupViews()
 		
+		registerForPreviewing(with: self, sourceView: tableView)
 		tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
 	}
 	
@@ -64,7 +65,39 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: category.id)
 	}
 	
-	// MARK: UITableViewDelegate
+	// MARK: Instance Functions
+	
+	func filterItems(for text: String) {
+		filteredItems = category.items.filter({ item -> Bool in
+			return item.searchText.lowercased().contains(text.lowercased())
+		})
+		
+		tableView.reloadData()
+	}
+	
+	// MARK: Calculated Properties
+	
+	var isSearchBarEmpty: Bool {
+		return (searchController.searchBar.text?.isEmpty ?? true)
+	}
+	
+	var isSearching: Bool {
+		return searchController.isActive && !isSearchBarEmpty
+	}
+	
+	// MARK: Instance Variables
+	
+	var searchController = UISearchController(searchResultsController: nil)
+	
+	var filteredItems = [Item]()
+	var category: Category!
+	
+	// MARK: IBOutlets
+	
+	@IBOutlet var tableView: UITableView!
+}
+
+extension ItemsViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
@@ -80,9 +113,9 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		
 		navigationController?.pushViewController(itemViewController, animated: true)
 	}
-	
-	// MARK: UITableViewDataSource
-	
+}
+
+extension ItemsViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if isSearching {
 			return filteredItems.count
@@ -116,41 +149,35 @@ class ItemsViewController: BaseViewController, UITableViewDelegate, UITableViewD
 		
 		return cell
 	}
-	
-	// MARK: UISearchResultsUpdating
-	
+}
+
+extension ItemsViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
 		filterItems(for: searchController.searchBar.text ?? "")
 	}
-	
-	// MARK: Instance Functions
-	
-	func filterItems(for text: String) {
-		filteredItems = category.items.filter({ item -> Bool in
-			return item.searchText.lowercased().contains(text.lowercased())
-		})
-		
-		tableView.reloadData()
+}
+
+extension ItemsViewController: UIViewControllerPreviewingDelegate {
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+		if let indexPath = tableView.indexPathForRow(at: location) {
+			previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+			
+			let item: Item
+			if isSearching {
+				item = filteredItems[indexPath.row]
+			} else {
+				item = category.items[indexPath.row]
+			}
+			
+			let itemViewController = ItemViewController()
+			itemViewController.item = item
+			
+			return itemViewController
+		}
+		return nil
 	}
 	
-	// MARK: Calculated Properties
-	
-	var isSearchBarEmpty: Bool {
-		return (searchController.searchBar.text?.isEmpty ?? true)
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		navigationController?.pushViewController(viewControllerToCommit, animated: true)
 	}
-	
-	var isSearching: Bool {
-		return searchController.isActive && !isSearchBarEmpty
-	}
-	
-	// MARK: Instance Variables
-	
-	var searchController = UISearchController(searchResultsController: nil)
-	
-	var filteredItems = [Item]()
-	var category: Category!
-	
-	// MARK: IBOutlets
-	
-	@IBOutlet var tableView: UITableView!
 }

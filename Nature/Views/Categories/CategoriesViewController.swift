@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoriesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoriesViewController: BaseViewController {
 
 	// MARK: View Lifecycle
 	
@@ -28,7 +28,9 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
     
     override func setupViews() {
         super.setupViews()
-        
+		
+		registerForPreviewing(with: self, sourceView: tableView)
+		
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
 		
 		if #available(iOS 10.0, *) {
@@ -77,43 +79,6 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 			}
 		})
 	}
-    
-    // MARK: UITableViewDelegate
-	
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-		
-		let itemsViewController = ItemsViewController()
-		itemsViewController.category = categories[indexPath.row]
-		
-		navigationController?.pushViewController(itemsViewController, animated: true)
-    }
-    
-    // MARK: UITableViewDataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as? CategoryCell else {
-			return UITableViewCell()
-		}
-		
-        let category = categories[indexPath.row]
-		
-        cell.categoryNameLabel.text = category.name
-		cell.categoryNameLabel.textColor = category.useLightText ? .white : .darkText
-		
-		cell.countLabel.text = String(format: "categories.items.%i".localized, category.items.count)
-		
-		cell.categoryImageView.image = category.image
-		
-		cell.backgroundColor = category.color
-        cell.tintColor = category.useLightText ? .white : .darkText
-		
-        return cell
-    }
 	
 	// MARK: Navigation
 	
@@ -123,6 +88,13 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
 		settingsViewController.addDoneButton()
 		
 		present(navigationController, animated: true)
+	}
+	
+	func viewController(for indexPath: IndexPath) -> UIViewController {
+		let itemsViewController = ItemsViewController()
+		itemsViewController.category = categories[indexPath.row]
+		
+		return itemsViewController
 	}
     
     // MARK: Instance Functions
@@ -134,4 +106,53 @@ class CategoriesViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: IBOutlets
     
     @IBOutlet var tableView: UITableView!
+}
+
+extension CategoriesViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		
+		navigationController?.pushViewController(viewController(for: indexPath), animated: true)
+	}
+}
+
+extension CategoriesViewController: UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return categories.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as? CategoryCell else {
+			return UITableViewCell()
+		}
+		
+		let category = categories[indexPath.row]
+		
+		cell.categoryNameLabel.text = category.name
+		cell.categoryNameLabel.textColor = category.useLightText ? .white : .darkText
+		
+		cell.countLabel.text = String(format: "categories.items.%i".localized, category.items.count)
+		
+		cell.categoryImageView.image = category.image
+		
+		cell.backgroundColor = category.color
+		cell.tintColor = category.useLightText ? .white : .darkText
+		
+		return cell
+	}
+}
+
+extension CategoriesViewController: UIViewControllerPreviewingDelegate {
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+		if let indexPath = tableView.indexPathForRow(at: location) {
+			previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+			
+			return viewController(for: indexPath)
+		}
+		return nil
+	}
+	
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		navigationController?.pushViewController(viewControllerToCommit, animated: true)
+	}
 }
