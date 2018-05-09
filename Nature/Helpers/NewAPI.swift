@@ -8,28 +8,7 @@
 
 import Foundation
 
-class API {
-	class func get<T: Decodable>(_ url: URL, type: T.Type, completion: @escaping (_ result: T?, Error?) -> Void) {
-		makeRequest(url: url, method: "GET", completion: { data, error in
-			guard let data = data else {
-				completion(nil, error)
-				return
-			}
-			
-			let decoder = JSONDecoder()
-			if #available(iOS 10.0, *) {
-				decoder.dateDecodingStrategy = .iso8601
-			}
-			
-			do {
-				let result = try decoder.decode(type, from: data)
-				completion(result, nil)
-			} catch {
-				completion(nil, error)
-			}
-		})
-	}
-	
+class NewAPI {
 	class func makeRequest(url: URL, method: String, body: String? = nil, completion: ((_ result: Data?, Error?) -> Void)?) {
 		var request = URLRequest(url: url)
 		request.httpMethod = method.uppercased()
