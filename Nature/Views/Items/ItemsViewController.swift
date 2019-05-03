@@ -64,8 +64,6 @@ class ItemsViewController: BaseViewController {
 			UserDefaults.standard.set(true, forKey: ("ShownNotice:" + category.id))
 		}
 		
-		QuickActionHelper.didOpenCategory(category)
-		
 		title = category.name
 
 		refreshControl.beginRefreshing()

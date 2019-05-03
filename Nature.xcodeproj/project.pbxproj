@@ -12,7 +12,6 @@
 		A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7064F36208B3837006A2AF3 /* SwitchCell.xib */; };
 		A76162E6208F8FCC00EDB23B /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E5208F8FCC00EDB23B /* Analytics.swift */; };
 		A76162E8208F969600EDB23B /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E7208F969600EDB23B /* Sequence.swift */; };
-		A79CC23020945C60004FB98C /* QuickActionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79CC22F20945C60004FB98C /* QuickActionHelper.swift */; };
 		A79CC23120946782004FB98C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A79CC23320946782004FB98C /* Localizable.strings */; };
 		A79CC23B209489F8004FB98C /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79CC23A209489F8004FB98C /* UIAlertController.swift */; };
 		A7B71CEA227C677B00E6D58C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71CE9227C677B00E6D58C /* API.swift */; };
@@ -70,7 +69,6 @@
 		A7064F36208B3837006A2AF3 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		A76162E5208F8FCC00EDB23B /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A76162E7208F969600EDB23B /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
-		A79CC22F20945C60004FB98C /* QuickActionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionHelper.swift; sourceTree = "<group>"; };
 		A79CC2352094678F004FB98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A79CC2362094679E004FB98C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A79CC237209467A0004FB98C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -208,7 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				A7C7B56120876C10001F81C2 /* Views */,
-				A7C7B56F20877014001F81C2 /* Models */,
+				A7C7B56F20877014001F81C2 /* Model */,
 				A7B71CEB227C70FC00E6D58C /* RemoteService */,
 				A7C7B56420876C47001F81C2 /* Helpers */,
 				A7C7B56020876C02001F81C2 /* Supporting Files */,
@@ -248,8 +246,6 @@
 				A7B71CE9227C677B00E6D58C /* API.swift */,
 				A7F555D7208B4C3E0064CEA3 /* Storage.swift */,
 				A7F555D9208B4C610064CEA3 /* BookmarkHelper.swift */,
-				A79CC22F20945C60004FB98C /* QuickActionHelper.swift */,
-				A7F555CC208B3DD40064CEA3 /* Theme.swift */,
 				D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */,
 				A76162EE208F9D5E00EDB23B /* Analytics */,
 				A7F555E0208B5DE90064CEA3 /* Topo Maps */,
@@ -281,14 +277,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		A7C7B56F20877014001F81C2 /* Models */ = {
+		A7C7B56F20877014001F81C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A7B71CEE227C713A00E6D58C /* API */,
+				A7F555CC208B3DD40064CEA3 /* Theme.swift */,
 				A7F555D5208B49070064CEA3 /* MapBookmark.swift */,
+				A7B71CEE227C713A00E6D58C /* API */,
 				A7F555DD208B5D9D0064CEA3 /* Topo Maps */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A7C7B57D20877666001F81C2 /* Cells */ = {
@@ -480,7 +477,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C7B58720877D0E001F81C2 /* ItemsViewController.swift in Sources */,
-				A79CC23020945C60004FB98C /* QuickActionHelper.swift in Sources */,
 				A7F555D6208B49070064CEA3 /* MapBookmark.swift in Sources */,
 				A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */,
 				A7F555E4208B5E220064CEA3 /* TopoMapsAPI.swift in Sources */,

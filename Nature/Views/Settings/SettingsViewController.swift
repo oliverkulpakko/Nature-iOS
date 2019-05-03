@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: BaseViewController {
 	
 	// MARK: BaseViewController
 	
@@ -58,18 +58,158 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		})
 	}
 	
-	// MARK: UITableViewDelegate
+	// MARK: Navigation
 	
+	@objc func toSettings() {
+		let settingsViewController = SettingsViewController()
+		let navigationController = UINavigationController(rootViewController: settingsViewController)
+		settingsViewController.addDoneButton()
+		
+		present(navigationController, animated: true)
+	}
+	
+	// MARK: Stored Properties
+
+	var settings = [Setting]()
+	var availableCountries = [Country]()
+	
+	// MARK: IBOutlets
+	
+	@IBOutlet var tableView: UITableView!
+
+	// MARK: Types
+
+	struct Setting {
+		let title: String
+		let userDefaultsKey: String
+	}
+
+	enum AboutRow: Int, CaseIterable {
+		case rate
+		case support
+		case acknowledgements
+	}
+
+	enum Section: Int, CaseIterable {
+		case settings
+		case availableCountries
+		case about
+	}
+}
+
+extension SettingsViewController: UITableViewDataSource {
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		switch Section.allCases[section] {
+		case .settings:
+			return "settings.title".localized
+		case .availableCountries:
+			return "settings.available-countries.title".localized
+		case .about:
+			return "settings.about.title".localized
+		}
+	}
+
+	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		switch Section.allCases[section] {
+		case .about:
+			let developerName = "Oliver Kulpakko"
+
+			return String(format: "settings.about.copyright.%@.%@".localized, developerName, UIApplication.shared.formattedVersion)
+		default:
+			return nil
+		}
+	}
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return Section.allCases.count
+	}
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		switch Section.allCases[section] {
+		case .settings:
+			return settings.count
+		case .availableCountries:
+			return availableCountries.count
+		case .about:
+			return AboutRow.allCases.count
+		}
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		switch Section.allCases[indexPath.section] {
+		case .settings:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as! SwitchCell
+
+			cell.selectionStyle = .none
+
+			let setting = settings[indexPath.row]
+
+			cell.titleLabel.text = ("settings." + setting.title).localized
+			cell.switch.isOn = UserDefaults.standard.bool(forKey: setting.userDefaultsKey)
+
+			cell.didToggle = {
+				UserDefaults.standard.set(cell.switch.isOn, forKey: setting.userDefaultsKey)
+
+				Analytics.log(action: "SwitchSetting", error: "", data1: setting.title, data2: String(cell.switch.isOn))
+			}
+
+			cell.titleLabel.textColor = Theme.current.textColor
+
+			cell.iconImageView.image = UIImage(named: "settings." + setting.title)
+			cell.iconImageView.layer.cornerRadius = (cell.iconImageView.bounds.height * 0.2237)
+
+			cell.backgroundColor = Theme.current.cellBackgroundColor
+
+			return cell
+		case .availableCountries:
+			let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+
+			cell.selectionStyle = .none
+
+			let country = availableCountries[indexPath.row]
+
+			cell.textLabel?.text = country.localized
+			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.categoryCount)
+			cell.imageView?.image = UIImage(named: country.id)
+
+			if UserDefaults.standard.string(forKey: "Country") == country.id {
+				cell.accessoryType = .checkmark
+			}
+
+			cell.textLabel?.textColor = Theme.current.textColor
+			cell.detailTextLabel?.textColor = Theme.current.textColor
+			cell.backgroundColor = Theme.current.cellBackgroundColor
+
+			return cell
+		case .about:
+			let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+			let row = ("settings.about." + String(describing: AboutRow.allCases[indexPath.row]))
+
+			cell.accessoryType = .disclosureIndicator
+
+			cell.textLabel?.text = row.localized
+
+			cell.imageView?.image = UIImage(named: row)
+
+			cell.textLabel?.textColor = Theme.current.textColor
+			cell.backgroundColor = Theme.current.cellBackgroundColor
+
+			return cell
+		}
+	}
+}
+
+extension SettingsViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		
+
 		switch Section.allCases[indexPath.section] {
 		case .availableCountries:
 			let country = availableCountries[indexPath.row]
-			
+
 			UserDefaults.standard.set(country.id, forKey: "Country")
 			UserDefaults.standard.set(true, forKey: "ForceRefreshData")
-			
+
 			tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
 		case .about:
 			switch AboutRow.allCases[indexPath.row]  {
@@ -94,109 +234,6 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			break
 		}
 	}
-	
-	// MARK: UITableViewDataSource
-	
-	
-	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		switch Section.allCases[section] {
-		case .settings:
-			return "settings.title".localized
-		case .availableCountries:
-			return "settings.available-countries.title".localized
-		case .about:
-			return "settings.about.title".localized
-		}
-	}
-
-	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-		switch Section.allCases[section] {
-		case .about:
-			let developerName = "Oliver Kulpakko"
-
-			return String(format: "settings.about.copyright.%@.%@".localized, developerName, UIApplication.shared.formattedVersion)
-		default:
-			return nil
-		}
-	}
-	
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return Section.allCases.count
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		switch Section.allCases[section] {
-		case .settings:
-			return settings.count
-		case .availableCountries:
-			return availableCountries.count
-		case .about:
-			return AboutRow.allCases.count
-		}
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		switch Section.allCases[indexPath.section] {
-		case .settings:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as! SwitchCell
-
-			cell.selectionStyle = .none
-
-			let setting = settings[indexPath.row]
-			
-			cell.titleLabel.text = ("settings." + setting.title).localized
-			cell.switch.isOn = UserDefaults.standard.bool(forKey: setting.userDefaultsKey)
-			
-			cell.didToggle = {
-				UserDefaults.standard.set(cell.switch.isOn, forKey: setting.userDefaultsKey)
-				
-				Analytics.log(action: "SwitchSetting", error: "", data1: setting.title, data2: String(cell.switch.isOn))
-			}
-			
-			cell.titleLabel.textColor = Theme.current.textColor
-			
-			cell.iconImageView.image = UIImage(named: "settings." + setting.title)
-			cell.iconImageView.layer.cornerRadius = (cell.iconImageView.bounds.height * 0.2237)
-
-			cell.backgroundColor = Theme.current.cellBackgroundColor
-			
-			return cell
-		case .availableCountries:
-			let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-
-			cell.selectionStyle = .none
-			
-			let country = availableCountries[indexPath.row]
-			
-			cell.textLabel?.text = country.localized
-			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.categoryCount)
-			cell.imageView?.image = UIImage(named: country.id)
-			
-			if UserDefaults.standard.string(forKey: "Country") == country.id {
-				cell.accessoryType = .checkmark
-			}
-			
-			cell.textLabel?.textColor = Theme.current.textColor
-			cell.detailTextLabel?.textColor = Theme.current.textColor
-			cell.backgroundColor = Theme.current.cellBackgroundColor
-			
-			return cell
-		case .about:
-			let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-			let row = ("settings.about." + String(describing: AboutRow.allCases[indexPath.row]))
-
-			cell.accessoryType = .disclosureIndicator
-			
-			cell.textLabel?.text = row.localized
-
-			cell.imageView?.image = UIImage(named: row)
-
-			cell.textLabel?.textColor = Theme.current.textColor
-			cell.backgroundColor = Theme.current.cellBackgroundColor
-
-			return cell
-		}
-	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch Section.allCases[indexPath.section] {
@@ -206,43 +243,4 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			return 44
 		}
 	}
-	
-	// MARK: Navigation
-	
-	@objc func toSettings() {
-		let settingsViewController = SettingsViewController()
-		let navigationController = UINavigationController(rootViewController: settingsViewController)
-		settingsViewController.addDoneButton()
-		
-		present(navigationController, animated: true)
-	}
-	
-	var settings = [Setting]()
-	
-	struct Setting {
-		let title: String
-		let userDefaultsKey: String
-	}
-
-	enum AboutRow: Int, CaseIterable {
-		case rate
-		case support
-		case acknowledgements
-	}
-
-	enum Section: Int, CaseIterable {
-		case settings
-		case availableCountries
-		case about
-	}
-	
-	// MARK: Instance Functions
-	
-	// MARK: Instance Variables
-
-	var availableCountries = [Country]()
-	
-	// MARK: IBOutlets
-	
-	@IBOutlet var tableView: UITableView!
 }
