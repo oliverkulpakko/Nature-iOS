@@ -9,10 +9,10 @@
 import Foundation
 
 struct Country: Codable {
-	let code: String
-	let count: Int
+	let id: String
+	let categoryCount: Int
 
-	var localizedCountry: String {
-		return Locale.current.localizedString(forRegionCode: code) ?? code
+	var localized: String {
+		return Locale.current.localizedString(forRegionCode: id) ?? id
 	}
 }

@@ -16,6 +16,8 @@ class ItemsViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		tableView.refreshControl = refreshControl
+
 		searchController.searchResultsUpdater = self
 		searchController.searchBar.placeholder = "items.search.placeholder".localized
 		definesPresentationContext = true
@@ -52,9 +54,8 @@ class ItemsViewController: BaseViewController {
 	
 	override func reloadData() {
 		super.reloadData()
-		
-		if category == nil {
-			done()
+
+		guard let category = category else {
 			return
 		}
 		
@@ -66,16 +67,32 @@ class ItemsViewController: BaseViewController {
 		QuickActionHelper.didOpenCategory(category)
 		
 		title = category.name
+
+		refreshControl.beginRefreshing()
+
+		RemoteService.shared.fetchItems(category.id, completion: { result in
+			DispatchQueue.main.async {
+				self.refreshControl.endRefreshing()
+
+				switch result {
+				case .success(let result):
+					self.items = result
+					self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+				case .failure(let error):
+					self.showError(error)
+				}
+			}
+		})
 	}
 	
 	override func saveAnalytics() {
-		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: category.id)
+		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: category?.id ?? "")
 	}
 	
 	// MARK: Instance Functions
 	
 	func filterItems(for text: String) {
-		filteredItems = category.items.filter({ item -> Bool in
+		filteredItems = items.filter({ item -> Bool in
 			return item.searchText.lowercased().contains(text.lowercased())
 		})
 		
@@ -97,7 +114,8 @@ class ItemsViewController: BaseViewController {
 	var searchController = UISearchController(searchResultsController: nil)
 	
 	var filteredItems = [Item]()
-	var category: Category!
+	var items = [Item]()
+	var category: Category?
 	
 	// MARK: IBOutlets
 	
@@ -112,7 +130,7 @@ extension ItemsViewController: UITableViewDelegate {
 		if isSearching {
 			item = filteredItems[indexPath.row]
 		} else {
-			item = category.items[indexPath.row]
+			item = items[indexPath.row]
 		}
 		
 		let itemViewController = ItemViewController()
@@ -132,7 +150,7 @@ extension ItemsViewController: UITableViewDataSource {
 			return filteredItems.count
 		}
 		
-		return category.items.count
+		return items.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -144,7 +162,7 @@ extension ItemsViewController: UITableViewDataSource {
 		if isSearching {
 			item = filteredItems[indexPath.row]
 		} else {
-			item = category.items[indexPath.row]
+			item = items[indexPath.row]
 		}
 		
 		cell.titleLabel.text = item.title
@@ -177,7 +195,7 @@ extension ItemsViewController: UIViewControllerPreviewingDelegate {
 			if isSearching {
 				item = filteredItems[indexPath.row]
 			} else {
-				item = category.items[indexPath.row]
+				item = items[indexPath.row]
 			}
 			
 			let itemViewController = ItemViewController()

@@ -13,7 +13,7 @@ struct Item: Codable {
 	let title: String
 	let subtitle: String
 	private let description: String
-	let image: ItemImage?
+	let image: Image?
 	let detailURL: String
 	
 	// MARK: Computed Properties
@@ -30,5 +30,27 @@ struct Item: Codable {
 	
 	var searchText: String {
 		return title + ":" + subtitle + ":" + (latinName ?? "")
+	}
+
+	struct Image: Codable {
+		let id: Int
+		let url: String
+		let user: String
+		let title: String
+		let source: String
+		let license: String
+		let timestamp: Date
+
+		// MARK: Computed Variables
+
+		var description: String {
+			let dateFormatter = DateFormatter()
+			dateFormatter.dateStyle = .medium
+			dateFormatter.timeStyle = .medium
+
+			return title + "\n\n" +
+				dateFormatter.string(from: timestamp) + "\n\n" +
+				license + ", © " + user
+		}
 	}
 }

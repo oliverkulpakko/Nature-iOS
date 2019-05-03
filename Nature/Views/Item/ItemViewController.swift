@@ -8,7 +8,7 @@
 
 import UIKit
 import Imaginary
-import Lightbox
+//import Lightbox
 import SafariServices
 
 class ItemViewController: BaseViewController {
@@ -83,7 +83,7 @@ class ItemViewController: BaseViewController {
 	// MARK: Instance Functions
 	
 	@objc func showImageViewer() {
-		guard let image = imageView.image else {
+		/*guard let image = imageView.image else {
 			return
 		}
 		
@@ -97,7 +97,7 @@ class ItemViewController: BaseViewController {
 		let controller = LightboxController(images: images)
 		controller.dynamicBackground = true
 		
-		present(controller, animated: true, completion: nil)
+		present(controller, animated: true, completion: nil)*/
 	}
 	
 	@objc func showCopyright() {

@@ -39,8 +39,8 @@
 "settings.title" = "Asetukset";
 
 "settings.show-latin-name" = "Näytä latinankielinen nimi";
-"settings.dark-mode" = "Ota käyttöön yötila";
-"settings.simple-item-view" = "Käytä suurempaa kontrastia";
+"settings.dark-mode" = "Yötila";
+"settings.simple-item-view" = "Suurempi kontrasti";
 "settings.disable-map-overlay" = "Älä käytä maastokarttatasoja";
 "settings.hide-search-when-scrolling" = "Piilota hakupalkki vierittäessä";
 "settings.force-reload-data" = "Pakota datan uudelleenlataus";

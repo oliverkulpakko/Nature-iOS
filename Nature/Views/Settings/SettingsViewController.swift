@@ -45,22 +45,15 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			Setting(title: "disable-analytics", userDefaultsKey: "DisableServerAnalytics")
 		]
 
-		aboutRows = [
-			.rate,
-			.support,
-			.acknowledgements
-		]
-		
-		DataHelper.fetchCountries(completion: { countries, error in
-			guard let countries = countries, error == nil else {
-				self.showError(error)
-				return
-			}
-			
-			self.availableCountries = countries
-			
+		RemoteService.shared.fetchCountries(completion: { result in
 			DispatchQueue.main.async {
-				self.tableView.reloadData()
+				switch result {
+				case .success(let result):
+					self.availableCountries = result
+					self.tableView.reloadSections(IndexSet(integer: Section.availableCountries.rawValue), with: .automatic)
+				case .failure(let error):
+					self.showError(error)
+				}
 			}
 		})
 	}
@@ -70,16 +63,16 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
-		switch indexPath.section {
-		case Section.availableCountries.rawValue:
+		switch Section.allCases[indexPath.section] {
+		case .availableCountries:
 			let country = availableCountries[indexPath.row]
 			
-			UserDefaults.standard.set(country.code, forKey: "Country")
+			UserDefaults.standard.set(country.id, forKey: "Country")
 			UserDefaults.standard.set(true, forKey: "ForceRefreshData")
 			
 			tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
-		case Section.about.rawValue:
-			switch aboutRows[indexPath.row]  {
+		case .about:
+			switch AboutRow.allCases[indexPath.row]  {
 			case .rate:
 				RateHelper.openRate()
 			case .support:
@@ -97,7 +90,8 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 
 				UIApplication.shared.openURL(url)
 			}
-		default: break
+		default:
+			break
 		}
 	}
 	
@@ -105,51 +99,46 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 	
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		switch section {
-		case Section.settings.rawValue:
+		switch Section.allCases[section] {
+		case .settings:
 			return "settings.title".localized
-		case Section.availableCountries.rawValue:
+		case .availableCountries:
 			return "settings.available-countries.title".localized
-		case Section.about.rawValue:
+		case .about:
 			return "settings.about.title".localized
-		default:
-			return nil
 		}
 	}
 
 	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-		if section == Section.about.rawValue {
+		switch Section.allCases[section] {
+		case .about:
 			let developerName = "Oliver Kulpakko"
-			
-			return String(format: "settings.about.copyright.%@.%@".localized, developerName, UIApplication.shared.formattedVersion)
-		}
 
-		return nil
+			return String(format: "settings.about.copyright.%@.%@".localized, developerName, UIApplication.shared.formattedVersion)
+		default:
+			return nil
+		}
 	}
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return Section.count.rawValue
+		return Section.allCases.count
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		switch section {
-		case Section.settings.rawValue:
+		switch Section.allCases[section] {
+		case .settings:
 			return settings.count
-		case Section.availableCountries.rawValue:
+		case .availableCountries:
 			return availableCountries.count
-		case Section.about.rawValue:
-			return aboutRows.count
-		default:
-			return 0
+		case .about:
+			return AboutRow.allCases.count
 		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		switch indexPath.section {
-		case Section.settings.rawValue:
-			guard let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as? SwitchCell else {
-				break
-			}
+		switch Section.allCases[indexPath.section] {
+		case .settings:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as! SwitchCell
 
 			cell.selectionStyle = .none
 
@@ -172,18 +161,18 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
-		case Section.availableCountries.rawValue:
+		case .availableCountries:
 			let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
 
 			cell.selectionStyle = .none
 			
 			let country = availableCountries[indexPath.row]
 			
-			cell.textLabel?.text = country.localizedCountry
-			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.count)
-			cell.imageView?.image = UIImage(named: country.code)
+			cell.textLabel?.text = country.localized
+			cell.detailTextLabel?.text = String(format: "settings.categories.available.%i".localized, country.categoryCount)
+			cell.imageView?.image = UIImage(named: country.id)
 			
-			if UserDefaults.standard.string(forKey: "Country") == country.code {
+			if UserDefaults.standard.string(forKey: "Country") == country.id {
 				cell.accessoryType = .checkmark
 			}
 			
@@ -192,9 +181,9 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 			
 			return cell
-		case Section.about.rawValue:
+		case .about:
 			let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-			let row = ("settings.about." + String(describing: aboutRows[indexPath.row]))
+			let row = ("settings.about." + String(describing: AboutRow.allCases[indexPath.row]))
 
 			cell.accessoryType = .disclosureIndicator
 			
@@ -206,15 +195,12 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 			cell.backgroundColor = Theme.current.cellBackgroundColor
 
 			return cell
-		default: break
 		}
-		
-		return UITableViewCell()
 	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		switch indexPath.section {
-		case Section.settings.rawValue:
+		switch Section.allCases[indexPath.section] {
+		case .settings:
 			return 50
 		default:
 			return 44
@@ -238,25 +224,22 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
 		let userDefaultsKey: String
 	}
 
-	enum AboutRow {
+	enum AboutRow: Int, CaseIterable {
 		case rate
 		case support
 		case acknowledgements
 	}
 
-	enum Section: Int {
+	enum Section: Int, CaseIterable {
 		case settings
 		case availableCountries
 		case about
-
-		case count
 	}
 	
 	// MARK: Instance Functions
 	
 	// MARK: Instance Variables
 
-	var aboutRows = [AboutRow]()
 	var availableCountries = [Country]()
 	
 	// MARK: IBOutlets

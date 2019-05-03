@@ -13,14 +13,14 @@ struct Category: Codable {
 	let name: String
 	let notice: String?
 	
-	let country: String
+	let countryCode: String
 	
 	let imageName: String
-	private let hexColor: String
+	let hexColor: String
 	
 	let useLightText: Bool
-	
-	var items: [Item]
+
+	let itemCount: Int
 	
 	// MARK: Computed Properties
 	

@@ -9,7 +9,7 @@
 import UIKit
 
 class CategoriesViewController: BaseViewController {
-
+	
 	// MARK: View Lifecycle
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -19,21 +19,21 @@ class CategoriesViewController: BaseViewController {
 			reloadData()
 		}
 	}
-    
-    // MARK: BaseViewController
-    
-    override func setInterfaceStrings() {
-        super.setInterfaceStrings()
-        
-        title = "categories.title".localized
-    }
-    
-    override func setupViews() {
-        super.setupViews()
+	
+	// MARK: BaseViewController
+	
+	override func setInterfaceStrings() {
+		super.setInterfaceStrings()
+		
+		title = "categories.title".localized
+	}
+	
+	override func setupViews() {
+		super.setupViews()
 		
 		registerForPreviewing(with: self, sourceView: tableView)
 		
-        tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
+		tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
 		
 		if #available(iOS 10.0, *) {
 			tableView.refreshControl = refreshControl
@@ -43,7 +43,7 @@ class CategoriesViewController: BaseViewController {
 		
 		let settingsButton = UIBarButtonItem(image: UIImage(named: "categories.button.settings"), style: .plain, target: self, action: #selector(toSettings))
 		navigationItem.leftBarButtonItem = settingsButton
-    }
+	}
 	
 	override func updateTheme() {
 		super.updateTheme()
@@ -55,29 +55,23 @@ class CategoriesViewController: BaseViewController {
 	override func reloadData() {
 		super.reloadData()
 		
-		let country = UserDefaults.standard.string(forKey: "Country") ?? ""
-		let forceRefresh = UserDefaults.standard.bool(forKey: "ForceRefreshData")
+		let country = UserDefaults.standard.string(forKey: "Country")
 		
-		if forceRefresh {
-			refreshControl.beginRefreshing()
-		}
+		refreshControl.beginRefreshing()
 		
-		DataHelper.fetchCategories(for: country, forceRefresh: forceRefresh, completion: { categories, error in
-			guard let categories = categories, error == nil else {
-				self.showError(error)
-				DispatchQueue.main.async {
-					self.refreshControl.endRefreshing()
-				}
-				return
-			}
-			
-			self.categories = categories
-			
-			UserDefaults.standard.set(false, forKey: "ForceRefreshData")
-			
+		RemoteService.shared.fetchCategories(country, completion: { result in
 			DispatchQueue.main.async {
-				self.tableView.reloadData()
 				self.refreshControl.endRefreshing()
+				
+				switch result {
+				case .success(let result):
+					self.categories = result
+					self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+				case .failure(let error):
+					self.showError(error)
+				}
+				
+				UserDefaults.standard.set(false, forKey: "ForceRefreshData")
 			}
 		})
 	}
@@ -98,16 +92,16 @@ class CategoriesViewController: BaseViewController {
 		
 		return itemsViewController
 	}
-    
-    // MARK: Instance Functions
-    
-    // MARK: Instance Variables
 	
-    var categories = [Category]()
-    
-    // MARK: IBOutlets
-    
-    @IBOutlet var tableView: UITableView!
+	// MARK: Instance Functions
+	
+	// MARK: Instance Variables
+	
+	var categories = [Category]()
+	
+	// MARK: IBOutlets
+	
+	@IBOutlet var tableView: UITableView!
 }
 
 extension CategoriesViewController: UITableViewDelegate {
@@ -131,7 +125,7 @@ extension CategoriesViewController: UITableViewDataSource {
 		let category = categories[indexPath.row]
 		
 		cell.categoryNameLabel.text = category.name
-		cell.countLabel.text = String(format: "categories.items.%i".localized, category.items.count)
+		cell.countLabel.text = String(format: "categories.items.%i".localized, category.itemCount)
 		cell.categoryImageView.image = category.image
 		
 		cell.backgroundColor = category.color
