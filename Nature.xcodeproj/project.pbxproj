@@ -23,6 +23,7 @@
 		A7B71D04227C763B00E6D58C /* RemoteService+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D03227C763B00E6D58C /* RemoteService+Items.swift */; };
 		A7B71D06227C7B8D00E6D58C /* RemoteService+Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D05227C7B8D00E6D58C /* RemoteService+Countries.swift */; };
 		A7B71D09227C87F900E6D58C /* CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D08227C87F900E6D58C /* CLLocationManager.swift */; };
+		A7B71D0D227C89F100E6D58C /* Pods-Nature-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7B71D0C227C89F100E6D58C /* Pods-Nature-acknowledgements.plist */; };
 		A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */; };
 		A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55520876BE8001F81C2 /* Assets.xcassets */; };
 		A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 		A7B71D05227C7B8D00E6D58C /* RemoteService+Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteService+Countries.swift"; sourceTree = "<group>"; };
 		A7B71D07227C82D700E6D58C /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		A7B71D08227C87F900E6D58C /* CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManager.swift; sourceTree = "<group>"; };
+		A7B71D0C227C89F100E6D58C /* Pods-Nature-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-Nature-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		A7C7B54B20876BE8001F81C2 /* Nature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C7B55520876BE8001F81C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				A7C7B55A20876BE8001F81C2 /* Info.plist */,
 				A79CC23320946782004FB98C /* Localizable.strings */,
 				A7B71D07227C82D700E6D58C /* BridgingHeader.h */,
+				A7B71D0C227C89F100E6D58C /* Pods-Nature-acknowledgements.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				A7C7B54720876BE8001F81C2 /* Sources */,
 				A7C7B54820876BE8001F81C2 /* Frameworks */,
 				A7C7B54920876BE8001F81C2 /* Resources */,
+				AF3029E6A099918CE43990A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -449,6 +453,7 @@
 				A7C7B56D20876E0C001F81C2 /* CategoriesViewController.xib in Resources */,
 				A7C7B5982087887D001F81C2 /* ItemViewController.xib in Resources */,
 				A7F555D4208B481A0064CEA3 /* MapViewController.xib in Resources */,
+				A7B71D0D227C89F100E6D58C /* Pods-Nature-acknowledgements.plist in Resources */,
 				A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +461,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AF3029E6A099918CE43990A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nature/Pods-Nature-resources.sh",
+				"${PODS_ROOT}/AcknowList/Resources/AcknowList.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AcknowList.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nature/Pods-Nature-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DB581E4A6BBC3386DC808F65 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

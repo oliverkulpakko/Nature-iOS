@@ -1,24 +1,28 @@
 PODS:
+  - AcknowList (1.8)
   - Cache (5.2.0)
   - DZNEmptyDataSet (1.8.1)
   - Imaginary (4.2.0):
     - Cache (~> 5.0)
 
 DEPENDENCIES:
+  - AcknowList
   - DZNEmptyDataSet
   - Imaginary
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AcknowList
     - Cache
     - DZNEmptyDataSet
     - Imaginary
 
 SPEC CHECKSUMS:
+  AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
 
-PODFILE CHECKSUM: 9a2d3a8d427abceeab1ba3769b3e9d398f03d181
+PODFILE CHECKSUM: 2e6f7f76e0e6e8e7e3a61e6973f909abc8150eda
 
 COCOAPODS: 1.6.0.beta.1

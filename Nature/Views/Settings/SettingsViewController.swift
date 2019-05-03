@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AcknowList
 
 class SettingsViewController: BaseViewController {
 	
@@ -212,13 +213,12 @@ extension SettingsViewController: UITableViewDelegate {
 					return
 				}
 
-				UIApplication.shared.openURL(url)
+				UIApplication.shared.open(url, options: [:], completionHandler: nil)
 			case .acknowledgements:
-				guard let url = URL(string: "https://eaststudios.net/Nature/Acknowledgements/") else {
-					return
-				}
+				let viewController = AcknowListViewController()
+				viewController.title = "settings.about.acknowledgements".localized
 
-				UIApplication.shared.openURL(url)
+				navigationController?.pushViewController(viewController, animated: true)
 			}
 		default:
 			break

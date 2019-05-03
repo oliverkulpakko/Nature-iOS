@@ -196,6 +196,7 @@ class MapViewController: BaseViewController {
 	var locationManager = CLLocationManager()
 	var waitingForBookmarkLocation = false
 	var waitingForMapTypeLocation = false
+	var hasZoomedToLocation = false
 	
 	var item: Item
 	var bookmarks = [MapBookmark]()
@@ -256,9 +257,15 @@ extension MapViewController: CLLocationManagerDelegate {
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		/*guard let location = locations.first else {
+		guard let location = locations.first else {
 			return
-		}*/
+		}
+
+		if !hasZoomedToLocation {
+			hasZoomedToLocation = true
+
+			mapView.setCenter(location.coordinate, animated: true)
+		}
 
 		if waitingForBookmarkLocation {
 			waitingForBookmarkLocation = false

@@ -49,6 +49,7 @@ class CategoriesViewController: BaseViewController {
 		super.updateTheme()
 		
 		view.backgroundColor = Theme.current.viewBackgroundColor
+		tableView.backgroundColor = Theme.current.viewBackgroundColor
 		tableView.reloadData()
 	}
 	

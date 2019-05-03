@@ -56,7 +56,7 @@
 "settings.about.title" = "Tietoa";
 "settings.about.rate" = "Arvostele sovellus App Storessa";
 "settings.about.support" = "Ota yhteyttä";
-"settings.about.acknowledgements" = "Tekijänoikeudet";
+"settings.about.acknowledgements" = "Kiitokset";
 "settings.about.copyright.%@.%@" = "© %@, Versio %@";
 
 /* Alert */
