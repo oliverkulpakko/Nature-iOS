@@ -22,6 +22,7 @@
 "item.alert.copyright.button.image" = "Image Source";
 
 /* Map */
+
 "map.title" = "Map Bookmarks";
 
 "map.alert.new-bookmark-current-location.title" = "New Bookmark";
@@ -32,7 +33,11 @@
 "map.alert.new-bookmark.textfield.placeholder" = "Title";
 "map.alert.new-bookmark.button" = "Create Bookmark";
 
-"map.alert.tutorial.title" = "Add a bookmark to the current location by pressing the '+'-button, and to any location by holding your finger on the map.";
+"map.empty.title" = "Add a bookmark to the current location by pressing the '+'-button, and to any location by holding your finger on the map.";
+
+"map.location-not-allowed.title" = "Location Services Disabled";
+"map.location-not-allowed.message" = "Location Services need to be enabled in order to add bookmarks to your current location.";
+"map.location-not-allowed.action" = "Open Settings";
 
 /* Settings */
 

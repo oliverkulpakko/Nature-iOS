@@ -52,20 +52,10 @@ class SettingsViewController: BaseViewController {
 					self.availableCountries = result
 					self.tableView.reloadSections(IndexSet(integer: Section.availableCountries.rawValue), with: .automatic)
 				case .failure(let error):
-					self.showError(error)
+					self.presentError(error)
 				}
 			}
 		})
-	}
-	
-	// MARK: Navigation
-	
-	@objc func toSettings() {
-		let settingsViewController = SettingsViewController()
-		let navigationController = UINavigationController(rootViewController: settingsViewController)
-		settingsViewController.addDoneButton()
-		
-		present(navigationController, animated: true)
 	}
 	
 	// MARK: Stored Properties

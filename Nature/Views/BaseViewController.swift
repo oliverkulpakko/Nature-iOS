@@ -10,10 +10,9 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-	// MARK: View Lifecycle
+	// MARK: Lifecycle
 
 	override func viewDidLoad() {
-		Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
 		super.viewDidLoad()
 		
 		UserDefaults.standard.addObserver(self, forKeyPath: "UseDarkTheme", options: .new, context: nil)
@@ -33,7 +32,17 @@ class BaseViewController: UIViewController {
 		super.viewWillAppear(animated)
 		updateTheme()
 	}
-	
+
+	// MARK: Initializers
+
+	init() {
+		super.init(nibName: String(describing: type(of: self)), bundle: nil)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
 	deinit {
 		UserDefaults.standard.removeObserver(self, forKeyPath: "UseDarkTheme")
 	}
@@ -106,17 +115,15 @@ class BaseViewController: UIViewController {
 
 	// MARK: UIAlertController
 
-	func showError(_ error: Error?, actions: [UIAlertAction] = [], showDimissButton: Bool = true) {
+	func presentError(_ error: Error?, actions: [UIAlertAction] = [], showDimissButton: Bool = true) {
 		guard let error = error else {
 			return
 		}
 
-		print(error)
-
-		var errorText = error.localizedDescription
-
 		#if DEBUG
-		errorText = (error as NSError).description
+		let errorText = (error as NSError).description
+		#else
+		let errorText = error.localizedDescription
 		#endif
 
 		showAlert(title: "alert.title.error".localized, message: errorText,
@@ -143,5 +150,4 @@ class BaseViewController: UIViewController {
 	
 	var isThemeSet = false
 	var refreshControl = UIRefreshControl()
-
 }

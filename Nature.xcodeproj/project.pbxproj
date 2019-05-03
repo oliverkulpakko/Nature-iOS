@@ -22,6 +22,7 @@
 		A7B71D02227C716D00E6D58C /* RemoteService+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D01227C716D00E6D58C /* RemoteService+Categories.swift */; };
 		A7B71D04227C763B00E6D58C /* RemoteService+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D03227C763B00E6D58C /* RemoteService+Items.swift */; };
 		A7B71D06227C7B8D00E6D58C /* RemoteService+Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D05227C7B8D00E6D58C /* RemoteService+Countries.swift */; };
+		A7B71D09227C87F900E6D58C /* CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D08227C87F900E6D58C /* CLLocationManager.swift */; };
 		A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */; };
 		A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55520876BE8001F81C2 /* Assets.xcassets */; };
 		A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */; };
@@ -81,6 +82,8 @@
 		A7B71D01227C716D00E6D58C /* RemoteService+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteService+Categories.swift"; sourceTree = "<group>"; };
 		A7B71D03227C763B00E6D58C /* RemoteService+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteService+Items.swift"; sourceTree = "<group>"; };
 		A7B71D05227C7B8D00E6D58C /* RemoteService+Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteService+Countries.swift"; sourceTree = "<group>"; };
+		A7B71D07227C82D700E6D58C /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		A7B71D08227C87F900E6D58C /* CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManager.swift; sourceTree = "<group>"; };
 		A7C7B54B20876BE8001F81C2 /* Nature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C7B55520876BE8001F81C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,6 +226,7 @@
 				A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */,
 				A7C7B55A20876BE8001F81C2 /* Info.plist */,
 				A79CC23320946782004FB98C /* Localizable.strings */,
+				A7B71D07227C82D700E6D58C /* BridgingHeader.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -263,6 +267,7 @@
 				A79CC23A209489F8004FB98C /* UIAlertController.swift */,
 				A7C7B57B20877544001F81C2 /* UIColor.swift */,
 				A7F555DB208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift */,
+				A7B71D08227C87F900E6D58C /* CLLocationManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				A7B71D00227C715600E6D58C /* HTTPError.swift in Sources */,
 				A7B71CFD227C713A00E6D58C /* Map.swift in Sources */,
 				A7B71CED227C710700E6D58C /* RemoteService.swift in Sources */,
+				A7B71D09227C87F900E6D58C /* CLLocationManager.swift in Sources */,
 				A7F555CD208B3DD40064CEA3 /* Theme.swift in Sources */,
 				A7B71D04227C763B00E6D58C /* RemoteService+Items.swift in Sources */,
 				A7C7B5A02087A5A3001F81C2 /* SettingsViewController.swift in Sources */,
@@ -672,6 +678,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.natureguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Nature/Supporting Files/BridgingHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -691,6 +698,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.natureguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Nature/Supporting Files/BridgingHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

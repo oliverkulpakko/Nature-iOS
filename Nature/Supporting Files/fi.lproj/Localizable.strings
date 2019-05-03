@@ -32,7 +32,11 @@
 "map.alert.new-bookmark.textfield.placeholder" = "Nimi";
 "map.alert.new-bookmark.button" = "Luo kirjanmerkki";
 
-"map.alert.tutorial.title" = "Lisää kirjanmerkki nykyiseen sijaintiin '+'-nappia painamalla, tai mihin tahansa sijaintiin pitämällä sormea pohjassa kartalla.";
+"map.empty.title" = "Lisää kirjanmerkki nykyiseen sijaintiin '+'-nappia painamalla, tai mihin tahansa sijaintiin pitämällä sormea pohjassa kartalla.";
+
+"map.location-not-allowed.title" = "Sijaintipalvelut poissa käytöstä";
+"map.location-not-allowed.message" = "Sijaintipalveluiden täytyy olla käytössä, jotta voisit lisätä kirjanmerkin nykyiseen sijaintiin.";
+"map.location-not-allowed.action" = "Avaa Asetukset";
 
 /* Settings */
 

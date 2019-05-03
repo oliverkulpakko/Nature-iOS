@@ -9,12 +9,12 @@
 import Foundation
 
 class BookmarkHelper {
-	class func fetchMapBookmarks(for item: Item, completion: @escaping (_ result: [MapBookmark]?) -> Void) {
+	class func fetchMapBookmarks(for item: Item, completion: @escaping (_ result: [MapBookmark]) -> Void) {
 		let fileName = "MapBookmarks" + ":" + item.id
 		
 		let bookmarks = Storage.retrieve(fileName, from: .documents, as: [MapBookmark].self)
 		
-		completion(bookmarks)
+		completion(bookmarks ?? [])
 	}
 	
 	class func storeMapBookmarks(for item: Item, bookmarks: [MapBookmark]) {
@@ -25,7 +25,7 @@ class BookmarkHelper {
 	
 	class func createMapBookmark(_ bookmark: MapBookmark, for item: Item, completion: @escaping () -> Void) {
 		fetchMapBookmarks(for: item, completion: { bookmarks in
-			var bookmarks = (bookmarks ?? [])
+			var bookmarks = bookmarks
 			
 			bookmarks.append(bookmark)
 			storeMapBookmarks(for: item, bookmarks: bookmarks)

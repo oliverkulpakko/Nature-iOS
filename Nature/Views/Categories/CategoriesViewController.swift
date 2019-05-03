@@ -9,8 +9,8 @@
 import UIKit
 
 class CategoriesViewController: BaseViewController {
-	
-	// MARK: View Lifecycle
+
+	// MARK: Lifecycle
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -19,15 +19,15 @@ class CategoriesViewController: BaseViewController {
 			reloadData()
 		}
 	}
-	
+
 	// MARK: BaseViewController
-	
+
 	override func setInterfaceStrings() {
 		super.setInterfaceStrings()
-		
+
 		title = "categories.title".localized
 	}
-	
+
 	override func setupViews() {
 		super.setupViews()
 		
@@ -56,21 +56,21 @@ class CategoriesViewController: BaseViewController {
 		super.reloadData()
 		
 		let country = UserDefaults.standard.string(forKey: "Country")
-		
+
 		refreshControl.beginRefreshing()
-		
+
 		RemoteService.shared.fetchCategories(country, completion: { result in
 			DispatchQueue.main.async {
 				self.refreshControl.endRefreshing()
-				
+
 				switch result {
 				case .success(let result):
 					self.categories = result
 					self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 				case .failure(let error):
-					self.showError(error)
+					self.presentError(error)
 				}
-				
+
 				UserDefaults.standard.set(false, forKey: "ForceRefreshData")
 			}
 		})
@@ -87,20 +87,17 @@ class CategoriesViewController: BaseViewController {
 	}
 	
 	func viewController(for indexPath: IndexPath) -> UIViewController {
-		let itemsViewController = ItemsViewController()
-		itemsViewController.category = categories[indexPath.row]
+		let itemsViewController = ItemsViewController(category: categories[indexPath.row])
 		
 		return itemsViewController
 	}
-	
-	// MARK: Instance Functions
-	
-	// MARK: Instance Variables
+
+	// MARK: Stored Properties
 	
 	var categories = [Category]()
-	
+
 	// MARK: IBOutlets
-	
+
 	@IBOutlet var tableView: UITableView!
 }
 

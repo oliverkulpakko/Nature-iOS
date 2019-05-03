@@ -13,7 +13,7 @@ import SafariServices
 
 class ItemViewController: BaseViewController {
 	
-	//MARK: View Lifecycle
+	//MARK: Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -49,11 +49,6 @@ class ItemViewController: BaseViewController {
 	override func reloadData() {
 		super.reloadData()
 		
-		if item == nil {
-			done()
-			return
-		}
-		
 		title = item.title
 		subtitleLabel.text = item.subtitle
 		
@@ -79,8 +74,19 @@ class ItemViewController: BaseViewController {
 	override func saveAnalytics() {
 		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: item.id)
 	}
-	
-	// MARK: Instance Functions
+
+	// MARK: Initializer
+
+	init(item: Item) {
+		self.item = item
+		super.init()
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	// MARK: Instance Methods
 	
 	@objc func showImageViewer() {
 		/*guard let image = imageView.image else {
@@ -127,8 +133,7 @@ class ItemViewController: BaseViewController {
 	}
 	
 	@objc func showMap() {
-		let mapViewController = MapViewController()
-		mapViewController.item = item
+		let mapViewController = MapViewController(item: item)
 		mapViewController.addDoneButton()
 		
 		let navigationController = UINavigationController(rootViewController: mapViewController)
@@ -136,9 +141,9 @@ class ItemViewController: BaseViewController {
 		present(navigationController, animated: true)
 	}
 	
-	// MARK: Instance Variables
+	// MARK: Stored Properties
 	
-	var item: Item!
+	var item: Item
 	
 	// MARK: IBOutlets
 	

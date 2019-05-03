@@ -11,7 +11,7 @@ import Imaginary
 
 class ItemsViewController: BaseViewController {
 
-	//MARK: View Lifecycle
+	//MARK: Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -54,10 +54,6 @@ class ItemsViewController: BaseViewController {
 	
 	override func reloadData() {
 		super.reloadData()
-
-		guard let category = category else {
-			return
-		}
 		
 		if let notice = category.notice, !UserDefaults.standard.bool(forKey: ("ShownNotice:" + category.id)) {
 			showAlert(title: notice)
@@ -77,17 +73,28 @@ class ItemsViewController: BaseViewController {
 					self.items = result
 					self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 				case .failure(let error):
-					self.showError(error)
+					self.presentError(error)
 				}
 			}
 		})
 	}
 	
 	override func saveAnalytics() {
-		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: category?.id ?? "")
+		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: category.id)
 	}
-	
-	// MARK: Instance Functions
+
+	// MARK: Initializers
+
+	init(category: Category) {
+		self.category = category
+		super.init()
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	// MARK: Instance Methods
 	
 	func filterItems(for text: String) {
 		filteredItems = items.filter({ item -> Bool in
@@ -107,13 +114,13 @@ class ItemsViewController: BaseViewController {
 		return searchController.isActive && !isSearchBarEmpty
 	}
 	
-	// MARK: Instance Variables
+	// MARK: Stored Properties
 	
 	var searchController = UISearchController(searchResultsController: nil)
 	
 	var filteredItems = [Item]()
 	var items = [Item]()
-	var category: Category?
+	var category: Category
 	
 	// MARK: IBOutlets
 	
@@ -131,7 +138,7 @@ extension ItemsViewController: UITableViewDelegate {
 			item = items[indexPath.row]
 		}
 		
-		let itemViewController = ItemViewController()
+		let itemViewController = ItemViewController(item: item)
 		itemViewController.item = item
 		
 		navigationController?.pushViewController(itemViewController, animated: true)
@@ -196,8 +203,7 @@ extension ItemsViewController: UIViewControllerPreviewingDelegate {
 				item = items[indexPath.row]
 			}
 			
-			let itemViewController = ItemViewController()
-			itemViewController.item = item
+			let itemViewController = ItemViewController(item: item)
 			
 			return itemViewController
 		}
