@@ -92,6 +92,9 @@ class RemoteService {
 				}
 			}
 		}
+
+		request.setValue("1", forHTTPHeaderField: "X-API-Version")
+		request.setValue(UIApplication.shared.appBuild, forHTTPHeaderField: "X-App-Version")
 	}
 
 	/// Get an error from `data` and `response`.

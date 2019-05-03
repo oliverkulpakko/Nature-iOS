@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Nature
+
+  Created by Oliver Kulpakko on 03/05/2019.
+  Copyright © 2019 Oliver Kulpakko. All rights reserved.
+*/
+
+"CFBundleName" = "Nature";
+"NSLocationWhenInUseUsageDescription" = "Location is used to show you on the map and to add bookmarks to your current location.";

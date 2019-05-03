@@ -24,6 +24,7 @@
 		A7B71D06227C7B8D00E6D58C /* RemoteService+Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D05227C7B8D00E6D58C /* RemoteService+Countries.swift */; };
 		A7B71D09227C87F900E6D58C /* CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71D08227C87F900E6D58C /* CLLocationManager.swift */; };
 		A7B71D0D227C89F100E6D58C /* Pods-Nature-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7B71D0C227C89F100E6D58C /* Pods-Nature-acknowledgements.plist */; };
+		A7B71D10227C943F00E6D58C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7B71D12227C943F00E6D58C /* InfoPlist.strings */; };
 		A7C7B54F20876BE8001F81C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */; };
 		A7C7B55620876BE8001F81C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55520876BE8001F81C2 /* Assets.xcassets */; };
 		A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */; };
@@ -86,6 +87,8 @@
 		A7B71D07227C82D700E6D58C /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		A7B71D08227C87F900E6D58C /* CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManager.swift; sourceTree = "<group>"; };
 		A7B71D0C227C89F100E6D58C /* Pods-Nature-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-Nature-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		A7B71D11227C943F00E6D58C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A7B71D13227C944000E6D58C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7C7B54B20876BE8001F81C2 /* Nature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C7B54E20876BE8001F81C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C7B55520876BE8001F81C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 				D61A89DA208F122900C7A7A6 /* FlagKit.xcassets */,
 				A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */,
 				A7C7B55A20876BE8001F81C2 /* Info.plist */,
+				A7B71D12227C943F00E6D58C /* InfoPlist.strings */,
 				A79CC23320946782004FB98C /* Localizable.strings */,
 				A7B71D07227C82D700E6D58C /* BridgingHeader.h */,
 				A7B71D0C227C89F100E6D58C /* Pods-Nature-acknowledgements.plist */,
@@ -443,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C7B58820877D0E001F81C2 /* ItemsViewController.xib in Resources */,
+				A7B71D10227C943F00E6D58C /* InfoPlist.strings in Resources */,
 				A7C7B5A12087A5A3001F81C2 /* SettingsViewController.xib in Resources */,
 				A7C7B55920876BE8001F81C2 /* LaunchScreen.storyboard in Resources */,
 				A7C7B58120877679001F81C2 /* CategoryCell.xib in Resources */,
@@ -562,6 +567,15 @@
 				A79CC237209467A0004FB98C /* fi */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A7B71D12227C943F00E6D58C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7B71D11227C943F00E6D58C /* en */,
+				A7B71D13227C944000E6D58C /* fi */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		A7C7B55720876BE8001F81C2 /* LaunchScreen.storyboard */ = {

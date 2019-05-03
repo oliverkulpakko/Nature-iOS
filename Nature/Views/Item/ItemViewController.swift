@@ -25,7 +25,6 @@ class ItemViewController: BaseViewController {
 		super.setupViews()
 		
 		let bookmarksButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showMap))
-		
 		let copyrightButton = UIBarButtonItem(image: UIImage(named: "item.button.copyright"), style: .plain, target: self, action: #selector(showCopyright))
 		
 		navigationItem.rightBarButtonItems = [copyrightButton, bookmarksButton]

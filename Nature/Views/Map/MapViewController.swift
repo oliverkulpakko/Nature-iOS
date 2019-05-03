@@ -138,7 +138,7 @@ class MapViewController: BaseViewController {
 			BookmarkHelper.createMapBookmark(bookmark, for: self.item, completion: {
 				self.reloadData()
 				
-				Analytics.log(action: "CreateMapBookmark", error: "", data1: self.item.id, data2: "")
+				Analytics.log(action: "CreateMapBookmark", error: "", data1: self.item.id, data2: text)
 			})
 		})
 		alert.addAction(currentLocationAction)
@@ -252,8 +252,6 @@ extension MapViewController: CLLocationManagerDelegate {
 
 			present(alert, animated: true)
 		}
-
-		Analytics.log(action: "LocationAuthorizationStatus", error: "", data1: String(describing: status), data2: "")
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
