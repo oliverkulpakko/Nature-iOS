@@ -18,6 +18,11 @@ class CategoriesViewController: BaseViewController {
 		if UserDefaults.standard.bool(forKey: "ForceRefreshData") {
 			reloadData()
 		}
+		
+		if AnalyticsStore.appLaunchCount > 5 && UserDefaults.standard.bool(forKey: "AskedForRating") {
+			RateHelper.showRatingPrompt()
+			UserDefaults.standard.set(true, forKey: "AskedForRating")
+		}
 	}
 
 	// MARK: BaseViewController

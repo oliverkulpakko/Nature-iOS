@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D5C82ABD992D773E4C628E8 /* libPods-Nature.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */; };
 		A7064F37208B3837006A2AF3 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7064F35208B3837006A2AF3 /* SwitchCell.swift */; };
 		A7064F38208B3837006A2AF3 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7064F36208B3837006A2AF3 /* SwitchCell.xib */; };
-		A76162E6208F8FCC00EDB23B /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E5208F8FCC00EDB23B /* Analytics.swift */; };
 		A76162E8208F969600EDB23B /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76162E7208F969600EDB23B /* Sequence.swift */; };
+		A7657D20227DFF9400C24DF0 /* AnalyticsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7657D1F227DFF9400C24DF0 /* AnalyticsStore.swift */; };
+		A7657D22227EA80F00C24DF0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7657D21227EA80F00C24DF0 /* UIViewController.swift */; };
 		A79CC23120946782004FB98C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A79CC23320946782004FB98C /* Localizable.strings */; };
 		A79CC23B209489F8004FB98C /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79CC23A209489F8004FB98C /* UIAlertController.swift */; };
 		A7B71CEA227C677B00E6D58C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B71CE9227C677B00E6D58C /* API.swift */; };
@@ -59,6 +59,7 @@
 		A7F555E6208B5E3D0064CEA3 /* TopoMapsAPI+MapTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555E5208B5E3D0064CEA3 /* TopoMapsAPI+MapTile.swift */; };
 		A7F555E8208B5E600064CEA3 /* TopoMapsAPI+MapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555E7208B5E600064CEA3 /* TopoMapsAPI+MapType.swift */; };
 		A7F555EA208B5E810064CEA3 /* MapTileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F555E9208B5E810064CEA3 /* MapTileCache.swift */; };
+		D45D47D6B280BEAD403F1807 /* Pods_Nature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6583EFBBC495DABFE145E9 /* Pods_Nature.framework */; };
 		D61A89D7208F0AB400C7A7A6 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A89D6208F0AB400C7A7A6 /* UIApplication.swift */; };
 		D61A89D9208F0D9C00C7A7A6 /* RateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */; };
 		D61A89DB208F122A00C7A7A6 /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D61A89DA208F122900C7A7A6 /* FlagKit.xcassets */; };
@@ -66,12 +67,12 @@
 
 /* Begin PBXFileReference section */
 		13C98E43ACC5C3CA780B266C /* Pods-Nature.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature.debug.xcconfig"; sourceTree = "<group>"; };
-		3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nature.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA6D4E0E351032FE136A1CF /* Pods-Nature.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nature/Pods-Nature.release.xcconfig"; sourceTree = "<group>"; };
 		A7064F35208B3837006A2AF3 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		A7064F36208B3837006A2AF3 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
-		A76162E5208F8FCC00EDB23B /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A76162E7208F969600EDB23B /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		A7657D1F227DFF9400C24DF0 /* AnalyticsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsStore.swift; sourceTree = "<group>"; };
+		A7657D21227EA80F00C24DF0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		A79CC2352094678F004FB98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A79CC2362094679E004FB98C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A79CC237209467A0004FB98C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		A7F555E5208B5E3D0064CEA3 /* TopoMapsAPI+MapTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopoMapsAPI+MapTile.swift"; sourceTree = "<group>"; };
 		A7F555E7208B5E600064CEA3 /* TopoMapsAPI+MapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopoMapsAPI+MapType.swift"; sourceTree = "<group>"; };
 		A7F555E9208B5E810064CEA3 /* MapTileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTileCache.swift; sourceTree = "<group>"; };
+		AA6583EFBBC495DABFE145E9 /* Pods_Nature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61A89D6208F0AB400C7A7A6 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateHelper.swift; sourceTree = "<group>"; };
 		D61A89DA208F122900C7A7A6 /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D5C82ABD992D773E4C628E8 /* libPods-Nature.a in Frameworks */,
+				D45D47D6B280BEAD403F1807 /* Pods_Nature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +147,7 @@
 		107C7EB985EC70D485EE7F38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3E3573EDC2C37E6C084E5CEE /* libPods-Nature.a */,
+				AA6583EFBBC495DABFE145E9 /* Pods_Nature.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,14 +159,6 @@
 				A7064F36208B3837006A2AF3 /* SwitchCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		A76162EE208F9D5E00EDB23B /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				A76162E5208F8FCC00EDB23B /* Analytics.swift */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		A7B71CEB227C70FC00E6D58C /* RemoteService */ = {
@@ -258,7 +252,7 @@
 				A7F555D7208B4C3E0064CEA3 /* Storage.swift */,
 				A7F555D9208B4C610064CEA3 /* BookmarkHelper.swift */,
 				D61A89D8208F0D9C00C7A7A6 /* RateHelper.swift */,
-				A76162EE208F9D5E00EDB23B /* Analytics */,
+				A7657D1F227DFF9400C24DF0 /* AnalyticsStore.swift */,
 				A7F555E0208B5DE90064CEA3 /* Topo Maps */,
 				A7C7B56520876C52001F81C2 /* Extensions */,
 			);
@@ -272,6 +266,7 @@
 				A76162E7208F969600EDB23B /* Sequence.swift */,
 				D61A89D6208F0AB400C7A7A6 /* UIApplication.swift */,
 				A79CC23A209489F8004FB98C /* UIAlertController.swift */,
+				A7657D21227EA80F00C24DF0 /* UIViewController.swift */,
 				A7C7B57B20877544001F81C2 /* UIColor.swift */,
 				A7F555DB208B4D9A0064CEA3 /* CLLocationCoordinate2D.swift */,
 				A7B71D08227C87F900E6D58C /* CLLocationManager.swift */,
@@ -396,7 +391,7 @@
 				A7C7B54720876BE8001F81C2 /* Sources */,
 				A7C7B54820876BE8001F81C2 /* Frameworks */,
 				A7C7B54920876BE8001F81C2 /* Resources */,
-				AF3029E6A099918CE43990A5 /* [CP] Copy Pods Resources */,
+				F25DA732DD6602784903A0E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -419,6 +414,7 @@
 				TargetAttributes = {
 					A7C7B54A20876BE8001F81C2 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -466,28 +462,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AF3029E6A099918CE43990A5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Nature/Pods-Nature-resources.sh",
-				"${PODS_ROOT}/AcknowList/Resources/AcknowList.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AcknowList.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nature/Pods-Nature-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DB581E4A6BBC3386DC808F65 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,6 +480,36 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F25DA732DD6602784903A0E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nature/Pods-Nature-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
+				"${BUILT_PRODUCTS_DIR}/Analytics/Analytics.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Analytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nature/Pods-Nature-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -520,9 +524,11 @@
 				A7C7B58320877B83001F81C2 /* Item.swift in Sources */,
 				A7C7B5972087887D001F81C2 /* ItemViewController.swift in Sources */,
 				A7F555DA208B4C610064CEA3 /* BookmarkHelper.swift in Sources */,
+				A7657D20227DFF9400C24DF0 /* AnalyticsStore.swift in Sources */,
 				A7C7B58E20877EDA001F81C2 /* ItemCell.swift in Sources */,
 				A7C7B57C20877544001F81C2 /* UIColor.swift in Sources */,
 				D61A89D7208F0AB400C7A7A6 /* UIApplication.swift in Sources */,
+				A7657D22227EA80F00C24DF0 /* UIViewController.swift in Sources */,
 				A7F555DF208B5DBD0064CEA3 /* MapType.swift in Sources */,
 				A7F555D8208B4C3E0064CEA3 /* Storage.swift in Sources */,
 				A7F555D3208B481A0064CEA3 /* MapViewController.swift in Sources */,
@@ -530,7 +536,6 @@
 				A7C7B57120877027001F81C2 /* Category.swift in Sources */,
 				A7B71D06227C7B8D00E6D58C /* RemoteService+Countries.swift in Sources */,
 				A7F555E6208B5E3D0064CEA3 /* TopoMapsAPI+MapTile.swift in Sources */,
-				A76162E6208F8FCC00EDB23B /* Analytics.swift in Sources */,
 				A7B71D00227C715600E6D58C /* HTTPError.swift in Sources */,
 				A7B71CFD227C713A00E6D58C /* Map.swift in Sources */,
 				A7B71CED227C710700E6D58C /* RemoteService.swift in Sources */,
@@ -641,7 +646,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -696,7 +701,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -720,7 +725,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.natureguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Nature/Supporting Files/BridgingHeader.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -740,7 +745,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.natureguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Nature/Supporting Files/BridgingHeader.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
