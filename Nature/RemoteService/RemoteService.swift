@@ -56,7 +56,19 @@ class RemoteService {
 			}
 
 			let decoder = JSONDecoder()
-			decoder.dateDecodingStrategy = .iso8601
+
+			if #available(iOS 10.0, *) {
+				decoder.dateDecodingStrategy = .iso8601
+			} else {
+				let dateFormatter = DateFormatter()
+
+				let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
+				dateFormatter.locale = enUSPosixLocale
+				dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+				dateFormatter.calendar = Calendar(identifier: .gregorian)
+
+				decoder.dateDecodingStrategy = .formatted(dateFormatter)
+			}
 
 			do {
 				let result = try decoder.decode(responseType, from: data)

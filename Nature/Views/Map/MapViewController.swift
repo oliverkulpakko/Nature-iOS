@@ -69,7 +69,7 @@ class MapViewController: BaseViewController {
 	}
 	
 	override func saveAnalytics() {
-		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: item.id)
+		analytics.logAction("OpenView", data1: String(describing: type(of: self)), data2: item.id)
 	}
 
 	// MARK: Initializers
@@ -138,7 +138,7 @@ class MapViewController: BaseViewController {
 			BookmarkHelper.createMapBookmark(bookmark, for: self.item, completion: {
 				self.reloadData()
 				
-				Analytics.log(action: "CreateMapBookmark", error: "", data1: self.item.id, data2: text)
+				analytics.logAction("CreateMapBookmark", data1: self.item.id, data2: text)
 			})
 		})
 		alert.addAction(currentLocationAction)
@@ -163,7 +163,7 @@ class MapViewController: BaseViewController {
 		if let mapType = mapType {
 			let tileOverlay = TileOverlay(mapTypeID: mapType.identifier)
 			DispatchQueue.main.async {
-				self.mapView.add(tileOverlay, level: .aboveRoads)
+				self.mapView.addOverlay(tileOverlay, level: .aboveRoads)
 				self.mapCopyrightLabel.text = "© " + mapType.copyright
 				self.mapCopyrightLabel.isHidden = false
 			}
@@ -243,14 +243,16 @@ extension MapViewController: CLLocationManagerDelegate {
 										  preferredStyle: .alert)
 
 			alert.addAction(UIAlertAction(title: "map.location-not-allowed.action".localized, style: .default, handler: { _ in
-				if let url = URL(string: UIApplicationOpenSettingsURLString) {
-					UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				if let url = URL(string: UIApplication.openSettingsURLString) {
+					self.openURL(url, modally: false)
 				}
 			}))
 
 			alert.addCancelAction()
 
 			present(alert, animated: true)
+		@unknown default:
+			break
 		}
 	}
 

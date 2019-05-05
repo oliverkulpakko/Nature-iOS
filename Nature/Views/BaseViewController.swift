@@ -22,10 +22,6 @@ class BaseViewController: UIViewController {
 		setInterfaceStrings()
 		
 		saveAnalytics()
-		
-		if Analytics.count(for: "OpenView") > 10 && Analytics.count(for: "AskForReview") == 0 {
-			RateHelper.showRatingPrompt()
-		}
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -81,9 +77,9 @@ class BaseViewController: UIViewController {
     @objc func reloadData() {}
 	
 	/// Save analytics data.
-	/// Override if something else needs to be sent. No need to call super whn
+	/// Override if something else needs to be sent. No need to call super when doing that.
 	func saveAnalytics() {
-		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: "")
+		analytics.logAction("OpenView", data1: String(describing: type(of: self)))
 	}
 
 	// MARK: Navigation

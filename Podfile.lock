@@ -1,5 +1,6 @@
 PODS:
   - AcknowList (1.8)
+  - Analytics (0.0.1)
   - Cache (5.2.0)
   - DZNEmptyDataSet (1.8.1)
   - Imaginary (4.2.0):
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - AcknowList
+  - Analytics (from `/Users/oliver/git/Analytics`)
   - DZNEmptyDataSet
   - Imaginary
 
@@ -17,12 +19,17 @@ SPEC REPOS:
     - DZNEmptyDataSet
     - Imaginary
 
+EXTERNAL SOURCES:
+  Analytics:
+    :path: "/Users/oliver/git/Analytics"
+
 SPEC CHECKSUMS:
   AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
+  Analytics: 615e8560c1a62129e7dcc4abc2fd498c377a36f0
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
 
-PODFILE CHECKSUM: 2e6f7f76e0e6e8e7e3a61e6973f909abc8150eda
+PODFILE CHECKSUM: d00912b1b595f7ddc51470c7b72141df4ccd9c33
 
 COCOAPODS: 1.6.0.beta.1

@@ -19,17 +19,21 @@ class RateHelper {
 	class func showRatingPrompt() {
 		if #available(iOS 10.3, *) {
 			SKStoreReviewController.requestReview()
-			Analytics.log(action: "AskForReview")
+			analytics.logAction("AskForReview")
 		} else {
-			Analytics.log(action: "AskForReview", error: "TooOldVersion", data1: "", data2: "")
+			analytics.logAction("AskForReview", error: "TooOldVersion")
 		}
 	}
 
 	private class func openAppStore(appID: String) {
-		guard let url = URL(string : "itms-apps://itunes.apple.com/app/id" + appID) else {
+		guard let url = URL(string: "itms-apps://itunes.apple.com/app/id" + appID) else {
 			return
 		}
 
-		UIApplication.shared.openURL(url)
+		if #available(iOS 10.0, *) {
+			UIApplication.shared.open(url, options: [:], completionHandler: nil)
+		} else {
+			UIApplication.shared.openURL(url)
+		}
 	}
 }

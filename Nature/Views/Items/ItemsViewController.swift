@@ -16,7 +16,11 @@ class ItemsViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		tableView.refreshControl = refreshControl
+		if #available(iOS 10.0, *) {
+			tableView.refreshControl = refreshControl
+		} else {
+			tableView.tableHeaderView = refreshControl
+		}
 
 		searchController.searchResultsUpdater = self
 		searchController.searchBar.placeholder = "items.search.placeholder".localized
@@ -80,7 +84,7 @@ class ItemsViewController: BaseViewController {
 	}
 	
 	override func saveAnalytics() {
-		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: category.id)
+		analytics.logAction("OpenView", data1: String(describing: type(of: self)), data2: category.id)
 	}
 
 	// MARK: Initializers

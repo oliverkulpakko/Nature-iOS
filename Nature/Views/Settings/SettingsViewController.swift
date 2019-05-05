@@ -141,7 +141,7 @@ extension SettingsViewController: UITableViewDataSource {
 			cell.didToggle = {
 				UserDefaults.standard.set(cell.switch.isOn, forKey: setting.userDefaultsKey)
 
-				Analytics.log(action: "SwitchSetting", error: "", data1: setting.title, data2: String(cell.switch.isOn))
+				analytics.logAction("SwitchSetting", data1: setting.title, data2: String(cell.switch.isOn))
 			}
 
 			cell.titleLabel.textColor = Theme.current.textColor
@@ -213,7 +213,7 @@ extension SettingsViewController: UITableViewDelegate {
 					return
 				}
 
-				UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				openURL(url, modally: false)
 			case .acknowledgements:
 				let viewController = AcknowListViewController()
 				viewController.title = "settings.about.acknowledgements".localized

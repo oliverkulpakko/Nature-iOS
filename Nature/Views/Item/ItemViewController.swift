@@ -71,7 +71,7 @@ class ItemViewController: BaseViewController {
 	}
 	
 	override func saveAnalytics() {
-		Analytics.log(action: "OpenView", error: "", data1: String(describing: type(of: self)), data2: item.id)
+		analytics.logAction("OpenView", data1: String(describing: type(of: self)), data2: item.id, error: nil)
 	}
 
 	// MARK: Initializer

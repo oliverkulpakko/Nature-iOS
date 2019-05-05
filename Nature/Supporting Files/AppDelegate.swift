@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import Analytics
+
+let analytics = AnalyticsService(user: AnalyticsStore.analyticsID)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		checkUpdate()
-		
 		showInitialViewController()
+
+		AnalyticsStore.appLaunchCount += 1
+		analytics.logAction("LaunchApp")
 		
         return true
     }
@@ -38,9 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let currentVersion = UIApplication.shared.appBuild
 		
 		if let lastVersion = lastVersion, (lastVersion != currentVersion) {
-			Analytics.log(action: "UpdateApp", error: "", data1: lastVersion, data2: currentVersion)
-			
-			UserDefaults.standard.set(true, forKey: "ForceRefreshData")
+			analytics.logAction("UpdateApp", data1: lastVersion, data2: currentVersion)
 		}
 		
 		UserDefaults.standard.set(currentVersion, forKey: "AppLastVersion")
