@@ -32,6 +32,7 @@ class ItemsViewController: BaseViewController {
 			searchController.obscuresBackgroundDuringPresentation = false
 		} else {
 			tableView.tableHeaderView = searchController.searchBar
+			searchController.dimsBackgroundDuringPresentation = false
 		}
 	}
 	
