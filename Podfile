@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '9.0'
 
 target 'Nature' do
   use_frameworks!
@@ -7,5 +7,5 @@ target 'Nature' do
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
 
-  pod 'Analytics', :path => '/Users/oliver/git/Analytics'
+  pod 'Analytics', :git => 'https://github.com/oliverkulpakko/Analytics.git'
 end

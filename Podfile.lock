@@ -8,7 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - AcknowList
-  - Analytics (from `/Users/oliver/git/Analytics`)
+  - Analytics (from `https://github.com/oliverkulpakko/Analytics.git`)
   - DZNEmptyDataSet
   - Imaginary
 
@@ -21,15 +21,20 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Analytics:
-    :path: "/Users/oliver/git/Analytics"
+    :git: https://github.com/oliverkulpakko/Analytics.git
+
+CHECKOUT OPTIONS:
+  Analytics:
+    :commit: 80d395bb8100a077814774c9ceb1a87a43fcd897
+    :git: https://github.com/oliverkulpakko/Analytics.git
 
 SPEC CHECKSUMS:
   AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
-  Analytics: 615e8560c1a62129e7dcc4abc2fd498c377a36f0
+  Analytics: 4f25709936f0ecf5adaaabc96986878e18ca629f
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
 
-PODFILE CHECKSUM: d00912b1b595f7ddc51470c7b72141df4ccd9c33
+PODFILE CHECKSUM: e9cbb371ca70ff80171d8f4a5f1c5a469d2a3203
 
 COCOAPODS: 1.6.0.beta.1
