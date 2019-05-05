@@ -9,7 +9,6 @@
 import UIKit
 import Imaginary
 //import Lightbox
-import SafariServices
 
 class ItemViewController: BaseViewController {
 	
@@ -110,18 +109,14 @@ class ItemViewController: BaseViewController {
 		
 		if let url = URL(string: item.detailURL) {
 			let action = UIAlertAction(title: "item.alert.copyright.button.article".localized, style: .default, handler: { action in
-				let safariViewController = SFSafariViewController(url: url)
-				
-				self.present(safariViewController, animated: true)
+				self.openURL(url, modally: true)
 			})
 			alert.addAction(action)
 		}
 		
 		if let url = URL(string: item.image?.source ?? "") {
 			let action = UIAlertAction(title: "item.alert.copyright.button.image".localized, style: .default, handler: { action in
-				let safariViewController = SFSafariViewController(url: url)
-				
-				self.present(safariViewController, animated: true)
+				self.openURL(url, modally: true)
 			})
 			alert.addAction(action)
 		}
