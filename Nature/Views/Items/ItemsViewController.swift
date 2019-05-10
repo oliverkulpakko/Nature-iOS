@@ -179,10 +179,10 @@ extension ItemsViewController: UITableViewDataSource {
 		cell.subtitleLabel.text = item.subtitle
 		
 		if item.subtitle.isEmpty && UserDefaults.standard.bool(forKey: "ItemShowLatinNameWhenSubtitleIsUnavailable") {
-			cell.subtitleLabel.text = item.latinName
+			cell.subtitleLabel.text = item.scientificName
 		}
 		
-		if let url = URL(string: item.image?.url ?? "") {
+		if let urlString = item.images.first?.url, let url = URL(string: urlString) {
 			cell.backgroundImageView.setImage(url: url)
 		}
 		

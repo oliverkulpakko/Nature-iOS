@@ -12,8 +12,11 @@ struct Item: Codable {
 	let id: String
 	let title: String
 	let subtitle: String
+	let scientificName: String?
+
 	private let description: String
-	let image: Image?
+	
+	let images: [Image]
 	let detailURL: String
 	
 	// MARK: Computed Properties
@@ -24,12 +27,8 @@ struct Item: Codable {
 		return html.htmlToAttributedString ?? NSAttributedString(string: description)
 	}
 	
-	var latinName: String? {
-		return description.slice(from: "</b> (<i>", to: "</i>") // This is very hacky, but it works
-	}
-	
 	var searchText: String {
-		return title + ":" + subtitle + ":" + (latinName ?? "")
+		return title + ":" + subtitle + ":" + (scientificName ?? "")
 	}
 
 	struct Image: Codable {

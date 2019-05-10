@@ -1,16 +1,19 @@
 PODS:
   - AcknowList (1.8)
-  - Analytics (0.0.1)
+  - Analytics (0.0.2)
   - Cache (5.2.0)
   - DZNEmptyDataSet (1.8.1)
   - Imaginary (4.2.0):
     - Cache (~> 5.0)
+  - Lightbox (2.3.0):
+    - Imaginary (~> 4.0)
 
 DEPENDENCIES:
   - AcknowList
   - Analytics (from `https://github.com/oliverkulpakko/Analytics.git`)
   - DZNEmptyDataSet
   - Imaginary
+  - Lightbox
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -18,6 +21,7 @@ SPEC REPOS:
     - Cache
     - DZNEmptyDataSet
     - Imaginary
+    - Lightbox
 
 EXTERNAL SOURCES:
   Analytics:
@@ -25,16 +29,17 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Analytics:
-    :commit: 80d395bb8100a077814774c9ceb1a87a43fcd897
+    :commit: 09f4e2bf5f3bfedaac976130e47767cbd766f7b7
     :git: https://github.com/oliverkulpakko/Analytics.git
 
 SPEC CHECKSUMS:
   AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
-  Analytics: 4f25709936f0ecf5adaaabc96986878e18ca629f
+  Analytics: 0abc6e5a8616abdd0d2bbb88c17c64be333c6ac9
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
+  Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
 
-PODFILE CHECKSUM: e9cbb371ca70ff80171d8f4a5f1c5a469d2a3203
+PODFILE CHECKSUM: e1020203e0f5d4ef33e78a159579b8018c69b9d7
 
 COCOAPODS: 1.6.0.beta.1

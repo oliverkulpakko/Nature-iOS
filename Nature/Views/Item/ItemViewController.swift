@@ -8,7 +8,7 @@
 
 import UIKit
 import Imaginary
-//import Lightbox
+import Lightbox
 
 class ItemViewController: BaseViewController {
 	
@@ -51,12 +51,12 @@ class ItemViewController: BaseViewController {
 		subtitleLabel.text = item.subtitle
 		
 		if item.subtitle.isEmpty && UserDefaults.standard.bool(forKey: "ItemShowLatinNameWhenSubtitleIsUnavailable") {
-			subtitleLabel.text = item.latinName
+			subtitleLabel.text = item.scientificName
 		}
 		
 		textView.attributedText = item.attributedDescription
 		
-		if let url = URL(string: item.image?.url ?? "") {
+		if let urlString = item.images.first?.url, let url = URL(string: urlString) {
 			if !UserDefaults.standard.bool(forKey: "UseSimpleItemView") {
 				backgroundImageView.setImage(url: url)
 			}
@@ -87,21 +87,18 @@ class ItemViewController: BaseViewController {
 	// MARK: Instance Methods
 	
 	@objc func showImageViewer() {
-		/*guard let image = imageView.image else {
-			return
+		let images: [LightboxImage] = item.images.compactMap {
+			guard let url = URL(string: $0.url) else {
+				return nil
+			}
+
+			return LightboxImage(imageURL: url, text: $0.description, videoURL: nil)
 		}
-		
-		let images = [
-			LightboxImage(
-				image: image,
-				text: item.image?.description ?? ""
-			)
-		]
 		
 		let controller = LightboxController(images: images)
 		controller.dynamicBackground = true
 		
-		present(controller, animated: true, completion: nil)*/
+		present(controller, animated: true, completion: nil)
 	}
 	
 	@objc func showCopyright() {
@@ -114,7 +111,7 @@ class ItemViewController: BaseViewController {
 			alert.addAction(action)
 		}
 		
-		if let url = URL(string: item.image?.source ?? "") {
+		if let urlString = item.images.first?.source, let url = URL(string: urlString) {
 			let action = UIAlertAction(title: "item.alert.copyright.button.image".localized, style: .default, handler: { action in
 				self.openURL(url, modally: true)
 			})
