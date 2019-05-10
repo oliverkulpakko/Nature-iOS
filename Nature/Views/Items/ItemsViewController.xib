@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemsViewController" customModule="Nature" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="uLL-is-Hmk" id="vJ1-cg-ifw"/>
+                <outlet property="collectionView" destination="vVr-a7-oLm" id="8qD-Rt-lgW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,26 +21,31 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="240" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uLL-is-Hmk">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vVr-a7-oLm">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="Tb7-Ys-xU0" customClass="ItemsFlowLayout" customModule="Nature" customModuleProvider="target">
+                        <size key="itemSize" width="0.0" height="220"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
+                    </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="NAV-kJ-XW1"/>
-                        <outlet property="delegate" destination="-1" id="TdQ-XS-UVN"/>
+                        <outlet property="dataSource" destination="-1" id="amq-xz-5Np"/>
+                        <outlet property="delegate" destination="-1" id="mGb-HY-S3a"/>
                     </connections>
-                </tableView>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstItem="uLL-is-Hmk" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="O4Q-so-hd0"/>
-                <constraint firstItem="uLL-is-Hmk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QTG-61-gV8"/>
-                <constraint firstItem="uLL-is-Hmk" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="h81-Q4-SAF"/>
-                <constraint firstItem="uLL-is-Hmk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hlW-me-H3F"/>
+                <constraint firstAttribute="bottom" secondItem="vVr-a7-oLm" secondAttribute="bottom" id="OGT-IO-vYV"/>
+                <constraint firstItem="vVr-a7-oLm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UU4-if-aQR"/>
+                <constraint firstItem="vVr-a7-oLm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ixX-pG-2SF"/>
+                <constraint firstAttribute="trailing" secondItem="vVr-a7-oLm" secondAttribute="trailing" id="kaq-Qe-njk"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>
     </objects>
 </document>
