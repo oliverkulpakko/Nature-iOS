@@ -17,9 +17,7 @@ class ItemsViewController: BaseViewController {
 		super.viewDidLoad()
 
 		if #available(iOS 10.0, *) {
-			tableView.refreshControl = refreshControl
-		} else {
-			tableView.tableHeaderView = refreshControl
+			collectionView.refreshControl = refreshControl
 		}
 
 		searchController.searchResultsUpdater = self
@@ -30,9 +28,6 @@ class ItemsViewController: BaseViewController {
 			navigationItem.searchController = searchController
 			navigationItem.hidesSearchBarWhenScrolling = UserDefaults.standard.bool(forKey: "HideSearchWhenScrolling")
 			searchController.obscuresBackgroundDuringPresentation = false
-		} else {
-			tableView.tableHeaderView = searchController.searchBar
-			searchController.dimsBackgroundDuringPresentation = false
 		}
 	}
 	
@@ -41,8 +36,8 @@ class ItemsViewController: BaseViewController {
 	override func setupViews() {
 		super.setupViews()
 		
-		registerForPreviewing(with: self, sourceView: tableView)
-		tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
+		registerForPreviewing(with: self, sourceView: collectionView)
+		collectionView.register(UINib(nibName: "ItemCell", bundle: nil), forCellWithReuseIdentifier: "ItemCell")
 	}
 	
 	override func updateTheme() {
@@ -52,9 +47,8 @@ class ItemsViewController: BaseViewController {
 		searchController.searchBar.keyboardAppearance = Theme.current.keyboardAppearance
 		
 		view.backgroundColor = Theme.current.viewBackgroundColor
-		
-		tableView.separatorColor = Theme.current.tableViewSeparatorColor
-		tableView.reloadData()
+
+		collectionView.reloadData()
 	}
 	
 	override func reloadData() {
@@ -76,7 +70,7 @@ class ItemsViewController: BaseViewController {
 				switch result {
 				case .success(let result):
 					self.items = result
-					self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+					self.collectionView.reloadSections(IndexSet(integer: 0))
 				case .failure(let error):
 					self.presentError(error)
 				}
@@ -106,7 +100,7 @@ class ItemsViewController: BaseViewController {
 			return item.searchText.lowercased().contains(text.lowercased())
 		})
 		
-		tableView.reloadData()
+		collectionView.reloadData()
 	}
 	
 	// MARK: Calculated Properties
@@ -129,13 +123,11 @@ class ItemsViewController: BaseViewController {
 	
 	// MARK: IBOutlets
 	
-	@IBOutlet var tableView: UITableView!
+	@IBOutlet var collectionView: UICollectionView!
 }
 
-extension ItemsViewController: UITableViewDelegate {
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-		
+extension ItemsViewController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let item: Item
 		if isSearching {
 			item = filteredItems[indexPath.row]
@@ -148,25 +140,19 @@ extension ItemsViewController: UITableViewDelegate {
 		
 		navigationController?.pushViewController(itemViewController, animated: true)
 	}
-	
-	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return UIScreen.main.bounds.height / 3.5
-	}
 }
 
-extension ItemsViewController: UITableViewDataSource {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ItemsViewController: UICollectionViewDataSource {
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		if isSearching {
 			return filteredItems.count
 		}
 		
 		return items.count
 	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else {
-			return UITableViewCell()
-		}
+
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
 		
 		let item: Item
 		if isSearching {
@@ -185,8 +171,17 @@ extension ItemsViewController: UITableViewDataSource {
 		if let urlString = item.images.first?.url, let url = URL(string: urlString) {
 			cell.backgroundImageView.setImage(url: url)
 		}
+
+		cell.layer.cornerRadius = 8
+		cell.clipsToBounds = true
 		
 		return cell
+	}
+}
+
+extension ItemsViewController: UICollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return CGSize(width: collectionView.frame.width - 16, height: 220)
 	}
 }
 
@@ -198,8 +193,8 @@ extension ItemsViewController: UISearchResultsUpdating {
 
 extension ItemsViewController: UIViewControllerPreviewingDelegate {
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-		if let indexPath = tableView.indexPathForRow(at: location) {
-			previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+		if let indexPath = collectionView.indexPathForItem(at: location) {
+			previewingContext.sourceRect = collectionView.bounds
 			
 			let item: Item
 			if isSearching {

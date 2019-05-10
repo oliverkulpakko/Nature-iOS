@@ -42,7 +42,6 @@ class SettingsViewController: BaseViewController {
 			Setting(title: "simple-item-view", userDefaultsKey: "UseSimpleItemView"),
 			Setting(title: "disable-map-overlay", userDefaultsKey: "DisableMapOverlay"),
 			Setting(title: "hide-search-when-scrolling", userDefaultsKey: "HideSearchWhenScrolling"),
-			Setting(title: "force-reload-data", userDefaultsKey: "ForceRefreshData"),
 			Setting(title: "disable-analytics", userDefaultsKey: "DisableServerAnalytics")
 		]
 
