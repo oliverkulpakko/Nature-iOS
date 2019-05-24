@@ -168,7 +168,7 @@ extension ItemsViewController: UICollectionViewDataSource {
 			cell.subtitleLabel.text = item.scientificName
 		}
 		
-		if let urlString = item.images.first?.url, let url = URL(string: urlString) {
+		if let urlString = item.images.first?.thumbnailURL, let url = URL(string: urlString) {
 			cell.backgroundImageView.setImage(url: url)
 		}
 
