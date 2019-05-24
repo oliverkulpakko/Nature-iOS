@@ -15,10 +15,6 @@ class CategoriesViewController: BaseViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		if UserDefaults.standard.bool(forKey: "ForceRefreshData") {
-			reloadData()
-		}
-		
 		if AnalyticsStore.appLaunchCount > 5 && UserDefaults.standard.bool(forKey: "AskedForRating") {
 			RateHelper.showRatingPrompt()
 			UserDefaults.standard.set(true, forKey: "AskedForRating")

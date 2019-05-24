@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = CategoriesViewController()
         
         let navigationController = UINavigationController(rootViewController: viewController)
-		
+
 		window?.tintColor = Theme.current.tintColor
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

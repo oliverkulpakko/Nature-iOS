@@ -32,24 +32,22 @@ struct Item: Codable {
 	}
 
 	struct Image: Codable {
-		let id: Int
+		let id: String
+
 		let url: String
-		let user: String
-		let title: String
-		let source: String
-		let license: String
-		let timestamp: Date
+		let thumbnailURL: String
 
-		// MARK: Computed Variables
+		let size: Size
+		let attribution: Attribution?
 
-		var description: String {
-			let dateFormatter = DateFormatter()
-			dateFormatter.dateStyle = .medium
-			dateFormatter.timeStyle = .medium
+		struct Size: Codable {
+			let width: Int
+			let height: Int
+		}
 
-			return title + "\n\n" +
-				dateFormatter.string(from: timestamp) + "\n\n" +
-				license + ", © " + user
+		struct Attribution: Codable {
+			let value: String
+			let url: String?
 		}
 	}
 }

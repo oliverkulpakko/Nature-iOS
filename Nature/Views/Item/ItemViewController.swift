@@ -56,9 +56,9 @@ class ItemViewController: BaseViewController {
 		
 		textView.attributedText = item.attributedDescription
 		
-		if let urlString = item.images.first?.url, let url = URL(string: urlString) {
+		if let image = item.images.first, let url = URL(string: image.url), let thumbnailUrl = URL(string: image.thumbnailURL) {
 			if !UserDefaults.standard.bool(forKey: "UseSimpleItemView") {
-				backgroundImageView.setImage(url: url)
+				backgroundImageView.setImage(url: thumbnailUrl)
 			}
 
 			imageView.setImage(url: url)
@@ -92,7 +92,7 @@ class ItemViewController: BaseViewController {
 				return nil
 			}
 
-			return LightboxImage(imageURL: url, text: $0.description, videoURL: nil)
+			return LightboxImage(imageURL: url, text: $0.attribution?.value ?? "", videoURL: nil)
 		}
 		
 		let controller = LightboxController(images: images)
@@ -111,7 +111,7 @@ class ItemViewController: BaseViewController {
 			alert.addAction(action)
 		}
 		
-		if let urlString = item.images.first?.source, let url = URL(string: urlString) {
+		if let urlString = item.images.first?.attribution?.url, let url = URL(string: urlString) {
 			let action = UIAlertAction(title: "item.alert.copyright.button.image".localized, style: .default, handler: { action in
 				self.openURL(url, modally: true)
 			})
