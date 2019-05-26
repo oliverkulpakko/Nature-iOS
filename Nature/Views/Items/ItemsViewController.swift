@@ -181,7 +181,7 @@ extension ItemsViewController: UICollectionViewDataSource {
 
 extension ItemsViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: collectionView.frame.width - 16, height: 220)
+		return CGSize(width: collectionView.frame.width - 16, height: 240)
 	}
 }
 

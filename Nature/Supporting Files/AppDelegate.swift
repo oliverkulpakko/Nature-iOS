@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 		
         let viewController = CategoriesViewController()
-        
+
         let navigationController = UINavigationController(rootViewController: viewController)
 
 		window?.tintColor = Theme.current.tintColor

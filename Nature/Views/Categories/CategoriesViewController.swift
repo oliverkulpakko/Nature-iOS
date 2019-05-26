@@ -14,7 +14,7 @@ class CategoriesViewController: BaseViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		
+
 		if AnalyticsStore.appLaunchCount > 5 && UserDefaults.standard.bool(forKey: "AskedForRating") {
 			RateHelper.showRatingPrompt()
 			UserDefaults.standard.set(true, forKey: "AskedForRating")
@@ -35,7 +35,7 @@ class CategoriesViewController: BaseViewController {
 		registerForPreviewing(with: self, sourceView: tableView)
 		
 		tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
-		
+
 		if #available(iOS 10.0, *) {
 			tableView.refreshControl = refreshControl
 		} else {
@@ -126,7 +126,7 @@ extension CategoriesViewController: UITableViewDataSource {
 		cell.categoryNameLabel.text = category.name
 		cell.countLabel.text = String(format: "categories.items.%i".localized, category.itemCount)
 		cell.categoryImageView.image = category.image
-		
+
 		cell.backgroundColor = category.color
 		cell.tintColor = category.useLightText ? Theme.dark.textColor : Theme.light.textColor
 		

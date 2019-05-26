@@ -23,8 +23,8 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vVr-a7-oLm">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="Tb7-Ys-xU0" customClass="ItemsFlowLayout" customModule="Nature" customModuleProvider="target">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="Tb7-Ys-xU0" customClass="ItemsFlowLayout" customModule="Nature" customModuleProvider="target">
                         <size key="itemSize" width="0.0" height="220"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -36,7 +36,6 @@
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="vVr-a7-oLm" secondAttribute="bottom" id="OGT-IO-vYV"/>
                 <constraint firstItem="vVr-a7-oLm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UU4-if-aQR"/>
