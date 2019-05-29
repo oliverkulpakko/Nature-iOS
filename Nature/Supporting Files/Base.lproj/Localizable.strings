@@ -21,6 +21,14 @@
 "item.alert.copyright.button.article" = "Description Source";
 "item.alert.copyright.button.image" = "Image Source";
 
+/* Classifier */
+
+"classifier.title" = "Identifier (beta)";
+"classifier.notice" = "This feature is only at beta stage and should not be considered 100% correct. Do not eat or purchase anything unless you are completely sure about its edibility. The developer can not be held responsible for any issues or wrong information. By using this feature you are agreeing to these terms.";
+
+"classifier.import.camera" = "Camera";
+"classifier.import.library" = "Photo Library";
+
 /* Map */
 
 "map.title" = "Map Bookmarks";
