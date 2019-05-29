@@ -106,7 +106,8 @@ class RemoteService {
 		}
 
 		let headers: [String: String] = [
-			"X-API-Version": "3",
+			"X-Api-Version": "3",
+			"X-Api-Key": "6c2bcfe0-862e-4564-8d5b-8110397306e2",
 			"X-App-Version": UIApplication.shared.appBuild,
 			"X-App-ID": Bundle.main.bundleIdentifier ?? ""
 		]
