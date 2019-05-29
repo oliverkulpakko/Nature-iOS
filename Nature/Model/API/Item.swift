@@ -36,6 +36,7 @@ struct Item: Codable {
 
 		let url: String
 		let thumbnailURL: String
+		let fullSizeURL: String
 
 		let size: Size
 		let attribution: Attribution?

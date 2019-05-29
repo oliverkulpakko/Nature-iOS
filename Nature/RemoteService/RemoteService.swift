@@ -105,8 +105,16 @@ class RemoteService {
 			}
 		}
 
-		request.setValue("2", forHTTPHeaderField: "X-API-Version")
-		request.setValue(UIApplication.shared.appBuild, forHTTPHeaderField: "X-App-Version")
+		let headers: [String: String] = [
+			"X-Api-Version": "3",
+			"X-Api-Key": "6c2bcfe0-862e-4564-8d5b-8110397306e2",
+			"X-App-Version": UIApplication.shared.appBuild,
+			"X-App-ID": Bundle.main.bundleIdentifier ?? ""
+		]
+
+		for (key, value) in headers {
+			request.setValue(value, forHTTPHeaderField: key)
+		}
 	}
 
 	/// Get an error from `data` and `response`.

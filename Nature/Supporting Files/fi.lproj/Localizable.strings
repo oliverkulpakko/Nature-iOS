@@ -21,6 +21,14 @@
 "item.alert.copyright.button.article" = "Lajikuvauksen lähde";
 "item.alert.copyright.button.image" = "Kuvan lähde";
 
+/* Classifier */
+
+"classifier.title" = "Tunnistaminen (beta)";
+"classifier.notice" = "Tämä ominaisuus on vasta beta-vaiheessa, eikä siihen tule luottaa täysin. Älä syö tai osta mitään, joista et ole itse täysin varma. Kehittäjä ei ole vastuussa mahdollisista virheistä tai ongelmista. Käyättämällä ominaisuutta hyväksyt nämä ehdot.";
+
+"classifier.import.camera" = "Kamera";
+"classifier.import.library" = "Kuvakirjasto";
+
 /* Map */
 "map.title" = "Kirjanmerkit (kartta)";
 

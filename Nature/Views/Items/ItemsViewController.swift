@@ -28,7 +28,17 @@ class ItemsViewController: BaseViewController {
 			navigationItem.searchController = searchController
 			navigationItem.hidesSearchBarWhenScrolling = UserDefaults.standard.bool(forKey: "HideSearchWhenScrolling")
 			searchController.obscuresBackgroundDuringPresentation = false
+
+		/*	navigationItem.rightBarButtonItems = [
+				UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(toCamera))
+			]*/
 		}
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		navigationController?.setToolbarHidden(true, animated: true)
 	}
 	
 	// MARK: BaseViewController
@@ -91,6 +101,15 @@ class ItemsViewController: BaseViewController {
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	// MARK: Navigaiton
+
+	@available(iOS 11.0, *)
+	@objc func toCamera() {
+		let viewController = ClassifierViewController(items: items, category: category)
+		
+		navigationController?.pushViewController(viewController, animated: true)
 	}
 
 	// MARK: Instance Methods
@@ -181,7 +200,7 @@ extension ItemsViewController: UICollectionViewDataSource {
 
 extension ItemsViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: collectionView.frame.width - 16, height: 220)
+		return CGSize(width: collectionView.frame.width - 16, height: 240)
 	}
 }
 

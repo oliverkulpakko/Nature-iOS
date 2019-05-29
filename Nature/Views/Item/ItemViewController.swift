@@ -17,6 +17,12 @@ class ItemViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		navigationController?.setToolbarHidden(true, animated: true)
+	}
 	
 	// MARK: BaseViewController
 	
@@ -32,13 +38,14 @@ class ItemViewController: BaseViewController {
 	override func updateTheme() {
 		super.updateTheme()
 
+		view.backgroundColor = Theme.current.viewBackgroundColor
+
 		if UserDefaults.standard.bool(forKey: "UseSimpleItemView") {
-			view.backgroundColor = Theme.current.viewBackgroundColor
 			backgroundVisualEffectView.isHidden = true
-			imageDarkenerView.isHidden = true
 			textView.textColor = Theme.current.textColor
 			subtitleLabel.textColor = Theme.current.textColor
 		} else {
+			backgroundVisualEffectView.isHidden = false
 			textView.textColor = .white
 			subtitleLabel.textColor = .white
 		}
@@ -88,7 +95,7 @@ class ItemViewController: BaseViewController {
 	
 	@objc func showImageViewer() {
 		let images: [LightboxImage] = item.images.compactMap {
-			guard let url = URL(string: $0.url) else {
+			guard let url = URL(string: $0.fullSizeURL) else {
 				return nil
 			}
 
@@ -139,7 +146,6 @@ class ItemViewController: BaseViewController {
 	// MARK: IBOutlets
 	
     @IBOutlet var backgroundImageView: UIImageView!
-	@IBOutlet var imageDarkenerView: UIView!
     @IBOutlet var backgroundVisualEffectView: UIVisualEffectView!
     
     @IBOutlet var scrollView: UIScrollView!
