@@ -17,15 +17,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.2</string>
 	<key>CFBundleVersion</key>
-	<string>1020</string>
+	<string>1021</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Camera is used to classify images</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>used to import pictures and classify them</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera is used to classify images</string>
+	<string>used to import pictures and classify them</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>used to show your location on the map</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
