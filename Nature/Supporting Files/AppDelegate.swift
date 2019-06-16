@@ -9,11 +9,7 @@
 import UIKit
 import Analytics
 
-#if DEBUG
-let analytics = AnalyticsService(user: AnalyticsStore.analyticsID, environment: .development)
-#else
 let analytics = AnalyticsService(user: AnalyticsStore.analyticsID, environment: .production)
-#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

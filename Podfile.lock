@@ -1,6 +1,6 @@
 PODS:
   - AcknowList (1.9)
-  - Analytics (0.0.2)
+  - Analytics (0.0.3)
   - Cache (5.2.0)
   - DZNEmptyDataSet (1.8.1)
   - Imaginary (4.2.0):
@@ -29,12 +29,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Analytics:
-    :commit: 09f4e2bf5f3bfedaac976130e47767cbd766f7b7
+    :commit: 1ff4a11606ff0bec0de60401e0b45426f9d6ab13
     :git: https://github.com/oliverkulpakko/Analytics.git
 
 SPEC CHECKSUMS:
   AcknowList: 06fde3319971dfd517ea1b1c194d78eb8cd774a2
-  Analytics: a3aa84ab50f2040e0a0bf4dbe338cd68b10b6cd7
+  Analytics: de31e3b42cc7dfbe0d6c5cdf21a49a549d070abd
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
@@ -42,4 +42,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: e1020203e0f5d4ef33e78a159579b8018c69b9d7
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.7.2
