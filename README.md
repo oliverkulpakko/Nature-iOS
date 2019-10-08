@@ -12,4 +12,4 @@ An iOS App with over 1400 Finnish trees, mammals, mushrooms, butterflies, flower
 
 MIT License
 
-You are NOT allowed to use any of my data or APIs. Also, do not just copy the app and put it on the App Store. Somebody has already done that. Your app will be blocked from accessing my servers and I will also report you to Apple.
+You are not allowed to use the data supplied by the app's private servers.
