@@ -19,16 +19,18 @@ struct Theme {
 	
 	var tableViewSeparatorColor: UIColor
 	var cellBackgroundColor: UIColor
-	
+
 	static var current: Theme {
-		if UserDefaults.standard.bool(forKey: "UseDarkTheme") {
-			return .dark
+		if #available(iOS 13.0, *) {
+			return Theme(tintColor: UIColor(red: 0.02, green: 0.71, blue: 0.13, alpha: 1.0),
+						 barStyle: .default,
+						 keyboardAppearance: .default,
+						 viewBackgroundColor: .systemGroupedBackground,
+						 textColor: .label,
+						 tableViewSeparatorColor: UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0),
+						 cellBackgroundColor: .systemBackground)
 		}
 		
-		return .light
-	}
-	
-	static var light: Theme {
 		return Theme(tintColor: UIColor(red: 0.02, green: 0.71, blue: 0.13, alpha: 1.0),
 					 barStyle: .default,
 					 keyboardAppearance: .light,
@@ -36,15 +38,5 @@ struct Theme {
 					 textColor: .darkText,
 					 tableViewSeparatorColor: UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0),
 					 cellBackgroundColor: .white)
-	}
-	
-	static var dark: Theme {
-		return Theme(tintColor: UIColor(red: 0.02, green: 0.71, blue: 0.13, alpha: 1.0),
-					 barStyle: .blackTranslucent,
-					 keyboardAppearance: .dark,
-					 viewBackgroundColor: UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0),
-					 textColor: .white,
-					 tableViewSeparatorColor: UIColor(red: 0.38, green: 0.38, blue: 0.38, alpha: 1.0),
-					 cellBackgroundColor: UIColor(red: 0.21, green: 0.21, blue: 0.21, alpha: 1.0))
 	}
 }

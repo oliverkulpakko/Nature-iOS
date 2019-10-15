@@ -104,6 +104,7 @@ class ItemViewController: BaseViewController {
 		
 		let controller = LightboxController(images: images)
 		controller.dynamicBackground = true
+		controller.modalPresentationStyle = .fullScreen
 		
 		present(controller, animated: true, completion: nil)
 	}
@@ -145,15 +146,15 @@ class ItemViewController: BaseViewController {
 	
 	// MARK: IBOutlets
 	
-    @IBOutlet var backgroundImageView: UIImageView!
-    @IBOutlet var backgroundVisualEffectView: UIVisualEffectView!
-    
-    @IBOutlet var scrollView: UIScrollView!
+	@IBOutlet var backgroundImageView: UIImageView!
+	@IBOutlet var backgroundVisualEffectView: UIVisualEffectView!
+
+	@IBOutlet var scrollView: UIScrollView!
 	
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var subtitleLabel: UILabel!
-    
-    @IBOutlet var textViewContainerView: UIView!
-    @IBOutlet var textView: UITextView!
-    
+	@IBOutlet var imageView: UIImageView!
+	@IBOutlet var subtitleLabel: UILabel!
+
+	@IBOutlet var textViewContainerView: UIView!
+	@IBOutlet var textView: UITextView!
+
 }

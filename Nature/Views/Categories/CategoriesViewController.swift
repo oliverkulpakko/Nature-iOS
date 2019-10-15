@@ -128,10 +128,10 @@ extension CategoriesViewController: UITableViewDataSource {
 		cell.categoryImageView.image = category.image
 
 		cell.backgroundColor = category.color
-		cell.tintColor = category.useLightText ? Theme.dark.textColor : Theme.light.textColor
+		cell.tintColor = category.useLightText ? UIColor.white : UIColor.darkText
 		
-		cell.categoryNameLabel.textColor = category.useLightText ? Theme.dark.textColor : Theme.light.textColor
-		cell.countLabel.textColor = category.useLightText ? .groupTableViewBackground : .darkGray
+		cell.categoryNameLabel.textColor = category.useLightText ? UIColor.white : UIColor.darkText
+		cell.countLabel.textColor = category.useLightText ? UIColor.white : UIColor.darkText
 		
 		return cell
 	}

@@ -45,7 +45,6 @@ class MapViewController: BaseViewController {
 		
 		view.backgroundColor = Theme.current.viewBackgroundColor
 		
-		tableView.separatorColor = Theme.current.tableViewSeparatorColor
 		tableView.reloadData()
 	}
 	

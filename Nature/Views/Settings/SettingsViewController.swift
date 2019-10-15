@@ -30,7 +30,6 @@ class SettingsViewController: BaseViewController {
 		super.updateTheme()
 
 		self.view.backgroundColor = Theme.current.viewBackgroundColor
-		self.tableView.separatorColor =  Theme.current.tableViewSeparatorColor
 		self.tableView.reloadData()
 	}
 	
@@ -38,7 +37,6 @@ class SettingsViewController: BaseViewController {
 		super.reloadData()
 		settings = [
 			Setting(title: "show-latin-name", userDefaultsKey: "ItemShowLatinNameWhenSubtitleIsUnavailable"),
-			Setting(title: "dark-mode", userDefaultsKey: "UseDarkTheme"),
 			Setting(title: "simple-item-view", userDefaultsKey: "UseSimpleItemView"),
 			Setting(title: "disable-map-overlay", userDefaultsKey: "DisableMapOverlay"),
 			Setting(title: "hide-search-when-scrolling", userDefaultsKey: "HideSearchWhenScrolling"),
