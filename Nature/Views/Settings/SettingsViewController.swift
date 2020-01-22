@@ -40,7 +40,6 @@ class SettingsViewController: BaseViewController {
 			Setting(title: "simple-item-view", userDefaultsKey: "UseSimpleItemView"),
 			Setting(title: "disable-map-overlay", userDefaultsKey: "DisableMapOverlay"),
 			Setting(title: "hide-search-when-scrolling", userDefaultsKey: "HideSearchWhenScrolling"),
-			Setting(title: "disable-analytics", userDefaultsKey: "DisableServerAnalytics")
 		]
 
 		RemoteService.shared.fetchCountries(completion: { result in
@@ -137,8 +136,6 @@ extension SettingsViewController: UITableViewDataSource {
 
 			cell.didToggle = {
 				UserDefaults.standard.set(cell.switch.isOn, forKey: setting.userDefaultsKey)
-
-				analytics.logAction("SwitchSetting", data1: setting.title, data2: String(cell.switch.isOn))
 			}
 
 			cell.titleLabel.textColor = Theme.current.textColor

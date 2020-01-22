@@ -66,10 +66,6 @@ class MapViewController: BaseViewController {
 		})
 		
 	}
-	
-	override func saveAnalytics() {
-		analytics.logAction("OpenView", data1: String(describing: type(of: self)), data2: item.id)
-	}
 
 	// MARK: Initializers
 
@@ -136,8 +132,6 @@ class MapViewController: BaseViewController {
 			let bookmark = MapBookmark(title: text, coordinate: coordinate)
 			BookmarkHelper.createMapBookmark(bookmark, for: self.item, completion: {
 				self.reloadData()
-				
-				analytics.logAction("CreateMapBookmark", data1: self.item.id, data2: text)
 			})
 		})
 		alert.addAction(currentLocationAction)

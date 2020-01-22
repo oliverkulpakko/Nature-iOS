@@ -75,10 +75,6 @@ class ItemViewController: BaseViewController {
 		tapRecognizer.numberOfTapsRequired = 1
 		imageView.addGestureRecognizer(tapRecognizer)
 	}
-	
-	override func saveAnalytics() {
-		analytics.logAction("OpenView", data1: String(describing: type(of: self)), data2: item.id, error: nil)
-	}
 
 	// MARK: Initializer
 

@@ -87,10 +87,6 @@ class ItemsViewController: BaseViewController {
 			}
 		})
 	}
-	
-	override func saveAnalytics() {
-		analytics.logAction("OpenView", data1: String(describing: type(of: self)), data2: category.id)
-	}
 
 	// MARK: Initializers
 

@@ -55,7 +55,6 @@
 "settings.simple-item-view" = "Suurempi kontrasti";
 "settings.disable-map-overlay" = "Älä käytä maastokarttatasoja";
 "settings.hide-search-when-scrolling" = "Piilota hakupalkki vierittäessä";
-"settings.disable-analytics" = "Ota analyytikka pois käytöstä";
 
 "settings.available-countries.title" = "Saatavilla olevat maat";
 "settings.categories.available.%i" = "%i kategoriaa";

@@ -7,6 +7,4 @@ target 'Nature' do
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
   pod 'Lightbox'
-
-  pod 'Analytics', :git => 'https://github.com/oliverkulpakko/Analytics.git'
 end

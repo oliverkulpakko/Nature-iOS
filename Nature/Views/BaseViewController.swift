@@ -20,8 +20,6 @@ class BaseViewController: UIViewController {
 		setupViews()
 		reloadData()
 		setInterfaceStrings()
-		
-		saveAnalytics()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -75,12 +73,6 @@ class BaseViewController: UIViewController {
     /// Reload all view displayed on the view.
     /// Must call super.reloadData() at some point if overriding.
     @objc func reloadData() {}
-	
-	/// Save analytics data.
-	/// Override if something else needs to be sent. No need to call super when doing that.
-	func saveAnalytics() {
-		analytics.logAction("OpenView", data1: String(describing: type(of: self)))
-	}
 
 	// MARK: Navigation
 
